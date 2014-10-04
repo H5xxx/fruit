@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>仙果堂</title>
+    <link rel="stylesheet" type="text/css" href="./asset/css/main.css">
+    <script src="./dep/seajs/dist/sea.js"></script>
+    <script src="./dep/zepto/zepto.min.js"></script>
+    <script src="./dep/spine/lib/spine.js"></script>
+    <script src="./dep/spine/lib/route.js"></script>
+    <script src="./dep/spine/lib/manager.js"></script>
+
+    <script id="tpl-home" type="text/html">
+        <h1>
+            Here is HOME.
+        </h1>
+        <p>PRODUCED BY {{framework.name}}</p>
+    </script>
+
+    <script id="tpl-intro" type="text/html">
+        <p>I'm</p>
+        <ul>
+            {{each infos as info i}}
+            <li>{{info.cnt}}</li>
+            {{/each}}
+        </ul>
+        <p>PRODUCED BY {{framework.name}}</p>
+    </script>
+
+</head>
+
+<body>
+
+    <ul id="nav-bar" class="nav-bar">
+        <li class="nav">
+            <a class="j-nav" data-nav="/" href="javascript:;">HOME</a>
+        </li>
+        <li class="nav">
+            <a class="j-nav" data-nav="/intro" href="javascript:;">INTRO</a>
+        </li>
+    </ul>
+
+    <div id="main-container" class="main-container">
+        <div class="page-container" id='home'></div>
+        <div class="page-container" id='intro'></div>
+    </div>
+
+    <script>
+
+    seajs.config({
+
+        base: './',
+
+        alias: {
+            'template': 'dep/artTemplate/dist/template',
+            'iscroll': 'dep/iscroll/build/iscroll',
+            'mock': 'dep/Mock.js/dist/mock-min'
+        }
+
+    })
+
+    seajs.use("src/page/index");
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "fruit",
+  "version": "0.0.1",
+  "homepage": "none",
+  "authors": [],
+  "license": "none",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dep",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "zepto": "~1.1.4",
+    "spine": "~1.3.1",
+    "artTemplate": "https://github.com/aui/artTemplate.git#~3.0.1",
+    "Mock.js": "https://github.com/nuysoft/Mock.git",
+    "seajs": "~2.3.0",
+    "iscroll": "~5.1.2",
+    "seajs-preload": "https://github.com/seajs/seajs-preload.git"
+  }
+}
