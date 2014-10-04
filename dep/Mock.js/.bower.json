@@ -1,0 +1,33 @@
+{
+  "name": "Mock.js",
+  "homepage": "https://github.com/nuysoft/MockService",
+  "authors": [
+    "nuysoft <nuysoft@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "",
+    "codemirror": "~3.20.0",
+    "highlightjs": "~8.0.0",
+    "kissy": "~1.4.3",
+    "seajs": "*",
+    "js-beautify": "~1.5.1"
+  },
+  "_release": "39cca7b096",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "39cca7b0961f1ba4030bf614c2a3765efc989143"
+  },
+  "_source": "https://github.com/nuysoft/Mock.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/nuysoft/Mock.git"
+}
