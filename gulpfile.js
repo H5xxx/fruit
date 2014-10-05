@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     open = require("gulp-open"),
     connect = require('gulp-connect');
+var tmodjs = require('gulp-tmod');
 
 var dest = __dirname, //本地开发时的监测目录，部署时用dist目录
     port = 8088,
@@ -49,7 +50,6 @@ gulp.task('connect-watch', function() {
 
 gulp.task('default', ['connect', 'open', 'connect-watch']);
 
-var tmodjs = require('gulp-tmod');
 
 gulp.task('tmod', function() {
 
@@ -57,7 +57,6 @@ gulp.task('tmod', function() {
         .pipe(tmodjs({
             base: './src/tpl',
             combo: true,
-            output: './src/dist'
+            output: './src/tpl/dist'
         }));
-
 });
