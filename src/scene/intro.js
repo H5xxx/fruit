@@ -14,7 +14,7 @@ define(function(require, exports) {
 
         title: 'INTRO',
 
-        template: 'tpl-intro',
+        template: 'src/intro',
 
         getData: function(params, callback) {
 

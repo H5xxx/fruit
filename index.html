@@ -12,15 +12,8 @@
     <script src="./dep/spine/lib/route.js"></script>
     <script src="./dep/spine/lib/manager.js"></script>
 
-    <script id="tpl-home" type="text/html">
-        <h1>
-            Here is HOME.
-        </h1>
-        <p>PRODUCED BY {{framework.name}}</p>
-    </script>
-
     <script id="tpl-intro" type="text/html">
-        <p>I'm</p>
+        <p>Im</p>
         <ul>
             {{each infos as info i}}
             <li>{{info.cnt}}</li>
@@ -48,13 +41,12 @@
     </div>
 
     <script>
-
     seajs.config({
 
         base: './',
 
         alias: {
-            'template': 'dep/artTemplate/dist/template',
+            'template': 'src/tpl/dist/template',
             'iscroll': 'dep/iscroll/build/iscroll',
             'mock': 'dep/Mock.js/dist/mock-min'
         }
@@ -62,7 +54,6 @@
     })
 
     seajs.use("src/page/index");
-
     </script>
 
 </body>
