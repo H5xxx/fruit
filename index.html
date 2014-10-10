@@ -12,33 +12,31 @@
     <script src="./dep/spine/lib/route.js"></script>
     <script src="./dep/spine/lib/manager.js"></script>
 
-    <script id="tpl-intro" type="text/html">
-        <p>Im</p>
-        <ul>
-            {{each infos as info i}}
-            <li>{{info.cnt}}</li>
-            {{/each}}
-        </ul>
-        <p>PRODUCED BY {{framework.name}}</p>
-    </script>
-
 </head>
 
 <body>
 
-    <ul id="nav-bar" class="nav-bar">
-        <li class="nav">
-            <a class="j-nav" data-nav="/" href="javascript:;">HOME</a>
-        </li>
-        <li class="nav">
-            <a class="j-nav" data-nav="/intro" href="javascript:;">INTRO</a>
-        </li>
-    </ul>
-
     <div id="main-container" class="main-container">
         <div class="page-container" id='home'></div>
-        <div class="page-container" id='intro'></div>
+        <div class="page-container" id='shop'></div>
+        <div class="page-container" id='cart'></div>
+        <div class="page-container" id='personal'></div>
     </div>
+
+    <ul id="nav-bar" class="nav-bar">
+        <li class="j-nav nav" data-nav="/home">
+            <span>首页</span>
+        </li>
+        <li class="j-nav nav" data-nav="/shop">
+            <span>选购</span>
+        </li>
+        <li class="j-nav nav" data-nav="/cart">
+            <span>购物车</span>
+        </li>
+        <li class="j-nav nav" data-nav="/personal">
+            <span>个人</span>
+        </li>
+    </ul>
 
     <script>
     seajs.config({

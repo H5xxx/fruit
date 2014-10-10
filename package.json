@@ -12,6 +12,7 @@
   "devDependencies": {
     "gulp-connect": "2.0.6",
     "gulp-open": "0.2.8",
-    "requirejs": "^2.1.15"
+    "requirejs": "^2.1.15",
+    "gulp-tmod": "~0.1.0"
   }
 }

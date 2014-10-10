@@ -124,29 +124,3 @@ a {
 a:visited {
   color: inherit;
 }
-.nav-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  color: #fafafa;
-  background-color: #333;
-}
-.nav-bar .nav {
-  display: inline-block;
-  float: left;
-  width: 25%;
-  line-height: 40px;
-  height: 40px;
-  list-style: none;
-  text-align: center;
-  cursor: pointer;
-}
-.nav-bar .nav.active {
-  color: #008000;
-}
-body {
-  color: #333333;
-  font-family: "Helvetica Neue", Helvetica, arial, "Microsoft YaHei";
-  font-size: 12px;
-}

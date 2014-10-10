@@ -10,14 +10,18 @@ define(function(require, exports) {
 
         controllers: {
             'home': require('../scene/home'),
-            'intro': require('../scene/intro')
+            'shop': require('../scene/shop'),
+            'cart': require('../scene/cart'),
+            'personal': require('../scene/personal')
         },
 
         indexPage: '/home',
 
         routes: {
             '/home': 'home',
-            '/intro': 'intro'
+            '/shop': 'shop',
+            '/cart': 'cart',
+            '/personal': 'personal'
         },
 
         extensions: [

@@ -50,13 +50,18 @@ gulp.task('connect-watch', function() {
 
 gulp.task('default', ['connect', 'open', 'connect-watch']);
 
+var tplPath = './src/tpl/src/**/*.html';
 
 gulp.task('tmod', function() {
-
-    return gulp.src('./src/tpl/**/*.html')
+    return gulp.src(tplPath)
         .pipe(tmodjs({
-            base: './src/tpl',
+            base: './src/tpl/src',
             combo: true,
             output: './src/tpl/dist'
         }));
+});
+
+//监测tpl目录中的变动，并触发tmod
+gulp.task('tmod-watch', function() {
+    gulp.watch([tplPath], ['tmod']);
 });
