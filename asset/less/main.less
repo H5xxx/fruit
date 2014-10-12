@@ -1,8 +1,146 @@
 @import "global.less";
-@import "navbar.less";
 
 body{
 	color: @fontColor;
 	font-family: "Helvetica Neue", Helvetica, arial, "Microsoft YaHei";
 	font-size: 12px;
 }
+
+.main-container{
+	height: 100%;
+
+	.page-container{
+		.border-box;
+
+		position: relative;
+		height: 100%;
+		padding-bottom: @navbarHeight + @barHeight;
+
+		background-color: @baseColor;
+
+		.fruit-item{
+			position: relative;
+			padding: 6px 5px 6px 65px;
+
+			.item-pic{
+				@size: 48px;
+
+				position: absolute;
+				top: 0;
+				left: 5px;
+				width: @size;
+				height: @size;
+				border-radius: @size / 2;
+			}
+
+			.item-title{
+				font-size: 16px;
+				font-weight: bold;
+			}
+
+			.item-info{
+				margin-top: 4px;
+				font-size: 12px;
+				line-height: 15px;
+
+				.item-feature{
+					display: inline-block;
+					width: 15px;
+					height: 15px;
+
+					text-align: center;
+					font-style: normal;
+					color: @baseColor;
+
+					&.discount{
+						background-color: @themeColorGreen;
+					}
+
+					&.new{
+						background-color: @themeColorPurple;
+					}
+				}
+
+				.item-origin-price, .item-price{
+					margin-left: 3px;
+
+					vertical-align: middle;
+				}
+
+				.item-origin-price{
+					color: @fontColor3;
+					text-decoration: line-through;
+				}
+
+				.item-price{
+					color: @fontColor2;
+				}
+			}
+
+			.item-ops{
+				position: absolute;
+				top: 6px;
+				right: 5px;
+				line-height: 20px;
+
+				font-size: 16px;
+
+				.minus, .num, .plus{
+					float: right;
+					.inline-block;
+					height: 20px;
+					width: 24px;
+
+					text-align: center;
+				}
+
+				.minus, .plus{
+					line-height: 18px;
+				}
+
+				.num{
+					width: auto;
+					color: @themeColorPurple;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.bar{
+			position: fixed;
+			bottom: @navbarHeight;
+			width: 100%;
+			height: @barHeight;
+
+			font-size: 12px;
+			color: #fafafa;
+			background-color: #262626;
+
+			.cnt{
+				padding: 0 16px;
+				line-height: @barHeight;
+			}
+
+			.op{
+				display: block;
+				position: absolute;
+				right: 16px;
+				top: -20px;
+				width: @barHeight;
+				height: @barHeight;
+				line-height: @barHeight;
+				text-align: center;
+
+				font-style: normal;
+				border-radius: @barHeight / 2;
+				background-color: @themeColorGreen;
+			}
+		}
+	}
+}
+
+@import "navbar.less";
+@import "home.less";
+@import "shop.less";
+@import "cart.less";
+@import "personal.less";

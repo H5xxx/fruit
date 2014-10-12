@@ -1,0 +1,54 @@
+.inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.code-font {
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+}
+.personal-container .info-block,
+.personal-container .opt-block {
+  margin: 0 20px;
+}
+.personal-container .info-block {
+  padding-top: 75px;
+  text-align: center;
+  border-bottom: 1px solid #e3e3e3;
+}
+.personal-container .info-block .avatar-info .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+.personal-container .info-block .name-info {
+  padding: 22px;
+}
+.personal-container .info-block .name-info .name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.personal-container .opt-block .opt-items {
+  padding: 4px;
+  margin: 0 40px;
+  text-align: center;
+  border-bottom: 1px solid #e3e3e3;
+}
+.personal-container .opt-block .opt-items:last-child {
+  border-bottom: none;
+}
+.personal-container .opt-block .opt-items .opt-item {
+  margin: 20px 0;
+  font-size: 14px;
+}

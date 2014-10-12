@@ -1,2 +1,2 @@
-/*TMODJS:{"version":1,"md5":"91c849d8f5c2dd071d3872682fb074d8"}*/
-template('personal','<p>personal</p> ');
+/*TMODJS:{"version":7,"md5":"08adba24c5f0d6a2216c98ffc703df39"}*/
+template('personal','<div class="info-block"> <div class="avatar-info"> <img class="avatar" src="./asset/img/avatar.png"></img> </div> <div class="name-info"> <span class="name">用户123</span> </div> </div> <div class="opt-block"> <ul class="opt-items"> <li class="j-nav opt-item" data-nav="/personal/bills">历史订单</li> <li class="j-nav opt-item" data-nav="/personal/address">地址管理</li> </ul> <ul class="opt-items"> <li class="j-nav opt-item" data-nav="/personal/coupon">我的优惠</li> <li class="j-nav opt-item" data-nav="/personal/fav">我的收藏</li> </ul> </div>');

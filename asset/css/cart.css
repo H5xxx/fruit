@@ -18,3 +18,17 @@
   -webkit-box-sizing: border-box;
   /* Safari */
 }
+.cart-container .items {
+  padding: 20px;
+}
+.cart-container .items .fruit-item {
+  margin-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e3e3e3;
+}
+.cart-container .items .fruit-item:first-child {
+  margin-top: 0;
+}
+.cart-container .items .fruit-item:last-child {
+  border-bottom: none;
+}

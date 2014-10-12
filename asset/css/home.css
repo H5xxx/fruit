@@ -1,0 +1,40 @@
+.inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.code-font {
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.home-container .logo-block {
+  height: 120px;
+  background: no-repeat center url('../img/logo.png');
+}
+.home-container .notice {
+  padding: 23px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #527713;
+  color: #fafafa;
+}
+.home-container .info-block .info-line {
+  position: relative;
+  padding-left: 72px;
+  padding-right: 6px;
+  margin: 20px;
+}
+.home-container .info-block .info-line .info-title {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  color: #333333;
+}
+.home-container .info-block .info-line .info-cnt {
+  color: #7e7e7e;
+}
