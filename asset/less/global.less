@@ -28,33 +28,40 @@ ul, ol{
     list-style: none;
 }
 
-input[type="text"], input[type="password"], div[contentEditable="true"], button{
-    padding: 9px 8px;
+input[type="text"], input[type="password"], div[contentEditable="true"], button, select{
+    .border-box;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 2px;
     margin: 0;
 
-    &:-moz-placeholder { color:#a8a8a8;  }
-    &::-moz-input-placeholder { color:#a8a8a8;  }
-    &::-webkit-input-placeholder { color:#a8a8a8; }
+    &:-moz-placeholder { color:@fontColor2;  }
+    &::-moz-input-placeholder { color:@fontColor2;  }
+    &::-webkit-input-placeholder { color:@fontColor2; }
 
-    &.small{
-        width: 60px;
-        padding: 5px 8px;
+    &.short{
+        width: 50%;
     }
 
-    &.large{
-        width: 320px;
+    &.long{
+        width: 100%;
     }
 
-    font-size: 14px;
+    color: #333;
+    font-size: 12px;
     border-style: none;
     background: none;
-    background-color: #f0f0f0;
+    font-family: "Helvetica Neue", Helvetica, arial, "Microsoft YaHei";
 
     &:focus, &.active{
         outline: none;
     }
 }
-
+input[type="text"], input[type="password"], div[contentEditable="true"]{
+    line-height: 20px;
+    padding: 6px 6px 6px 6px;
+    border-bottom: 1px solid #bdbdbd;
+}
 button{
     color: #f0f0f0;
     background-color: @baseColor;
@@ -72,21 +79,6 @@ button{
 
     &:disabled{
         color: #ccc;
-    }
-}
-
-select{
-    border-style: none;
-    border: 1px solid @baseColor;
-    border-top: 1px solid rgb(180,180,180);
-    background: none;
-    background-color: #fff;
-    color: rgb(88,88,88);
-    font-size: 12px;
-
-    &:focus{
-        outline: none;
-        border-color: @baseColor;
     }
 }
 

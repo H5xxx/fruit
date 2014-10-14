@@ -12,7 +12,8 @@ define(function(require, exports) {
             'home': require('../scene/home'),
             'shop': require('../scene/shop'),
             'cart': require('../scene/cart'),
-            'personal': require('../scene/personal')
+            'personal': require('../scene/personal'),
+            'address': require('../scene/address')
         },
 
         indexPage: '/home',
@@ -21,7 +22,8 @@ define(function(require, exports) {
             '/home': 'home',
             '/shop': 'shop',
             '/cart': 'cart',
-            '/personal': 'personal'
+            '/personal': 'personal',
+            '/personal/address': 'address'
         },
 
         extensions: [
