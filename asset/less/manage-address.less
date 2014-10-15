@@ -1,0 +1,59 @@
+@import "define.less";
+
+.manage-address-container{
+
+.items{
+	padding: 20px;
+
+	.address-item{
+		position: relative;
+		padding-bottom: 12px;
+		margin-bottom: 12px;
+		border-bottom: 1px solid @lineColor;
+
+		&:last-child{
+			border-bottom: none;
+		}
+
+		.item-cnt{
+			.item-title{
+				font-size: 12px;
+				font-weight: bold;
+				color: @fontColor;
+			}
+			.item-desc{
+				position: relative;
+				margin-top: 8px;
+				padding-right: 56px;
+				font-size: 12px;
+				font-weight: normal;
+				color: @fontColor2;
+
+				.set-default{
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+			}
+		}
+
+	}
+
+	.new-item{
+		.input-block{
+			padding: 0 8px 0 34px;
+			margin-top: 10px;
+			.input-line{
+				overflow: hidden;
+
+				&>*{
+					margin-bottom: 9px;
+					float: left;
+				}
+			}
+		}
+	}
+
+}
+
+}
