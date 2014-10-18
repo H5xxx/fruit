@@ -1,2 +1,2 @@
-/*TMODJS:{"version":2,"md5":"803456465910a1c1674a847f216ea5dd"}*/
-template('feedback','feedback <div class="bar"> <p class="cnt"></p> <i class="j-nav op" data-nav="/personal"></i> </div>');
+/*TMODJS:{"version":10,"md5":"95309b627f221e9b91aa0554bf13be02"}*/
+template('feedback','<ul class="items"> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title"> 苹果套餐 <select class="rating"> <option>5星</option> </select> </h5> <div class="input-line"> <input class="long" type="text" name="name" placeholder="味道不错"> </div> </li> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title"> 苹果套餐 <select class="rating"> <option>5星</option> </select> </h5> <div class="input-line"> <input class="long" type="text" name="name" placeholder="味道不错"> </div> </li> </ul> <div class="bar"> <p class="cnt">提交评价？</p> <i class="j-nav op" data-nav="/personal"></i> </div>');

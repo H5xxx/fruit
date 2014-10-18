@@ -1,2 +1,2 @@
-/*TMODJS:{"version":1,"md5":"45afaf56c9a1b552fb42cde2c575716f"}*/
-template('fav','fav');
+/*TMODJS:{"version":5,"md5":"03e611c35b63d33d8fc16444413276bd"}*/
+template('fav','<ul class="items"> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title">苹果套餐</h5> <p class="item-info"> <span class="item-origin-price">原价8元</span> <span class="item-price">5元</span> </p> <span class="show-detail">点击查看详情</span> </li> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title">苹果套餐</h5> <p class="item-info"> <span class="item-origin-price">原价8元</span> <span class="item-price">5元</span> </p> <span class="show-detail">点击查看详情</span> </li> </ul> <div class="bar"> <p class="cnt">已选购 <span class="num">3</span> 件，共 <span class="sum">15</span> 元</p> <i class="j-nav op" data-nav="/personal/address"></i> </div>');
