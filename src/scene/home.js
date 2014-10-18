@@ -13,7 +13,7 @@ define(function(require, exports) {
 
         title: 'HOME',
 
-        template: 'tpl-home',
+        template: 'home',
 
         getData: function(params, callback) {
 

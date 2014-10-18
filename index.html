@@ -12,49 +12,46 @@
     <script src="./dep/spine/lib/route.js"></script>
     <script src="./dep/spine/lib/manager.js"></script>
 
-    <script id="tpl-home" type="text/html">
-        <h1>
-            Here is HOME.
-        </h1>
-        <p>PRODUCED BY {{framework.name}}</p>
-    </script>
-
-    <script id="tpl-intro" type="text/html">
-        <p>I'm</p>
-        <ul>
-            {{each infos as info i}}
-            <li>{{info.cnt}}</li>
-            {{/each}}
-        </ul>
-        <p>PRODUCED BY {{framework.name}}</p>
-    </script>
-
 </head>
 
 <body>
 
+    <div id="main-container" class="main-container">
+        <div class="page-container home-container" id='home' style="display: none;"></div>
+        <div class="page-container shop-container" id='shop' style="display: none;"></div>
+        <div class="page-container cart-container" id='cart' style="display: none;"></div>
+        <div class="page-container personal-container" id='personal' style="display: none;"></div>
+        <div class="page-container address-container" id='address' style="display: none;"></div>
+        <div class="page-container manage-address-container" id='manage-address' style="display: none;"></div>
+        <div class="page-container pay-container" id='pay' style="display: none;"></div>
+        <div class="page-container bill-container" id='bill' style="display: none;"></div>
+        <div class="page-container bill-list-container" id='bill-list' style="display: none;"></div>
+        <div class="page-container feedback-container" id='feedback' style="display: none;"></div>
+        <div class="page-container fav-container" id='fav' style="display: none;"></div>
+    </div>
+
     <ul id="nav-bar" class="nav-bar">
-        <li class="nav">
-            <a class="j-nav" data-nav="/" href="javascript:;">HOME</a>
+        <li class="j-nav nav" data-nav="/home">
+            <span>首页</span>
         </li>
-        <li class="nav">
-            <a class="j-nav" data-nav="/intro" href="javascript:;">INTRO</a>
+        <li class="j-nav nav" data-nav="/shop">
+            <span>选购</span>
+        </li>
+        <li class="j-nav nav" data-nav="/cart">
+            <span>购物车</span>
+        </li>
+        <li class="j-nav nav" data-nav="/personal">
+            <span>个人</span>
         </li>
     </ul>
 
-    <div id="main-container" class="main-container">
-        <div class="page-container" id='home'></div>
-        <div class="page-container" id='intro'></div>
-    </div>
-
     <script>
-
     seajs.config({
 
         base: './',
 
         alias: {
-            'template': 'dep/artTemplate/dist/template',
+            'template': 'src/tpl/dist/template',
             'iscroll': 'dep/iscroll/build/iscroll',
             'mock': 'dep/Mock.js/dist/mock-min'
         }
@@ -62,7 +59,6 @@
     })
 
     seajs.use("src/page/index");
-
     </script>
 
 </body>

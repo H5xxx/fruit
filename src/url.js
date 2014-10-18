@@ -10,9 +10,10 @@ define(function(require, exports) {
         getInfo: '/info'
     };
 
-    for(var name in urls) if(urls.hasOwnProperty(name)){
-    	urls[name] = config.host + urls[name];
+    for (var name in urls) {
+        if (urls.hasOwnProperty(name)) {
+            urls[name] = config.host + urls[name];
+        }
     }
-
     return urls;
 });

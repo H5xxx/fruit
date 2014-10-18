@@ -1,0 +1,53 @@
+@import "define.less";
+
+.personal-container{
+
+.info-block, .opt-block{
+	margin: 0 20px;
+}
+
+.info-block{
+	padding-top: 75px;
+
+	text-align: center;
+	border-bottom: 1px solid @lineColor;
+
+	.avatar-info{
+		@avatarSize: 60px;
+
+		.avatar{
+			width: @avatarSize;
+			height: @avatarSize;
+			border-radius: @avatarSize / 2;
+		}
+	}
+
+	.name-info{
+		padding: 22px;
+		.name{
+			font-size: 16px;
+			font-weight: bold;
+		}
+	}
+}
+
+.opt-block{
+	.opt-items{
+		padding: 4px;
+		margin: 0 40px;
+
+		text-align: center;
+		border-bottom: 1px solid @lineColor;
+
+		&:last-child{
+			border-bottom: none;
+		}
+
+		.opt-item{
+			margin: 20px 0;
+			font-size: 14px;
+		}
+	}
+}
+
+}

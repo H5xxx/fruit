@@ -1,12 +1,13 @@
 var gulp = require('gulp'),
     open = require("gulp-open"),
     connect = require('gulp-connect');
+var tmodjs = require('gulp-tmod');
 
 var dest = __dirname, //本地开发时的监测目录，部署时用dist目录
     port = 8088,
     watchPath = [ //监测的文件路径
-        dest + "/html/**/*.html", 
-        dest + "/js/**/*.js", 
+        dest + "/html/**/*.html",
+        dest + "/js/**/*.js",
         dest + "/css/**/*.css"
     ],
     openPath = dest + "/html/index.html", //用浏览器打开的文件路径
@@ -18,7 +19,7 @@ var dest = __dirname, //本地开发时的监测目录，部署时用dist目录
     };
 
 //用浏览器打开dest目录下的index.html文件
-gulp.task('open', /*['server'],*/ function(){
+gulp.task('open', /*['server'],*/ function() {
     gulp.src(openPath)
         .pipe(open("", openOption));
     // gulp.src(openPath)
@@ -31,20 +32,36 @@ gulp.task('open', /*['server'],*/ function(){
 */
 gulp.task('connect', function() {
     connect.server({
-        port:port,
+        port: port,
         root: dest,
         directoryListing: true,
         livereload: true
     });
 });
 
-gulp.task('reload-html', function () {
+gulp.task('reload-html', function() {
     gulp.src(watchPath)
         .pipe(connect.reload());
 });
 //监测dist目录中的变动，并触发reload
-gulp.task('connect-watch', function () {
+gulp.task('connect-watch', function() {
     gulp.watch([watchPath], ['reload-html']);
 });
 
 gulp.task('default', ['connect', 'open', 'connect-watch']);
+
+var tplPath = './src/tpl/src/**/*.html';
+
+gulp.task('tmod', function() {
+    return gulp.src(tplPath)
+        .pipe(tmodjs({
+            base: './src/tpl/src',
+            combo: true,
+            output: './src/tpl/dist'
+        }));
+});
+
+//监测tpl目录中的变动，并触发tmod
+gulp.task('tmod-watch', function() {
+    gulp.watch([tplPath], ['tmod']);
+});

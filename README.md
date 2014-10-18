@@ -11,6 +11,10 @@ fruit shop（仙果堂）
 
 	bower install
 
+    npm install -g tmodjs
+
+    npm install -g gulp-tmod --save-dev 
+
 ## TEST
 
 	npm install mocha -g
