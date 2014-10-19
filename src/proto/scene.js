@@ -5,7 +5,7 @@
 define(function(require, exports) {
     var util = require('../util');
     var transition = require('../transition');
-    //var Popup = require('../widgets/Popup');
+
     var Scene = Spine.Controller.sub({
         // 该controller要渲染&控制的区域
         el: $(),
@@ -17,7 +17,8 @@ define(function(require, exports) {
         template: 'template-...',
 
         // 只执行一次，初始化时执行
-        init: function() {},
+        init: function() {
+        },
 
         // 获取需要的数据
         getData: function(params, callback) {
@@ -29,12 +30,14 @@ define(function(require, exports) {
 
             var html = require('template')(this.template, params);
 
-            this.el.html(html);
+            this.el.children('.container-cnt').html(html);
+
+            new IScroll(this.el[0]);
         },
 
         // 清空内容
         clean: function() {
-            this.el.html('');
+            this.el.children('.container-cnt').html('');
         },
 
         // 跳转到其对应的url时执行

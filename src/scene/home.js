@@ -5,13 +5,13 @@
 define(function(require, exports) {
     var util = require('../util');
 
-    var Framework = require('../model/framework');
+    var Notice = require('../model/notice');
 
     var Home = require('../proto/scene').sub({
 
         el: $('#home'),
 
-        title: 'HOME',
+        title: '仙果堂',
 
         template: 'home',
 
@@ -19,12 +19,12 @@ define(function(require, exports) {
 
             util.finish([
 
-                Framework.fetch(params).bind(Framework)
+                Notice.fetch.bind(Notice, params)
 
-            ], function(framework){
+            ], function(notice){
 
                 callback(null, {
-                    framework: framework
+                    notice: notice
                 });
 
             });
