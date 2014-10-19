@@ -6,8 +6,7 @@ define(function(require, exports) {
     var config = require('./config');
 
     var urls = {
-        getFrameworkInfo: '/framework-info',
-        getInfo: '/info'
+        getNotice: '/notice'
     };
 
     for (var name in urls) {

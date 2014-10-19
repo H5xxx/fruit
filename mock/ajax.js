@@ -10,17 +10,11 @@ define(function(require, exports) {
         });
     };
 
-    mock(/\/framework-info$/, function(options) {
+    mock(/\/notice$/, function(options) {
         return {
-            name: 'dzt'
+            main: '公告',
+            distribution: '配送说明'
         };
     });
 
-    mock(/\/info$/, function(options) {
-        return [
-            { cnt: 'a DZT web framework' },
-            { cnt: 'a Mobile web framework' },
-            { cnt: 'based on multi open-source projects(seajs, zepto, spine, artTemplate, iscroll, mock, ...)' }
-        ];
-    });
 });

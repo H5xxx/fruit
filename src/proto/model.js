@@ -11,7 +11,7 @@ define(function(require, exports) {
         url: '',
 
         // fetch data with its url & given params
-        fetch: util.currilize(function(params, callback){
+        fetch: function(params, callback){
             var Model = this;
 
             var fetched = Model.fetched = Model.fetched || {},
@@ -35,7 +35,7 @@ define(function(require, exports) {
                     callback && callback(null, data);
                 });
             }
-        }),
+        },
 
         // save data as model
         save: function(list){
