@@ -1,2 +1,13 @@
-/*TMODJS:{"version":14,"md5":"330ea1d59cc20c7cdb01d3daf5e0c51d"}*/
-template('shop','<div class="side-cnt"> <div class="up-line logo"></div> <ul class="side-items"> <li class="side-item"> <span class="item-cnt">鲜果切盘</span> </li> <li class="side-item"> <span class="item-cnt">新鲜水果</span> </li> <li class="side-item active"> <span class="item-cnt">精选套餐</span> </li> <li class="side-item"> <span class="item-cnt">鲜榨果汁</span> </li> </ul> </div> <div class="main-cnt"> <ul class="up-line sub-opts"> <li class="sub-opt">十元四拼</li> <li class="sub-opt active">五元双拼</li> <li class="sub-opt">八元三拼</li> </ul> <ul class="items"> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title">苹果套餐</h5> <p class="item-info"> <i class="item-feature discount">折</i> <span class="item-origin-price">原价8元</span> <span class="item-price">5元</span> </p> <div class="item-ops"> <span class="plus">+</span> <span class="num">1</span> <span class="minus">-</span> </div> </li> <li class="fruit-item"> <img class="item-pic" src="./asset/img/fruit.png"></img> <h5 class="item-title">苹果套餐</h5> <p class="item-info"> <i class="item-feature new">新</i> <span class="item-price">5元</span> </p> <div class="item-ops"> <span class="plus">+</span> </div> </li> </ul> </div> <div class="bar"> <p class="cnt">已选购 <span class="num">3</span> 件，共 <span class="sum">15</span> 元</p> <i class="j-nav op" data-nav="/cart"></i> </div>');
+/*TMODJS:{"version":30,"md5":"db57c9ddeb270c0993f0b9d9ddb19ee4"}*/
+template('shop',function($data,$filename) {
+'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,categories=$data.categories,category=$data.category,i=$data.i,$escape=$utils.$escape,$out='';$out+='<div class="side-cnt"> <div class="up-line logo"></div> <ul class="side-items"> ';
+$each(categories,function(category,i){
+$out+=' <li class="j-category-item side-item" data-id="';
+$out+=$escape(category.id);
+$out+='"> <span class="item-cnt">';
+$out+=$escape(category.name);
+$out+='</span> </li> ';
+});
+$out+=' </ul> </div> <div class="main-cnt">  <div class="j-fruit-list-wrapper"> </div> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num">3</span> 件，共 <span class="j-sum sum">15</span> 元</p> <i class="j-nav op" data-nav="/cart"></i> </div>';
+return new String($out);
+});

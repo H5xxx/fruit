@@ -19,6 +19,7 @@
     "Mock.js": "https://github.com/nuysoft/Mock.git",
     "seajs": "~2.3.0",
     "iscroll": "~5.1.2",
-    "seajs-preload": "https://github.com/seajs/seajs-preload.git"
+    "seajs-preload": "https://github.com/seajs/seajs-preload.git",
+    "zeptojs": "~1.1.4"
   }
 }

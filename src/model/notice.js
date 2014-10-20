@@ -13,7 +13,7 @@ define(function(require, exports) {
         url: url.getNotice,
 
         save: function(item){
-        	this.create(item);
+            this.create(item);
         }
     });
 

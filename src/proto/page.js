@@ -32,7 +32,7 @@ define(function(require, exports) {
             $.extend(this, options);
 
             // 所有class="j-nav" data-nav="/xxx"的点击会跳转到/xxx
-            $('body').delegate('.j-nav', 'click', function(e){
+            $('body').delegate('.j-nav', 'tap', function(e){
                 page.navigate($(e.currentTarget).attr('data-nav'));
             });
 

@@ -10,7 +10,19 @@ define(function(require, exports) {
     Category.configure('Category', 'id', 'name', 'fruits');
 
     Category.extend({
-        url: url.getCategory
+        url: url.getCategories,
+
+        save: function(list){
+        	var Category = this;
+
+            list.forEach(function(category){
+                Category.create(category);
+
+                category.fruits.forEach(function(fruit){
+                	require('./fruit').create(fruit);
+                });
+            });
+        }
     });
 
     return Category;

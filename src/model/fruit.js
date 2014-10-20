@@ -10,7 +10,11 @@ define(function(require, exports) {
     Fruit.configure('Fruit', 'id', 'name', 'price', 'imageUrls', 'discrbe', 'categoryId');
 
     Fruit.extend({
-        url: url.getFruit
+        url: url.getFruit,
+
+        save: function(item){
+            this.create(item);
+        }
     });
 
     return Fruit;
