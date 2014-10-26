@@ -6,7 +6,10 @@ define(function(require, exports) {
     var util = require('../util');
 
     var Category = require('../model/category');
+    var Fruit = require('../model/fruit');
+    var FruitList = require('../widget/fruitList');
     var cart = require('../widget/cart');
+    var Popup = require('../widget/popup');
 
     var Cart = require('../proto/scene').sub({
 
@@ -17,27 +20,16 @@ define(function(require, exports) {
         template: 'cart',
 
         getData: function(params, callback) {
-
-            util.finish([
-
-                Category.fetch.bind(Category, params)
-
-            ], function(categories){
-
-                callback(null, {
-                    categories: categories
-                });
-
-            });
-
+            callback(null, {});
         },
 
         render: function(params){
             Cart.__super__.render.apply(this, arguments);
 
-            var updateList = function(){
-            	
-            };
+            var fruitListWrapper = this.el.find('.j-fruit-list-wrapper'),
+                fruitList = new FruitList(fruitListWrapper, 'cart');
+
+            fruitList.renderFromCart();
 
             var barDom = this.el.find('.j-bar'),
                 numDom = barDom.find('.j-num'),
@@ -48,13 +40,19 @@ define(function(require, exports) {
                 sumDom.text(cart.sum);
             };
 
-            var update = function(){
-            	updateList();
-            	updateBar();
-            };
+            cart.on('update', updateBar);
+            updateBar();
 
-            cart.on('update', update);
-            update();
+            var page = this.page,
+                next = barDom.find('.j-next');
+
+            next.on('tap', function(e){
+                if(cart.num){
+                    page.navigate('/personal/address');
+                }else{
+                    Popup.alert('购物车是空的！');
+                }
+            });
         }
 
     });

@@ -19,7 +19,7 @@ define(function(require, exports) {
                 Category.create(category);
 
                 category.fruits.forEach(function(fruit){
-                	require('./fruit').create(fruit);
+                	require('./fruit').save(fruit);
                 });
             });
         }

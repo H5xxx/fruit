@@ -1,0 +1,98 @@
+@import "define.less";
+
+.popup-fruit{
+	width: 80%;
+	height: 80%;
+	margin-left: -40%;
+
+	.close{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+
+		text-align: center;
+		color: @baseColor;
+		font-family: cursive;
+	}
+
+	.fruit-detail-wrapper{
+		height: 100%;
+		overflow: auto;
+
+		.fruit-img{
+			width: 100%;
+			min-height: 250px;
+		}
+
+		.fruit-info-block{
+			position: relative;
+			padding: 12px 16px 12px+@barHeight;
+
+			.fav{
+				position: absolute;
+				right: 20px;
+				top: 10px;
+
+				text-align: right;
+				font-size: 12px;
+				color: @fontColor2;
+			}
+
+			.fruit-name{
+				margin-bottom: 8px;
+
+				font-size: 16px;
+				font-weight: normal;
+			}
+
+			.fruit-info-item{
+				margin-bottom: 6px;
+
+				font-size: 12px;
+
+				.fruit-info-key{
+					margin-right: 0.5em;
+				}
+
+				.fruit-info-val{
+					
+				}
+			}
+		}
+	}
+
+	.bar{
+		position: absolute;
+		width: 100%;
+		height: @barHeight;
+		left: 0;
+		bottom: 0;
+
+		font-size: 12px;
+		color: #fafafa;
+		background-color: #262626;
+
+		.cnt{
+			padding: 0 16px;
+			line-height: @barHeight;
+		}
+
+		.op{
+			display: block;
+			position: absolute;
+			right: 16px;
+			top: -20px;
+			width: @barHeight;
+			height: @barHeight;
+			line-height: @barHeight;
+			text-align: center;
+
+			font-style: normal;
+			border-radius: @barHeight / 2;
+			background-color: @themeColorGreen;
+		}
+	}
+}

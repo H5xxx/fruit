@@ -15,10 +15,9 @@ define(function(require, exports) {
             'personal': require('../scene/personal'),
             'address': require('../scene/address'),
             'manage-address': require('../scene/manage-address'),
-            'bill': require('../scene/bill'),
-            'bill-list': require('../scene/bill-list'),
+            'order': require('../scene/order'),
+            'order-list': require('../scene/order-list'),
             'fav': require('../scene/fav'),
-            'pay': require('../scene/pay'),
             'feedback': require('../scene/feedback')
         },
 
@@ -31,10 +30,9 @@ define(function(require, exports) {
             '/personal': 'personal',
             '/personal/address': 'address',
             '/personal/manage-address': 'manage-address',
-            '/personal/bill': 'bill',
-            '/personal/bill-list': 'bill-list',
+            '/personal/order/:orderId': 'order',
+            '/personal/order-list': 'order-list',
             '/personal/fav': 'fav',
-            '/personal/pay': 'pay',
             '/personal/feedback': 'feedback'
         },
 

@@ -1,18 +1,26 @@
 <ul class="items">
 	{{each fruits as fruit i}}
 	<li class="j-fruit-item fruit-item" data-id="{{fruit.id}}">
-		<img class="item-pic" src="./asset/img/fruit.png"></img>
+		<img class="item-pic" src="{{fruit.icon}}"></img>
 		<h5 class="item-title">{{fruit.name}}</h5>
 		<p class="item-info">
 			<!-- <i class="item-feature discount">折</i>
 			<span class="item-origin-price">原价8元</span> -->
 			<span class="item-price">{{fruit.price}}元</span>
 		</p>
+		{{if type === 'shop'}}
 		<div class="item-ops">
 			<span class="j-plus plus">+</span>
 			<span class="j-num num" style="display:none;">0</span>
 			<span class="j-minus minus" style="display:none;">-</span>
 		</div>
+		{{else if type === 'cart'}}
+		<div class="item-ops">
+			<span class="j-plus plus">+</span>
+			<span class="j-num num" style="display:none;">0</span>
+			<span class="j-minus minus" style="display:none;">-</span>
+		</div>
+		{{/if}}
 	</li>
 	{{/each}}
 </ul>

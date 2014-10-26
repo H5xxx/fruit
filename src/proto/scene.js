@@ -32,7 +32,7 @@ define(function(require, exports) {
 
             this.el.html(html);
 
-            if(this.el.children('.container-cnt').length) new IScroll(this.el[0]);
+            //if(this.el.children('.container-cnt').length) new IScroll(this.el[0]);
         },
 
         // 清空内容

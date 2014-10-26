@@ -1,5 +1,5 @@
 /*
- * cart widget
+ * cart widget (单例)
  */
 
 define(function(require, exports) {
@@ -35,6 +35,12 @@ define(function(require, exports) {
             this.sum = sum;
 
             this.trigger('update', num, sum);
+        },
+        list: function(){
+            var cnt = this.cnt;
+            return Object.keys(cnt).map(function(fruitId){
+                return Fruit.find(fruitId);
+            });
         }
     }, Spine.Events);
 

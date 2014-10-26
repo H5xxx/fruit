@@ -13,12 +13,12 @@ define(function(require, exports) {
         init: function(page){
             this.page = page;
 
-            Spine.Route.bind('navigate', this.navigate.bind(this));
+            Spine.Route.bind('navigate', this.onNavigate.bind(this));
 
-            this.navigate(Spine.Route.getPath());
+            this.onNavigate(Spine.Route.getPath());
         },
 
-        navigate: function(currPath){
+        onNavigate: function(currPath){
             var me = this;
 
             this.el.find('.j-nav').each(function(_, item){

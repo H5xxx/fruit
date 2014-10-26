@@ -1,0 +1,439 @@
+仙果堂接口文档V1.1
+说明：
+1：所以post请求数据都算以标准application/x-www-form-urlencoded类型提交
+2：所有的返回数据都算Json格式，
+3：所有接口都返回200，另返回内容改为
+{
+     "err": null,
+     "data": ...
+}
+data部分即为原来的json内容，err部分为null，若出错（无权限，id不存在等），则将错误信息写到err上：
+即出错时返回如下：（code为200）
+{
+     "err": "无权限",
+     "data": null
+}
+
+
+
+1：产品资源接口（开放）
+
+1.1获取品类及商品列表(商品列表里边给id、商品名、价格、小图标url)
+资源标识: /service/product
+方法: GET
+请求响应示例：
+GET /service/category HTTP/1.1
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 341
+[{
+	"id" : "1",
+	"deleteDate" : "",
+	"status" : 0,
+	"fruits" : [{
+		"deleteDate" : "",
+		"status" : 0,
+		"categoryId" : "1",
+		"imageUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"discrbe" : "好吃又好看",
+		"updateDate" : "",
+		"discount" : 80,
+		"id" : "1",
+		"categoryName" : "",
+		"price" : 300,
+		"name" : "苹果",
+		"iconUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"createDate" : "2014-10-10-101010"
+	}, {
+		"deleteDate" : "",
+		"status" : 0,
+		"categoryId" : "1",
+		"imageUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"discrbe" : "好吃",
+		"updateDate" : "",
+		"discount" : 80,
+		"id" : "2",
+		"categoryName" : "",
+		"price" : 500,
+		"name" : "大鸭梨",
+		"iconUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"createDate" : "2014-10-10-101010"
+	}],
+	"name" : "水果",
+	"createDate" : "2014-10-04 20:54:21",
+	"updateDate" : ""
+}, {
+	"id" : "2",
+	"deleteDate" : "",
+	"status" : 0,
+	"fruits" : [{
+		"deleteDate" : "",
+		"status" : 0,
+		"categoryId" : "2",
+		"imageUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"discrbe" : "ssssssss",
+		"updateDate" : "2014-10-16 00:14:13",
+		"discount" : 80,
+		"id" : "3",
+		"categoryName" : "",
+		"price" : 250,
+		"name" : "西瓜",
+		"iconUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+		"createDate" : "2014-10-10-101010"
+	}],
+	"name" : "瓜类",
+	"createDate" : "2014-10-04 21:08:13",
+	"updateDate" : ""
+}, {
+	"id" : "3",
+	"deleteDate" : "",
+	"status" : 0,
+	"fruits" : [],
+	"name" : "坚果",
+	"createDate" : "2014-10-04 21:50:14",
+	"updateDate" : ""
+}]
+
+路径参数：无
+查询参数：无
+请求数据：无
+
+返回数据：
+类型	描述
+array	产品对象数组
+
+
+1.2获取商品详情(根据ID)
+资源标识: /service/product /{id}
+方法: GET
+请求响应示例：
+GET /service/category HTTP/1.1
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 341
+[{
+	"deleteDate" : "",
+	"status" : 0,
+	"categoryId" : "1",
+	"imageUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+	"discrbe" : "好吃又好看",
+	"updateDate" : "",
+	"discount" : 80,
+	"id" : "1",
+	"categoryName" : "",
+	"price" : 300,
+	"name" : "苹果",
+	"iconUrls" : "a8654af0383fc9ff0e00734498e70e87.jpg,166893eb61ee4bd8c43caa35569019db.jpg,73245c1ad147d5e0a5f6bc34e290209f.jpg,",
+	"createDate" : "2014-10-10-101010"
+}]
+
+路径参数：商品id
+查询参数：无
+请求数据：无
+状态码：
+状态码	含义
+200	获取产品列表成功
+401	
+403	
+404	
+
+
+返回数据：
+类型	描述
+array	产品对象
+
+
+2：用户地址接口
+2.1获取用户地址列表接口
+资源标识: /user/address
+方法: GET
+请求响应示例：
+GET  /user/address/{openid} HTTP/1.1
+Accept: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
+[{
+				"cityCode" : "372900",
+				"cityName" : "菏泽市",
+				"consignee" : "路易斯安娜",
+				"countryCode" : "372922",
+				"countryName" : "曹县",
+				"createDate" : "2014-10-03 10:06:05",
+				"detailAddress" : "清河办事处",
+				"id" : "a1",
+				"isDefault" : "1",
+				"openid" : "abcd",
+				"provinceCode" : "370000",
+				"provinecName" : "山东省",
+				"state" : "0",
+				"telPhone" : "13800138000"
+			}, {
+				"cityCode" : "372300",
+				"cityName" : "滨州市",
+				"consignee" : "安吉丽娜朱莉",
+				"countryCode" : "372301",
+				"countryName" : "滨城区",
+				"createDate" : "2014-10-03 10:06:05",
+				"detailAddress" : "小营镇申家村",
+				"id" : "a2",
+				"isDefault" : "0",
+				"openid" : "abcd",
+				"provinceCode" : "370000",
+				"provinecName" : "山东省",
+				"state" : "0",
+				"telPhone" : "13800138000"
+			}]
+路径参数：无
+查询参数：无
+请求数据：无
+状态码：
+状态码	含义
+200	获取地址列表成功
+401	
+403	没有权限
+404	指定的用户不存在
+返回数据：
+类型	描述
+array	地址对象数组
+
+
+2.2获取单个地址
+资源标识: /user/address/{id}
+方法: GET
+请求响应示例：
+GET  /user/address/{openid} HTTP/1.1
+Accept: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
+[{
+	"countryName" : "曹县",
+	"deleteDate" : "",
+	"status" : 0,
+	"consignee" : "路易斯安娜",
+	"cityName" : "菏泽市",
+	"provinceCode" : "370000",
+	"cityCode" : "372900",
+	"countryCode" : "372922",
+	"updateDate" : "",
+	"detailAddress" : "清河办事处",
+	"id" : "1",
+	"telPhone" : "13800138000",
+	"isDefault" : "0",
+	"provinecName" : "山东省",
+	"openid" : "001",
+	"createDate" : "2014-10-05 12:42:24"
+}]
+路径参数：地址id
+
+
+2.3添加一个地址
+资源标识: /user/orderss
+方法: POST
+请求响应示例：
+GET  /user/orders/{openid} HTTP/1.1
+Accept: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
+ 
+路径参数：
+查询参数：无
+
+
+2.4用户设置默认地址接口
+资源标识: /service/address//default/{id}
+方法: POST
+请求响应示例：
+POST  /user/orders/{openid} HTTP/1.1
+Content-Type: application/json
+路径参数:地址ID
+
+
+3：用户订单
+3.1 获取用户订单列表接口
+资源标识: /service/orders
+方法: GET
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+[{
+	"deleteDate" : "",
+"fruitIds" : "1,2",
+"status" : 1,
+"fruits" : [],
+"malutionText" : "",
+"receptionAddress" : "山东省菏泽市",
+"malutionFlag" : 0,
+"fruitnums" : "2,2",
+"receptionAddressVO" : null,
+"amount" : 45,
+"id" : "1",
+"receptionAddressId" : "1",
+"cancelDate" : "",
+"openid" : "001",
+"payDate" : "",
+"orderid" : "A01B001-001",
+"createDate" : "2014-10-05 13:25:47",
+"cancelId" : 0,
+"malutionDate" : ""
+}, {
+	"deleteDate" : "",
+"fruitIds" : "1,2",
+"status" : 4,
+"fruits" : [],
+"malutionText" : "",
+"receptionAddress" : "山东省菏泽市",
+"malutionFlag" : 0,
+"fruitnums" : "2,2",
+"receptionAddressVO" : null,
+"amount" : 45,
+"id" : "2",
+"receptionAddressId" : "1",
+"cancelDate" : "",
+"openid" : "001",
+"payDate" : "2014-10-05 13:25:47",
+"orderid" : "A01B002-001",
+"createDate" : "2014-10-05 13:25:47",
+"cancelId" : 0,
+"malutionDate" : ""
+}, {
+	"deleteDate" : "",
+"fruitIds" : "1,2",
+"status" : 5,
+"fruits" : [],
+"malutionText" : "东西很好，下次还要买",
+"receptionAddress" : "山东省菏泽市",
+"malutionFlag" : 1,
+"fruitnums" : "2,2",
+"receptionAddressVO" : null,
+"amount" : 45,
+"id" : "3",
+"receptionAddressId" : "1",
+"cancelDate" : "",
+"openid" : "001",
+"payDate" : "2014-10-05 13:25:47",
+"orderid" : "A01B003-001",
+"createDate" : "2014-10-05 13:25:47",
+"cancelId" : 0,
+"malutionDate" : "2014-10-05 13:25:47"
+}]
+
+
+3.2 用户提交订单
+资源标识: /service/orders
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+
+
+3.3用户订单支付接口
+资源标识: /service/orders/pay/{id}
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+{
+"timestamp" : "1413731049",
+"noncestr" : "tvxmpBm8sJZIwAzV",
+"appId" : "wxf8b4f85f3a794e77",
+"signType" : "sha1",
+"package" : "bank_type=WX&body=%E5%95%86%E5%93%81%E6%8F%8F%E8%BF%B0&fee_type=1&input_charset=GBK&notify_url=htttp%3A%2F%2Fwww.baidu.com&out_trade_no=A01B001-001&partner=1900000109&spbill_create_ip=0%3A0%3A0%3A0%3A0%3A0%3A0%3A1&total_fee=45&sign=301793DAAD262F4CFCEFB281018A92A7",
+"paySign" : "f90786db13a410b3aa6d9e859fafb3f513a2702a"
+}
+
+路径参数:订单ID
+
+3.4用户订单取消接口
+资源标识: /service/orders//cancel/{id}
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+
+
+路径参数:订单ID
+
+3.5用户订单评价接口
+资源标识: /service/orders/malution/{id}
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+
+
+路径参数:订单ID
+
+4：用户收藏
+4.1 获取用户收藏列表接口
+资源标识: /service/collection
+方法: GET
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+[{
+	"id" : "1",
+	"fruitid" : "1",
+	"deleteDate" : "",
+	"fruitVO" : null,
+	"status" : 0,
+	"openid" : "001",
+	"createDate" : "2014-10-19 21:15:37",
+	"updateDate" : ""
+}, {
+	"id" : "2",
+	"fruitid" : "1",
+	"deleteDate" : "",
+	"fruitVO" : null,
+	"status" : 0,
+	"openid" : "001",
+	"createDate" : "2014-10-19 21:15:42",
+	"updateDate" : ""
+}, {
+	"id" : "3",
+	"fruitid" : "1",
+	"deleteDate" : "",
+	"fruitVO" : null,
+	"status" : 0,
+	"openid" : "001",
+	"createDate" : "2014-10-19 21:15:43",
+	"updateDate" : ""
+}]
+
+4.2用户添加收藏接口
+资源标识: /service/collection
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+
+
+5：用户反馈
+5.1 用户反馈接口
+资源标识: /service/user/feedback
+方法: POST
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+
+5.2获取用户基本信息接口
+资源标识: / service/user
+方法: GET
+请求响应示例：
+POST  /user/orders/cancel/{openid} HTTP/1.1
+Content-Type: application/json
+[{
+	"id" : "1",
+	"deleteDate" : "ss",
+	"status" : 0,
+	"name" : "wx1",
+	"openid" : "001",
+	"createDate" : "ss",
+	"updateDate" : "s"
+}]
+
+
+
