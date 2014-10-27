@@ -13,7 +13,11 @@ define(function(require, exports) {
     );
 
     Order.extend({
-        url: url.getOrder
+        url: url.getOrder,
+
+        createRemotely: function(order, callback){
+            callback(null, 3);
+        }
     });
 
     return Order;

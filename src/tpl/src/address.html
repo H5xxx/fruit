@@ -1,43 +1,38 @@
-<ul class="items">
-	<li class="address-item">
-		<input class="item-input" type="radio" name="address-choice" id="address-choice1">
-		<div class="item-cnt" to="address-choice1">
-			<h5 class="item-title">[默认] 张先生，17283192011</h5>
-			<p class="item-desc">上海市杨浦区邯郸路113号</p>
+<ul class="container-cnt items">
+	{{each addressList as address i}}
+	<li class="j-address-item{{if address.isDefault}} j-default{{/if}} address-item" data-address-id="{{address.id}}">
+		<input class="j-address-radio item-input" type="radio" name="address-choice">
+		<div class="item-cnt">
+			<h5 class="item-title">{{if address.isDefault}}[默认] {{/if}}{{address.consignee}}，{{address.phone}}</h5>
+			<p class="item-desc">{{address.province}}{{address.city}}{{address.country}}{{address.detail}}</p>
 		</div>
 	</li>
-	<li class="address-item">
-		<input class="item-input" type="radio" name="address-choice" id="address-choice2">
-		<div class="item-cnt" to="address-choice2">
-			<h5 class="item-title">王先生，11111111111</h5>
-			<p class="item-desc">北京市东城区某某路120号1号楼102</p>
-		</div>
-	</li>
-	<li class="address-item new-item">
-		<input class="item-input" type="radio" name="address-choice" id="address-choice2">
-		<div class="item-cnt" to="address-choice2">
+	{{/each}}
+	<li class="j-address-item address-item new-item">
+		<input class="j-address-radio item-input" type="radio" name="address-choice">
+		<div class="item-cnt">
 			<h5 class="item-title">使用新的地址</h5>
 		</div>
 		<div class="input-block">
 			<div class="input-line">
-				<select class="short">
-					<option>北京市</option>
+				<select class="j-province short">
+					<option>省</option>
 				</select>
-				<select class="short">
-					<option>东城区</option>
+				<select class="j-city short">
+					<option>市</option>
 				</select>
-				<input class="long" type="text" name="address" value="xx路30号">
+				<input class="j-detail long" type="text" value="xx路30号">
 			</div>
 			<div class="input-line">
-				<input class="long" type="text" name="name" value="汪先生">
+				<input class="j-consignee long" type="text" value="汪先生">
 			</div>
 			<div class="input-line">
-				<input class="long" type="text" name="phone" value="18212334123">
+				<input class="j-phone long" type="number" value="18212334123">
 			</div>
 		</div>
 	</li>
 </ul>
-<div class="bar">
+<div class="j-bar bar">
 	<p class="cnt"></p>
-	<i class="j-nav op" data-nav="/personal/pay"></i>
+	<i class="j-next op"></i>
 </div>

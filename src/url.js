@@ -6,7 +6,13 @@ define(function(require, exports) {
     var config = require('./config');
 
     var urls = {
-        getNotice: '/notice'
+        getNotice: '/notice',
+        getCategories: '/service/product',
+        getFruit: '/service/product/${id}',
+        addFav: '/fav/add',
+        getAddressList: '/user/address',
+        createAddress: '/user/address/add',
+        createOrder: '/service/orders'
     };
 
     for (var name in urls) {

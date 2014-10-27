@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./asset/css/main.css">
     <script src="./dep/seajs/dist/sea.js"></script>
     <script src="./dep/zepto/zepto.min.js"></script>
+    <script src="./dep/zeptojs/src/touch.js"></script>
     <script src="./dep/spine/lib/spine.js"></script>
     <script src="./dep/spine/lib/route.js"></script>
     <script src="./dep/spine/lib/manager.js"></script>
@@ -18,39 +19,17 @@
 <body>
 
     <div id="main-container" class="main-container">
-        <div class="page-container home-container" id='home' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container shop-container" id='shop' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container cart-container" id='cart' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container personal-container" id='personal' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container address-container" id='address' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container manage-address-container" id='manage-address' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container pay-container" id='pay' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container bill-container" id='bill' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container bill-list-container" id='bill-list' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container feedback-container" id='feedback' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
-        <div class="page-container fav-container" id='fav' style="display: none;">
-            <div class="container-cnt"></div>
-        </div>
+        <div class="page-container home-container" id='home' style="display: none;"></div>
+        <div class="page-container shop-container" id='shop' style="display: none;"></div>
+        <div class="page-container cart-container" id='cart' style="display: none;"></div>
+        <div class="page-container personal-container" id='personal' style="display: none;"></div>
+        <div class="page-container address-container" id='address' style="display: none;"></div>
+        <div class="page-container manage-address-container" id='manage-address' style="display: none;"></div>
+        <div class="page-container pay-container" id='pay' style="display: none;"></div>
+        <div class="page-container order-container" id='order' style="display: none;"></div>
+        <div class="page-container order-list-container" id='order-list' style="display: none;"></div>
+        <div class="page-container feedback-container" id='feedback' style="display: none;"></div>
+        <div class="page-container fav-container" id='fav' style="display: none;"></div>
     </div>
 
     <ul id="nav-bar" class="nav-bar">
@@ -67,6 +46,9 @@
             <span>个人</span>
         </li>
     </ul>
+
+    <div id="popup-layer" class="popup-layer">
+    </div>
 
     <script>
     seajs.config({

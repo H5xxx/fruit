@@ -30,14 +30,14 @@ define(function(require, exports) {
 
             var html = require('template')(this.template, params);
 
-            this.el.children('.container-cnt').html(html);
+            this.el.html(html);
 
-            new IScroll(this.el[0]);
+            //if(this.el.children('.container-cnt').length) new IScroll(this.el[0]);
         },
 
         // 清空内容
         clean: function() {
-            this.el.children('.container-cnt').html('');
+            this.el.html('');
         },
 
         // 跳转到其对应的url时执行

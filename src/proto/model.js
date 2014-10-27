@@ -31,7 +31,6 @@ define(function(require, exports) {
                     // cache data
                     fetched[url] = data;
 
-
                     callback && callback(null, data);
                 });
             }
