@@ -1,6 +1,10 @@
 define(function(require, exports) {
     var Mock = require('mock');
 
+    if(location.search.indexOf('dev') < 0){
+        return;
+    }
+
     var mock = function(path, handler){
         return Mock.mock(path, function(options){
             var result = handler.apply(this, arguments);
@@ -17,7 +21,7 @@ define(function(require, exports) {
         };
     });
 
-    mock(/\/category-list$/, function(options) {
+    mock(/\/service\/product$/, function(options) {
         return [
             {
                 id: 1,
@@ -58,7 +62,7 @@ define(function(require, exports) {
         ];
     });
 
-    mock(/\/fruit-detail$/, function(options) {
+    mock(/\/service\/product\/\d+$/, function(options) {
         return {
             id: 1,
             name: '苹果',

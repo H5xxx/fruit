@@ -7,8 +7,8 @@ define(function(require, exports) {
 
     var urls = {
         getNotice: '/notice',
-        getCategories: '/category-list',
-        getFruit: '/fruit-detail',
+        getCategories: '/service/product',
+        getFruit: '/service/product/${id}',
         addFav: '/fav/add',
         getAddressList: '/user/address',
         createAddress: '/user/address/add',

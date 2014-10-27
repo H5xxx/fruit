@@ -4,6 +4,6 @@
 
 define(function(require, exports) {
     return {
-        host: ''
+        host: '/jersey'
     };
 });
