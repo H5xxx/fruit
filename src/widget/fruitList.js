@@ -45,7 +45,7 @@ define(function(require, exports) {
                 if(type === 'shop'){
                     itemDom.on('tap', function(e){
                         Fruit.fetch({
-                            id: fruitId
+                            fruitId: fruitId
                         }, function(err, fruit){
                             !err && new FruitDetail(fruit);
                         });

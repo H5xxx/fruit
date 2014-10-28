@@ -13,13 +13,13 @@ define(function(require, exports) {
         url: url.getCategories,
 
         save: function(list){
-        	var Category = this;
+            var Category = this;
 
             list.forEach(function(category){
                 Category.create(category);
 
                 category.fruits.forEach(function(fruit){
-                	require('./fruit').save(fruit);
+                    require('./fruit').save(fruit);
                 });
             });
         }

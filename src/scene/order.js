@@ -6,6 +6,16 @@ define(function(require, exports) {
 
 	var OrderModel = require('../model/order');
 
+    var statusMap = {
+        0: '正常',
+        1: '未支付',
+        2: '已取消',
+        3: '已支付',
+        4: '未评价',
+        5: '已评价',
+        6: '已删除'
+    };
+
     var Order = require('../proto/scene').sub({
 
         el: $('#order'),
@@ -20,10 +30,10 @@ define(function(require, exports) {
 
                 OrderModel.fetch.bind(OrderModel, params)
 
-            ], function(orders){
+            ], function(order){
 
                 callback(null, {
-                    orders: orders
+                    order: order
                 });
 
             });
@@ -31,9 +41,8 @@ define(function(require, exports) {
         },
 
         render: function(params){
+            params.order.statusText = statusMap[params.order.status];
             Shop.__super__.render.apply(this, arguments);
-
-            this.initOrderList();
         }
     });
 

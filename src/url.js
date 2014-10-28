@@ -8,11 +8,12 @@ define(function(require, exports) {
     var urls = {
         getNotice: '/notice',
         getCategories: '/service/product',
-        getFruit: '/service/product/${id}',
+        getFruit: '/service/product/${fruitId}',
         addFav: '/fav/add',
-        getAddressList: '/user/address',
-        createAddress: '/user/address/add',
-        createOrder: '/service/orders'
+        getAddressList: '/service/address',
+        createAddress: '/service/address/add',
+        createOrder: '/service/orders',
+        getOrder: '/service/orders/${orderId}'
     };
 
     for (var name in urls) {

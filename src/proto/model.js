@@ -23,15 +23,20 @@ define(function(require, exports) {
 
             // not cached
             }else{
-                $.getJSON(url, function(data){
+                $.getJSON(url, function(result){
+                    if(result.err){
+                        callback && callback(result.err);
+                    }else{
+                        var data = result.data;
 
-                    // save data as model
-                    Model.save(data);
+                        // save data as model
+                        Model.save(data);
 
-                    // cache data
-                    fetched[url] = data;
+                        // cache data
+                        fetched[url] = data;
 
-                    callback && callback(null, data);
+                        callback && callback(null, data);
+                    }
                 });
             }
         },

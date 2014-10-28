@@ -37,7 +37,7 @@ define(function(require, exports) {
                 detailAddress: address.detail,
                 telPhone: address.phone
             }, function(response){
-                callback(null, response);
+                callback(response.err, response.data);
             });
         }
     });
