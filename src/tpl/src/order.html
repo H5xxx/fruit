@@ -3,7 +3,7 @@
 		<h5 class="block-title">订单信息</h5>
 		<p class="block-item order-number">No.{{order.id}}</p>
 		<p class="block-item order-price">金额：{{order.amount}}元</p>
-		<p class="block-item order-status">状态：{{order.statusText}}</p>
+		<p class="block-item order-status">状态：{{order.statusDispalyText}}</p>
 	</div>
 	<div class="info-block">
 		<h5 class="block-title">订单内容</h5>
@@ -15,10 +15,18 @@
 		<h5 class="block-title">收货信息</h5>
 		<p class="block-item order-name">{{order.receptionAddress.consignee}}</p>
 		<p class="block-item order-phone">{{order.receptionAddress.phone}}</p>
-		<p class="block-item order-address">{{address.province}}{{address.city}}{{address.country}}{{address.detail}}</p>
+		<p class="block-item order-address">{{order.receptionAddress.province}}{{order.receptionAddress.city}}{{order.receptionAddress.country}}{{order.receptionAddress.detail}}</p>
 	</div>
 </div>
+{{if order.status == 1}}
 <div class="bar">
-	<p class="cnt"></p>
-	<i class="j-nav op" data-nav="/personal/pay"></i>
+	<p class="cnt">确认支付？</p>
+	<i class="j-pay op"></i>
 </div>
+{{else if (order.status == 3 || order.status == 4)}}
+<div class="bar">
+	<p class="cnt">订单已完成，去评价？</p>
+	<i class="j-comment op"></i>
+</div>
+{{else}}
+{{/if}}

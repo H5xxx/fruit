@@ -32,6 +32,7 @@ define(function(require, exports) {
             '/personal/manage-address': 'manage-address',
             '/personal/order/:orderId': 'order',
             '/personal/order-list': 'order-list',
+            '/personal/order/:orderId/feedback': 'feedback',
             '/personal/fav': 'fav',
             '/personal/feedback': 'feedback'
         },

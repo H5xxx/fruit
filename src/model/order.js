@@ -4,6 +4,7 @@
 
 define(function(require, exports) {
     var url = require('../url');
+    var util = require('../util');
 
     var Order = require('../proto/model').sub();
 
@@ -22,7 +23,43 @@ define(function(require, exports) {
             });
             this.create(item);
 
-            require('./address').save(item.receptionAddress);
+            require('./address').save([item.receptionAddress]);
+
+            item.fruits.forEach(function(fruit){
+                require('./fruit').save(fruit);
+            });
+        },
+
+        fetchList: function(params, callback){
+            var Model = this;
+
+            var fetched = Model.fetched = Model.fetched || {},
+                listUrl = util.format(url.getOrderList, params);
+
+            // cached
+            if(fetched[listUrl]){
+                callback && callback(null, fetched[listUrl]);
+
+            // not cached
+            }else{
+                $.getJSON(listUrl, function(result){
+                    if(result.err){
+                        callback && callback(result.err);
+                    }else{
+                        var list = result.data;
+
+                        // save data as model
+                        list.forEach(function(order){
+                            Order.save(order);
+                        });
+
+                        // cache data
+                        fetched[listUrl] = list;
+
+                        callback && callback(null, list);
+                    }
+                });
+            }
         },
 
         createRemotely: function(order, callback){
@@ -32,6 +69,7 @@ define(function(require, exports) {
                 fruitnums: order.fruits.map(function(fruit){ return fruit.num; }).join(','),
                 amount: order.amount
             }, function(response){
+                if(!response.err) Order.save(response.data);
                 callback(response.err, response.data);
             });
         }

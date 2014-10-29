@@ -35,8 +35,11 @@ define(function(require, exports) {
                 cityName: address.city,
                 countryName: address.country,
                 detailAddress: address.detail,
-                telPhone: address.phone
+                telPhone: address.phone,
+                isDefault: address.isDefault
             }, function(response){
+                if(!response.err) Address.save([response.data]);
+
                 callback(response.err, response.data);
             });
         }

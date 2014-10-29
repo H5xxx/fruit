@@ -1,28 +1,22 @@
 <ul class="container-cnt items">
+	{{each order.fruits as fruit i}}
 	<li class="fruit-item">
-		<img class="item-pic" src="./asset/img/fruit.png"></img>
+		<img class="item-pic" src="{{fruit.icon}}"></img>
 		<h5 class="item-title">
-			苹果套餐
+			{{fruit.name}}
 			<select class="rating">
 				<option>5星</option>
+				<option>4星</option>
+				<option>3星</option>
+				<option>2星</option>
+				<option>1星</option>
 			</select>
 		</h5>
 		<div class="input-line">
 			<input class="long" type="text" name="name" placeholder="味道不错">
 		</div>
 	</li>
-	<li class="fruit-item">
-		<img class="item-pic" src="./asset/img/fruit.png"></img>
-		<h5 class="item-title">
-			苹果套餐
-			<select class="rating">
-				<option>5星</option>
-			</select>
-		</h5>
-		<div class="input-line">
-			<input class="long" type="text" name="name" placeholder="味道不错">
-		</div>
-	</li>
+	{{/each}}
 </ul>
 <div class="bar">
 	<p class="cnt">提交评价？</p>

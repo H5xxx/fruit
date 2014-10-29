@@ -3,10 +3,11 @@
  */
 
 define(function(require, exports) {
+    var util = require('../util');
 
-	var OrderModel = require('../model/order');
+    var OrderModel = require('../model/order');
 
-    var statusMap = {
+    /*var statusMap = {
         0: '正常',
         1: '未支付',
         2: '已取消',
@@ -14,7 +15,7 @@ define(function(require, exports) {
         4: '未评价',
         5: '已评价',
         6: '已删除'
-    };
+    };*/
 
     var Order = require('../proto/scene').sub({
 
@@ -41,8 +42,14 @@ define(function(require, exports) {
         },
 
         render: function(params){
-            params.order.statusText = statusMap[params.order.status];
-            Shop.__super__.render.apply(this, arguments);
+            //params.order.statusText = statusMap[params.order.status];
+            Order.__super__.render.apply(this, arguments);
+
+            var page = this.page;
+
+            $('.j-comment').on('tap', function(e){
+                page.navigate('/personal/order/' + params.order.id + '/feedback');
+            });
         }
     });
 

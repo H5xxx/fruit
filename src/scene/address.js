@@ -87,11 +87,12 @@ define(function(require, exports) {
 
         createAddress: function(callback){
             AddressModel.createRemotely({
-                province: this.el.find('.j-province').val(),
                 city: this.el.find('.j-city').val(),
+                country: this.el.find('.j-country').val(),
                 detail: this.el.find('.j-detail').val(),
                 consignee: this.el.find('.j-consignee').val(),
-                phone: this.el.find('.j-phone').val()
+                phone: this.el.find('.j-phone').val(),
+                isDefault: true
             }, callback);
         },
 

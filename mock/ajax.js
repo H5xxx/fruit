@@ -33,13 +33,13 @@ define(function(require, exports) {
                     {
                         id: 1,
                         name: '苹果',
-                        price: 5,
+                        price: 500,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
                         id: 2,
                         name: '香蕉',
-                        price: 8,
+                        price: 800,
                         iconUrls: './asset/img/fruit.png'
                     }
                 ]
@@ -51,13 +51,13 @@ define(function(require, exports) {
                     {
                         id: 3,
                         name: '桃子',
-                        price: 5,
+                        price: 500,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
                         id: 4,
                         name: '梨',
-                        price: 10,
+                        price: 1000,
                         iconUrls: './asset/img/fruit.png'
                     }
                 ]
@@ -69,7 +69,7 @@ define(function(require, exports) {
         return {
             id: 1,
             name: '苹果',
-            price: 10,
+            price: 1000,
             weight: 500,
             discrbe: '新鲜的苹果',
             iconUrls: './asset/img/fruit.png',
@@ -77,7 +77,7 @@ define(function(require, exports) {
         };
     });
 
-    mock(/\/user\/address$/, function(options) {
+    mock(/\/service\/address$/, function(options) {
         return [{
             cityCode: "372900",
             cityName: "菏泽市",
@@ -111,9 +111,299 @@ define(function(require, exports) {
         }];
     });
 
-    
-    mock(/\/user\/address\/add$/, function(options) {
-        return 'a3';
+    mock(/\/service\/address\/add$/, function(options) {
+        return {
+            cityCode: "372900",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryCode: "372922",
+            countryName: "曹县",
+            createDate: "2014-10-03 10:06:05",
+            detailAddress: "清河办事处",
+            id: "a1",
+            isDefault: "1",
+            openid: "abcd",
+            provinceCode: "370000",
+            provinecName: "山东省",
+            state: "0",
+            telPhone: "13800138000"
+        };
+    });
+
+    mock(/\/service\/address\/add$/, function(options) {
+        return {
+            cityCode: "372900",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryCode: "372922",
+            countryName: "曹县",
+            createDate: "2014-10-03 10:06:05",
+            detailAddress: "清河办事处",
+            id: "a1",
+            isDefault: "1",
+            openid: "abcd",
+            provinceCode: "370000",
+            provinecName: "山东省",
+            state: "0",
+            telPhone: "13800138000"
+        };
+    });
+
+    mock(/\/service\/orders$/, function(options) {
+        return [{
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 1,
+            "statusDispalyText" : "已删除",
+            "fruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            "receptionAddress" : {
+                cityCode: "372900",
+                cityName: "菏泽市",
+                consignee: "路易斯安娜",
+                countryCode: "372922",
+                countryName: "曹县",
+                createDate: "2014-10-03 10:06:05",
+                detailAddress: "清河办事处",
+                id: "a1",
+                isDefault: "1",
+                openid: "abcd",
+                provinceCode: "370000",
+                provinecName: "山东省",
+                state: "0",
+                telPhone: "13800138000"
+            },
+            "malutionFlag" : 1,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
+        }, {
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 4,
+            "statusDispalyText" : "未评价",
+            "fruits" : [
+                {
+                    id: 3,
+                    name: '桃子',
+                    price: 500,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 4,
+                    name: '梨',
+                    price: 1000,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "",
+            "cancelText" : "0",
+            "receptionAddress" : {
+                cityCode: "372900",
+                cityName: "菏泽市",
+                consignee: "路易斯安娜",
+                countryCode: "372922",
+                countryName: "曹县",
+                createDate: "2014-10-03 10:06:05",
+                detailAddress: "清河办事处",
+                id: "a1",
+                isDefault: "1",
+                openid: "abcd",
+                provinceCode: "370000",
+                provinecName: "山东省",
+                state: "0",
+                telPhone: "13800138000"
+            },
+            "malutionFlag" : 0,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "id" : "2",
+            "receptionAddressId" : "1",
+            "cancelDate" : "",
+            "openid" : "001",
+            "payDate" : "2014-10-05 13:25:47",
+            "orderid" : "A01B002-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : ""
+        }, {
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 5,
+            "statusDispalyText" : "已评价",
+            "fruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "东西很好，下次还要买",
+            "cancelText" : "0",
+            "receptionAddress" : {
+                cityCode: "372900",
+                cityName: "菏泽市",
+                consignee: "路易斯安娜",
+                countryCode: "372922",
+                countryName: "曹县",
+                createDate: "2014-10-03 10:06:05",
+                detailAddress: "清河办事处",
+                id: "a1",
+                isDefault: "1",
+                openid: "abcd",
+                provinceCode: "370000",
+                provinecName: "山东省",
+                state: "0",
+                telPhone: "13800138000"
+            },
+            "malutionFlag" : 1,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "id" : "3",
+            "receptionAddressId" : "1",
+            "cancelDate" : "",
+            "openid" : "001",
+            "payDate" : "2014-10-05 13:25:47",
+            "orderid" : "A01B003-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-05 13:25:47"
+        }];
+    });
+
+    mock(/\/service\/orders\/add$/, function(options) {
+        return {
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 1,
+            "statusDispalyText" : "已删除",
+            "fruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            "receptionAddress" : {
+                cityCode: "372900",
+                cityName: "菏泽市",
+                consignee: "路易斯安娜",
+                countryCode: "372922",
+                countryName: "曹县",
+                createDate: "2014-10-03 10:06:05",
+                detailAddress: "清河办事处",
+                id: "a1",
+                isDefault: "1",
+                openid: "abcd",
+                provinceCode: "370000",
+                provinecName: "山东省",
+                state: "0",
+                telPhone: "13800138000"
+            },
+            "malutionFlag" : 1,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
+        };
+    });
+
+    mock(/\/service\/orders\/\d+$/, function(options) {
+        return {
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 6,
+            "statusDispalyText" : "已删除",
+            "fruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            "receptionAddress" : {
+                cityCode: "372900",
+                cityName: "菏泽市",
+                consignee: "路易斯安娜",
+                countryCode: "372922",
+                countryName: "曹县",
+                createDate: "2014-10-03 10:06:05",
+                detailAddress: "清河办事处",
+                id: "a1",
+                isDefault: "1",
+                openid: "abcd",
+                provinceCode: "370000",
+                provinecName: "山东省",
+                state: "0",
+                telPhone: "13800138000"
+            },
+            "malutionFlag" : 1,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
+        };
     });
 
 });
