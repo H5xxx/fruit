@@ -6,6 +6,8 @@ define(function(require, exports) {
     var util = require('../util');
     var transition = require('../transition');
 
+    var Cookie = require('../model/cookie');
+
     var Scene = Spine.Controller.sub({
         // 该controller要渲染&控制的区域
         el: $(),
@@ -47,11 +49,15 @@ define(function(require, exports) {
 
             params = params || {};
 
-            this.getData(params, function(err, data) {
+            Cookie.fetch(util.parseURL().params, function(err){
 
-                me.enter();
+                me.getData(params, function(err, data) {
 
-                me.render($.extend(params, data));
+                    me.enter();
+
+                    me.render($.extend(params, data));
+
+                });
 
             });
 

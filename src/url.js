@@ -14,7 +14,8 @@ define(function(require, exports) {
         createAddress: '/service/address',
         getOrderList: '/service/orders',
         createOrder: '/service/orders',
-        getOrder: '/service/orders/${orderId}'
+        getOrder: '/service/orders/${orderId}',
+        getCookie: '/service/cookie?code=${code}'
     } : {
         getNotice: '/notice',
         getCategories: '/service/product',
@@ -24,7 +25,8 @@ define(function(require, exports) {
         createAddress: '/service/address/add',
         getOrderList: '/service/orders',
         createOrder: '/service/orders/add',
-        getOrder: '/service/orders/${orderId}'
+        getOrder: '/service/orders/${orderId}',
+        getCookie: '/service/cookie?code=${code}'
     };
 
     for (var name in urls) {

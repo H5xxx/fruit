@@ -406,4 +406,7 @@ define(function(require, exports) {
         };
     });
 
+    mock(/\/service\/cookie/, function(options) {
+        return {};
+    });
 });
