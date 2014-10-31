@@ -1,4 +1,4 @@
-/*TMODJS:{"version":9,"md5":"40927e7cf41a91e901d01ef1d9617961"}*/
+/*TMODJS:{"version":10,"md5":"c34e483dd33aa65b0d94ba61ff663a12"}*/
 template('order',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$out='';$out+='<div class="container-cnt order-info"> <div class="info-block"> <h5 class="block-title">订单信息</h5> <p class="block-item order-number">No.';
 $out+=$escape(order.orderid);
@@ -11,7 +11,7 @@ $each(order.oldfruits,function(fruit,i){
 $out+=' <p class="block-item order-cnt-item">';
 $out+=$escape(fruit.name);
 $out+=' * ';
-$out+=$escape(fruit.num);
+$out+=$escape(fruit.fruitCount);
 $out+='</p> ';
 });
 $out+=' </div> <div class="info-block"> <h5 class="block-title">收货信息</h5> <p class="block-item order-name">';

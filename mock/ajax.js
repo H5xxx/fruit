@@ -160,12 +160,14 @@ define(function(require, exports) {
                     id: 1,
                     name: '苹果',
                     price: 500,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 },
                 {
                     id: 2,
                     name: '香蕉',
                     price: 800,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 }
             ],
@@ -198,12 +200,14 @@ define(function(require, exports) {
                     id: 3,
                     name: '桃子',
                     price: 500,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 },
                 {
                     id: 4,
                     name: '梨',
                     price: 1000,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 }
             ],
@@ -236,12 +240,14 @@ define(function(require, exports) {
                     id: 1,
                     name: '苹果',
                     price: 500,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 },
                 {
                     id: 2,
                     name: '香蕉',
                     price: 800,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 }
             ],
@@ -278,12 +284,14 @@ define(function(require, exports) {
                     id: 1,
                     name: '苹果',
                     price: 500,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 },
                 {
                     id: 2,
                     name: '香蕉',
                     price: 800,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 }
             ],
@@ -320,12 +328,14 @@ define(function(require, exports) {
                     id: 1,
                     name: '苹果',
                     price: 500,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 },
                 {
                     id: 2,
                     name: '香蕉',
                     price: 800,
+                    "fruitCount" : 1,
                     iconUrls: './asset/img/fruit.png'
                 }
             ],

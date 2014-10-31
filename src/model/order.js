@@ -17,10 +17,10 @@ define(function(require, exports) {
         url: url.getOrder,
 
         save: function(item){
-            var nums = item.fruitnums.split(',').map(function(num){ return parseInt(num, 10); });
+            /*var nums = item.fruitnums.split(',').map(function(num){ return parseInt(num, 10); });
             item.oldfruits.forEach(function(fruit, i){
                 fruit.num = nums[i];
-            });
+            });*/
             this.create(item);
         },
 
