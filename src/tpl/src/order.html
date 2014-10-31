@@ -7,15 +7,15 @@
 	</div>
 	<div class="info-block">
 		<h5 class="block-title">订单内容</h5>
-		{{each order.fruits as fruit i}}
+		{{each order.oldfruits as fruit i}}
 		<p class="block-item order-cnt-item">{{fruit.name}} * {{fruit.num}}</p>
 		{{/each}}
 	</div>
 	<div class="info-block">
 		<h5 class="block-title">收货信息</h5>
-		<p class="block-item order-name">{{order.receptionAddress.consignee}}</p>
-		<p class="block-item order-phone">{{order.receptionAddress.phone}}</p>
-		<p class="block-item order-address">{{order.receptionAddress.province}}{{order.receptionAddress.city}}{{order.receptionAddress.country}}{{order.receptionAddress.detail}}</p>
+		<p class="block-item order-name">{{order.consignee}}</p>
+		<p class="block-item order-phone">{{order.telPhone}}</p>
+		<p class="block-item order-address">{{order.cityName}}{{order.countryName}}{{order.detailAddress}}</p>
 	</div>
 </div>
 {{if order.status == 1}}

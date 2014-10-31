@@ -36,7 +36,8 @@ define(function(require, exports) {
                 countryName: address.country,
                 detailAddress: address.detail,
                 telPhone: address.phone,
-                isDefault: address.isDefault
+                isDefault: address.isDefault,
+                consignee: address.consignee
             }, function(response){
                 if(!response.err) Address.save([response.data]);
 

@@ -10,7 +10,7 @@ define(function(require, exports) {
 
     Order.configure(
         'Order', 'id', 'createDate', 'status', 'payStatus', 'malutionStatus',
-        'fruits', 'num', 'receptionAddress'
+        'oldfruits', 'num', 'consignee', 'telPhone', 'cityName', 'countryName', 'detailAddress'
     );
 
     Order.extend({
@@ -18,16 +18,10 @@ define(function(require, exports) {
 
         save: function(item){
             var nums = item.fruitnums.split(',').map(function(num){ return parseInt(num, 10); });
-            item.fruits.forEach(function(fruit, i){
+            item.oldfruits.forEach(function(fruit, i){
                 fruit.num = nums[i];
             });
             this.create(item);
-
-            require('./address').save([item.receptionAddress]);
-
-            item.fruits.forEach(function(fruit){
-                require('./fruit').save(fruit);
-            });
         },
 
         fetchList: function(params, callback){

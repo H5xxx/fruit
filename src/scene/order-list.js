@@ -33,7 +33,7 @@ define(function(require, exports) {
 
         render: function(params){
             params.orderList.forEach(function(order){
-            	order.title = order.fruits.map(function(fruit){
+            	order.title = order.oldfruits.map(function(fruit){
             		return fruit.name + '*' + fruit.num;
             	}).join(', ');
             });

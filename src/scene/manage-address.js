@@ -67,7 +67,7 @@ define(function(require, exports) {
                 detail: this.el.find('.j-detail').val(),
                 consignee: this.el.find('.j-consignee').val(),
                 phone: this.el.find('.j-phone').val(),
-                isDefault: true
+                isDefault: 1
             }, callback);
         }
     });
