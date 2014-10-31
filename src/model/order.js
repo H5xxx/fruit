@@ -58,7 +58,7 @@ define(function(require, exports) {
 
         createRemotely: function(order, callback){
             $.post(url.createOrder, {
-                receptionAddressId: order.addressId,
+                addressId: order.addressId,
                 fruitIds: order.fruits.map(function(fruit){ return fruit.id; }).join(','),
                 fruitnums: order.fruits.map(function(fruit){ return fruit.num; }).join(','),
                 amount: order.amount
