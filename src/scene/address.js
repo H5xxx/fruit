@@ -107,7 +107,7 @@ define(function(require, exports) {
                 if(err){
                     Popup.alert(err);
                 }else{
-                    page.navigate('/personal/order/' + order.id);
+                    page.navigate('/personal/order/' + order.orderid);
                 }
             });
         }

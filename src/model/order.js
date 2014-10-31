@@ -10,7 +10,7 @@ define(function(require, exports) {
 
     Order.configure(
         'Order', 'id', 'createDate', 'status', 'payStatus', 'malutionStatus',
-        'oldfruits', 'num', 'consignee', 'telPhone', 'cityName', 'countryName', 'detailAddress'
+        'oldfruits', 'num', 'consignee', 'telPhone', 'cityName', 'countryName', 'detailAddress', 'orderid'
     );
 
     Order.extend({

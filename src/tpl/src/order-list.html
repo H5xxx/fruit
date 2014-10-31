@@ -9,12 +9,12 @@
 		<p class="item-address">{{order.consignee}}，{{order.cityName}}{{order.countryName}}{{order.detailAddress}}</p>
 		<span class="item-ops">
 			{{if order.status == 1}}
-			<span class="j-nav item-op" data-nav="/personal/order/{{order.id}}">去支付</span>
+			<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">去支付</span>
 			{{else if (order.status == 3 || order.status == 4)}}
-			<span class="j-nav item-op" data-nav="/personal/order/{{order.id}}">去评价</span>
+			<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">去评价</span>
 			{{else}}
 			{{/if}}
-			<span class="j-nav item-op" data-nav="/personal/order/{{order.id}}">查看详情</span>
+			<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">查看详情</span>
 		</span>
 	</li>
 	{{/each}}

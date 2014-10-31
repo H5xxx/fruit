@@ -1,7 +1,7 @@
-/*TMODJS:{"version":8,"md5":"1893292262b103bd15a07a0c76895137"}*/
+/*TMODJS:{"version":9,"md5":"40927e7cf41a91e901d01ef1d9617961"}*/
 template('order',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,order=$data.order,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$out='';$out+='<div class="container-cnt order-info"> <div class="info-block"> <h5 class="block-title">订单信息</h5> <p class="block-item order-number">No.';
-$out+=$escape(order.id);
+$out+=$escape(order.orderid);
 $out+='</p> <p class="block-item order-price">金额：';
 $out+=$escape(order.amount);
 $out+='元</p> <p class="block-item order-status">状态：';

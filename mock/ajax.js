@@ -309,7 +309,7 @@ define(function(require, exports) {
         };
     });
 
-    mock(/\/service\/orders\/\d+$/, function(options) {
+    mock(/\/service\/orders\/[\w\-]+$/, function(options) {
         return {
             "deleteDate" : "",
             "fruitIds" : "1,2",
