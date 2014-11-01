@@ -85,14 +85,21 @@ define(function(require, exports) {
         },
 
         createAddress: function(callback){
-            AddressModel.createRemotely({
+            var address = {
                 city: this.el.find('.j-city').val(),
                 country: this.el.find('.j-country').val(),
                 detail: this.el.find('.j-detail').val(),
                 consignee: this.el.find('.j-consignee').val(),
                 phone: this.el.find('.j-phone').val(),
                 isDefault: 1
-            }, callback);
+            };
+
+            if(!(address.city && address.country && address.detail && address.consignee && address.phone)){
+                Popup.alert('请填写正确的地址信息！');
+                return;
+            }
+
+            AddressModel.createRemotely(address, callback);
         }
     });
 
