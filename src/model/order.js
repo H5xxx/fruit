@@ -64,7 +64,7 @@ define(function(require, exports) {
                 fruitnums: order.fruits.map(function(fruit){ return fruit.num; }).join(','),
                 amount: order.amount * 100
             }, function(response){
-                if(!response.err) Order.save(response.data);
+                if(!response.err) Model.fetchList({}, null, true);
                 callback(response.err, response.data);
             });
         },
