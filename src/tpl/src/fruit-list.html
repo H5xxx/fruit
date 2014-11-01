@@ -4,6 +4,9 @@
 		<img class="item-pic" src="{{fruit.icon}}"></img>
 		<h5 class="item-title">{{fruit.name}}</h5>
 		<p class="item-info">
+			{{if fruit.isNewFruit}}
+			<i class="item-feature new">新</i>
+			{{/if}}
 			{{if fruit.oldprice}}
 			<i class="item-feature discount">折</i>
 			<span class="item-origin-price">原价{{fruit.oldprice}}元</span>

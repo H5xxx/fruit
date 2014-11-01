@@ -31,6 +31,7 @@
 		font-size: 14px;
 
 		.side-item{
+			position: relative;
 			width: 100%;
 			padding: 15px 0;
 			line-height: 1em;
@@ -39,6 +40,17 @@
 
 			&.active{
 				color: @themeColorGreen;
+			}
+
+			&.has-new{
+				&::after{
+					content: "new";
+					position: absolute;
+					right: 6px;
+					top: 6px;
+
+					font-size: 8px;
+				}
 			}
 		}
 	}

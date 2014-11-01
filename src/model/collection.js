@@ -4,6 +4,7 @@
 
 define(function(require, exports) {
     var url = require('../url');
+    var util = require('../util');
 
     var Collection = require('../proto/model').sub();
 
@@ -26,6 +27,17 @@ define(function(require, exports) {
                 fruitid: collection.fruitid
             }, function(response){
                 if(!response.err) Collection.save([response.data]);
+                callback(response.err, response.data);
+            });
+        },
+
+        removeRemotely: function(collection, callback){
+            var Model = this;
+
+            $.post(util.format(url.removeCollection, {
+                fruitid: collection.fruitid
+            }), {}, function(response){
+                if(!response.err) Model.fetch({}, null, true);
                 callback(response.err, response.data);
             });
         }

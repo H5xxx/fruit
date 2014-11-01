@@ -26,15 +26,23 @@ define(function(require, exports) {
                 wrapper = this.wrapper,
                 popup = this.popup;
 
-            wrapper.find('.j-fav').one('tap', function(e){
+            wrapper.find('.j-fav').on('tap', function(e){
                 var _this = $(this);
-            	if(!Collection.findByAttribute('fruitid', fruit.id)){
+            	if(!fruit.isCollection){
                     Collection.createRemotely({
                         fruitid: fruit.id
                     }, function(err, collection){
-                        if(!err) _this.text('已收藏');
+                        fruit.isCollection = 1;
+                        if(!err) _this.text('取消收藏');
                     });
-            	}
+            	}else{
+                    Collection.removeRemotely({
+                        fruitid: fruit.id
+                    }, function(err, collection){
+                        fruit.isCollection = 0;
+                        if(!err) _this.text('+收藏');
+                    });
+                }
             });
 
             var barDom = wrapper.find('.j-bar'),

@@ -17,6 +17,10 @@ define(function(require, exports) {
             this.update();
             return num;
         },
+        clean: function(){
+            this.cnt = {};
+            this.update();
+        },
         update: function(){
             var num = 0,
                 sum = 0;

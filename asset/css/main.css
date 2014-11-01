@@ -379,6 +379,7 @@ body {
   font-size: 14px;
 }
 .shop-container .side-cnt .side-items .side-item {
+  position: relative;
   width: 100%;
   padding: 15px 0;
   line-height: 1em;
@@ -386,6 +387,13 @@ body {
 }
 .shop-container .side-cnt .side-items .side-item.active {
   color: #527713;
+}
+.shop-container .side-cnt .side-items .side-item.has-new::after {
+  content: "new";
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  font-size: 8px;
 }
 .shop-container .main-cnt {
   margin-left: 120px;

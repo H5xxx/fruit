@@ -1,4 +1,4 @@
-/*TMODJS:{"version":10,"md5":"c490491d0afe1298c6218ddecc0658dd"}*/
+/*TMODJS:{"version":12,"md5":"f9b62ecbd0d3023cc57514f2f36c7232"}*/
 template('fruit-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,fruits=$data.fruits,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
 $each(fruits,function(fruit,i){
@@ -9,6 +9,10 @@ $out+=$escape(fruit.icon);
 $out+='"></img> <h5 class="item-title">';
 $out+=$escape(fruit.name);
 $out+='</h5> <p class="item-info"> ';
+if(fruit.isNewFruit){
+$out+=' <i class="item-feature new">新</i> ';
+}
+$out+=' ';
 if(fruit.oldprice){
 $out+=' <i class="item-feature discount">折</i> <span class="item-origin-price">原价';
 $out+=$escape(fruit.oldprice);

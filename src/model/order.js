@@ -21,17 +21,18 @@ define(function(require, exports) {
             item.oldfruits.forEach(function(fruit, i){
                 fruit.num = nums[i];
             });*/
+            item.amount = item.amount / 100;
             this.create(item);
         },
 
-        fetchList: function(params, callback){
+        fetchList: function(params, callback, nocache){
             var Model = this;
 
             var fetched = Model.fetched = Model.fetched || {},
                 listUrl = util.format(url.getOrderList, params);
 
             // cached
-            if(fetched[listUrl]){
+            if(!nocache && fetched[listUrl]){
                 callback && callback(null, fetched[listUrl]);
 
             // not cached
@@ -61,9 +62,20 @@ define(function(require, exports) {
                 addressId: order.addressId,
                 fruitIds: order.fruits.map(function(fruit){ return fruit.id; }).join(','),
                 fruitnums: order.fruits.map(function(fruit){ return fruit.num; }).join(','),
-                amount: order.amount
+                amount: order.amount / 100
             }, function(response){
                 if(!response.err) Order.save(response.data);
+                callback(response.err, response.data);
+            });
+        },
+
+        cancelRemotely: function(params, callback){
+            var Model = this;
+
+            $.post(util.format(url.cancelOrder, {
+                orderId: params.orderId
+            }), function(response){
+                if(!response.err) Model.fetchList({}, null, true);
                 callback(response.err, response.data);
             });
         }

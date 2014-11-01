@@ -2,7 +2,7 @@
 	<div class="up-line logo"></div>
 	<ul class="side-items">
 		{{each categories as category i}}
-		<li class="j-category-item side-item" data-id="{{category.id}}">
+		<li class="j-category-item side-item{{if category.isHaveNew}} has-new{{/if}}" data-id="{{category.id}}">
 			<span class="item-cnt">{{category.name}}</span>
 		</li>
 		{{/each}}

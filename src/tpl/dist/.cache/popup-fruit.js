@@ -1,10 +1,10 @@
-/*TMODJS:{"version":7,"md5":"2acdda97d1f039b39c070c655b00aff2"}*/
+/*TMODJS:{"version":9,"md5":"2e454eb39cedf6ef79b98c14982a1777"}*/
 template('popup-fruit',function($data,$filename) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,image=$data.image,isFaved=$data.isFaved,name=$data.name,price=$data.price,discrbe=$data.discrbe,weight=$data.weight,$out='';$out+='<div class="popup-wrapper popup-fruit"> <div class="j-popup-close close">X</div> <div class="fruit-detail-wrapper"> <div class="fruit-img"> <img src="';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,image=$data.image,isCollection=$data.isCollection,name=$data.name,price=$data.price,discrbe=$data.discrbe,weight=$data.weight,$out='';$out+='<div class="popup-wrapper popup-fruit"> <div class="j-popup-close close">X</div> <div class="fruit-detail-wrapper"> <div class="fruit-img"> <img src="';
 $out+=$escape(image);
 $out+='" width="100%" height="100%"> </div> <div class="fruit-info-block"> <span class="j-fav fav">';
-if(isFaved){
-$out+='已收藏';
+if(isCollection){
+$out+='取消收藏';
 }else{
 $out+='+收藏';
 }

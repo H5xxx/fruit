@@ -1,8 +1,12 @@
-/*TMODJS:{"version":33,"md5":"389d0d7200bc2d83116ffc91adfc2ca9"}*/
+/*TMODJS:{"version":34,"md5":"905db33a26beea1084f41614bb274f33"}*/
 template('shop',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,categories=$data.categories,category=$data.category,i=$data.i,$escape=$utils.$escape,$out='';$out+='<div class="side-cnt"> <div class="up-line logo"></div> <ul class="side-items"> ';
 $each(categories,function(category,i){
-$out+=' <li class="j-category-item side-item" data-id="';
+$out+=' <li class="j-category-item side-item';
+if(category.isHaveNew){
+$out+=' has-new';
+}
+$out+='" data-id="';
 $out+=$escape(category.id);
 $out+='"> <span class="item-cnt">';
 $out+=$escape(category.name);

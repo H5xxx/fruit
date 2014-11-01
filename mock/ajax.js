@@ -17,10 +17,17 @@ define(function(require, exports) {
         });
     };
 
-    mock(/\/notice$/, function(options) {
+    mock(/\/service\/firstpage$/, function(options) {
         return {
-            main: '公告',
-            distribution: '配送说明'
+            id: 1,
+            title: '公告',
+            about_us: '关于我们',
+            brand_culture: '企业文化',
+            address: '地址',
+            email: '邮箱',
+            telphone: '号码',
+            notes: '购买须知',
+            distribution: '配送信息'
         };
     });
 
@@ -29,6 +36,7 @@ define(function(require, exports) {
             {
                 id: 1,
                 name: '水果1',
+                isHaveNew: 1,
                 fruits: [
                     {
                         id: 1,
@@ -41,6 +49,7 @@ define(function(require, exports) {
                         id: 2,
                         name: '香蕉',
                         price: 800,
+                        isNew: 1,
                         iconUrls: './asset/img/fruit.png'
                     }
                 ]
@@ -76,7 +85,8 @@ define(function(require, exports) {
             weight: 500,
             discrbe: '新鲜的苹果',
             iconUrls: './asset/img/fruit.png',
-            imageUrls: './asset/img/fruit-large.png'
+            imageUrls: './asset/img/fruit-large.png',
+            isCollection: 0
         };
     });
 
@@ -176,7 +186,7 @@ define(function(require, exports) {
             "deleteDate" : "",
             "fruitIds" : "1,2",
             "status" : 1,
-            "statusDispalyText" : "已删除",
+            "statusDispalyText" : "未支付",
             "oldfruits" : [
                 {
                     id: 1,
@@ -339,6 +349,10 @@ define(function(require, exports) {
         };
     });
 
+    mock(/\/service\/orders\/cancel\/[\w\-]+$/, function(options) {
+        return null;
+    });
+
     mock(/\/service\/orders\/[\w\-]+$/, function(options) {
         return {
             "deleteDate" : "",
@@ -430,6 +444,17 @@ define(function(require, exports) {
             "openid" : "001",
             "createDate" : "2014-10-19 21:15:37",
             "updateDate" : ""
+        };
+    });
+
+    mock(/\/service\/collection\/[\w\-]+$/, function(options) {
+        return null;
+    });
+
+    mock(/\/service\/user$/, function(options) {
+        return {
+            id: 1,
+            name: '用户1'
         };
     });
 

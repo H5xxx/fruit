@@ -17,6 +17,8 @@ define(function(require, exports) {
 
         getData: function(params, callback) {
 
+            this.params = params;
+
             util.finish([
 
                 OrderModel.fetchList.bind(OrderModel, params)
@@ -32,6 +34,8 @@ define(function(require, exports) {
         },
 
         render: function(params){
+            var me = this;
+
             params.orderList.forEach(function(order){
                 order.title = order.oldfruits.map(function(fruit){
                     return fruit.name + '*' + fruit.fruitCount;
@@ -39,6 +43,26 @@ define(function(require, exports) {
             });
 
             OrderList.__super__.render.apply(this, arguments);
+
+            this.el.find('.j-cancel').on('tap', function(e){
+                e.stopPropagation();
+
+                OrderModel.cancelRemotely({
+                    orderId: $(this).attr('data-order-id')
+                }, function(err, data){
+                    me.refreshList();
+                });
+            });
+        },
+
+        refreshList: function(){
+            var me = this;
+            OrderModel.fetchList(me.params, function(err, list){
+                if(!err){
+                    me.params.orderList = list;
+                    me.render(me.params);
+                }
+            }, true)
         }
     });
 
