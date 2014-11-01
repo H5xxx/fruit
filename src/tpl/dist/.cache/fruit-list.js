@@ -1,6 +1,8 @@
-/*TMODJS:{"version":12,"md5":"f9b62ecbd0d3023cc57514f2f36c7232"}*/
+/*TMODJS:{"version":13,"md5":"3bed9860424edf2d7c8c73af213b9351"}*/
 template('fruit-list',function($data,$filename) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,fruits=$data.fruits,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,fruits=$data.fruits,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
+if(fruits.length){
+$out+=' ';
 $each(fruits,function(fruit,i){
 $out+=' <li class="j-fruit-item fruit-item" data-id="';
 $out+=$escape(fruit.id);
@@ -30,6 +32,10 @@ $out+=' <span class="show-detail">点击查看详情</span> ';
 }
 $out+=' </li> ';
 });
+$out+=' ';
+}else{
+$out+=' 没有水果 ';
+}
 $out+=' </ul>';
 return new String($out);
 });

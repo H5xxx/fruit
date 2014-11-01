@@ -1,6 +1,8 @@
-/*TMODJS:{"version":8,"md5":"7e113616fa9b744e6f838259f5880681"}*/
+/*TMODJS:{"version":9,"md5":"99489bc046fc18f2339d6fc0f5fd31d9"}*/
 template('order-list',function($data,$filename) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,orderList=$data.orderList,order=$data.order,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,orderList=$data.orderList,$each=$utils.$each,order=$data.order,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
+if(orderList.length){
+$out+=' ';
 $each(orderList,function(order,i){
 $out+=' <li class="order-item"> <h5 class="item-title">';
 $out+=$escape(order.title);
@@ -34,6 +36,10 @@ $out+='">查看详情</span> ';
 }
 $out+=' </span> </li> ';
 });
+$out+=' ';
+}else{
+$out+=' 还没有订单 ';
+}
 $out+=' </ul>';
 return new String($out);
 });
