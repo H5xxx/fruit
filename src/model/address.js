@@ -4,6 +4,7 @@
 
 define(function(require, exports) {
     var url = require('../url');
+    var util = require('../util');
 
     var Address = require('../proto/model').sub();
 
@@ -39,6 +40,16 @@ define(function(require, exports) {
                 isDefault: address.isDefault,
                 consignee: address.consignee
             }, function(response){
+                if(!response.err) Address.save([response.data]);
+
+                callback(response.err, response.data);
+            });
+        },
+
+        setDefault: function(addressId, callback){
+            $.post(util.format(url.setDefaultAddress, {
+                addressId: addressId
+            }), {}, function(response){
                 if(!response.err) Address.save([response.data]);
 
                 callback(response.err, response.data);

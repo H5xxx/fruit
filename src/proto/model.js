@@ -11,14 +11,14 @@ define(function(require, exports) {
         url: '',
 
         // fetch data with its url & given params
-        fetch: function(params, callback){
+        fetch: function(params, callback, nocache){
             var Model = this;
 
             var fetched = Model.fetched = Model.fetched || {},
                 url = util.format(Model.url, params);
 
             // cached
-            if(fetched[url]){
+            if(!nocache && fetched[url]){
                 callback && callback(null, fetched[url]);
 
             // not cached

@@ -3,7 +3,7 @@
  */
 
 define(function(require, exports) {
-	var util = require('../util');
+    var util = require('../util');
 
     var OrderModel = require('../model/order');
 
@@ -33,9 +33,9 @@ define(function(require, exports) {
 
         render: function(params){
             params.orderList.forEach(function(order){
-            	order.title = order.oldfruits.map(function(fruit){
-            		return fruit.name + '*' + fruit.fruitCount;
-            	}).join(', ');
+                order.title = order.oldfruits.map(function(fruit){
+                    return fruit.name + '*' + fruit.fruitCount;
+                }).join(', ');
             });
 
             OrderList.__super__.render.apply(this, arguments);

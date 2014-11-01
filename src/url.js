@@ -12,10 +12,13 @@ define(function(require, exports) {
         addFav: '/fav/add',
         getAddressList: '/service/address',
         createAddress: '/service/address',
+        setDefaultAddress: '/service/address/default/${addressId}',
         getOrderList: '/service/orders',
         createOrder: '/service/orders',
         getOrder: '/service/orders/${orderId}',
-        getCookie: '/service/cookie?code=${code}'
+        getCookie: '/service/cookie?code=${code}',
+        getCollectionList: '/service/collection',
+        createCollection: '/service/collection'
     } : {
         getNotice: '/notice',
         getCategories: '/service/product',
@@ -23,10 +26,13 @@ define(function(require, exports) {
         addFav: '/fav/add',
         getAddressList: '/service/address',
         createAddress: '/service/address/add',
+        setDefaultAddress: '/service/address/default/${addressId}',
         getOrderList: '/service/orders',
         createOrder: '/service/orders/add',
         getOrder: '/service/orders/${orderId}',
-        getCookie: '/service/cookie?code=${code}'
+        getCookie: '/service/cookie?code=${code}',
+        getCollectionList: '/service/collection',
+        createCollection: '/service/collection/add'
     };
 
     for (var name in urls) {

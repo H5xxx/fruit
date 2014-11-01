@@ -17,6 +17,8 @@ define(function(require, exports) {
 
         getData: function(params, callback) {
 
+            this.params = params;
+
             util.finish([
 
                 AddressModel.fetch.bind(AddressModel, params)
@@ -39,9 +41,34 @@ define(function(require, exports) {
             this.initBar();
         },
 
+        refreshList: function(){
+            var me = this;
+            AddressModel.fetch(me.params, function(err, list){
+                if(!err){
+                    me.params.addressList = list;
+                    me.render(me.params);
+                }
+            }, true)
+        },
+
         initAddressList: function(){
             var me = this,
                 addressItems = this.el.find('.j-address-item');
+
+            addressItems.each(function(_, addressItem){
+                addressItem = $(addressItem);
+
+                var addressId = addressItem.attr('data-address-id');
+
+                addressItem.find('.j-set-default').on('tap', function(e){
+                    e.stopPropagation();
+
+                    AddressModel.setDefault(addressId, function(err, data){
+                        if(err) Popup.alert(err);
+                        else me.refreshList();
+                    });
+                });
+            });
         },
 
         initBar: function(){
@@ -51,11 +78,8 @@ define(function(require, exports) {
 
             next.on('tap', function(e){
                 me.createAddress(function(err, address){
-                    if(err){
-                        Popup.alert(err);
-                    }else{
-                    	// TODO: refresh address list
-                    }
+                    if(err) Popup.alert(err);
+                    else me.refreshList();
                 });
             });
         },

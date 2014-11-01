@@ -6,10 +6,12 @@ define(function(require, exports) {
     var cart = require('./cart');
     var Popup = require('./popup');
     var template = require('template');
+    var Collection = require('../model/collection');
 
     var FruitDetail = Spine.Class.sub({
         init: function(fruit){
         	this.fruit = fruit;
+            fruit.isFaved = Collection.findByAttribute('fruitid', fruit.id);
             this.render();
         },
         render: function(){
@@ -24,11 +26,14 @@ define(function(require, exports) {
                 wrapper = this.wrapper,
                 popup = this.popup;
 
-            var isFaved = false;
-
             wrapper.find('.j-fav').one('tap', function(e){
-            	if(!isFaved){
-            		$(this).text('已收藏');
+                var _this = $(this);
+            	if(!Collection.findByAttribute('fruitid', fruit.id)){
+                    Collection.createRemotely({
+                        fruitid: fruit.id
+                    }, function(err, collection){
+                        if(!err) _this.text('已收藏');
+                    });
             	}
             });
 

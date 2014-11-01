@@ -34,6 +34,7 @@ define(function(require, exports) {
                         id: 1,
                         name: '苹果',
                         price: 500,
+                        oldprice: 1000,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
@@ -58,6 +59,7 @@ define(function(require, exports) {
                         id: 4,
                         name: '梨',
                         price: 1000,
+                        oldprice: 2000,
                         iconUrls: './asset/img/fruit.png'
                     }
                 ]
@@ -65,11 +67,12 @@ define(function(require, exports) {
         ];
     });
 
-    mock(/\/service\/product\/\d+$/, function(options) {
+    mock(/\/service\/product\/[\w\-]+$/, function(options) {
         return {
             id: 1,
             name: '苹果',
             price: 1000,
+            oldprice: 2000,
             weight: 500,
             discrbe: '新鲜的苹果',
             iconUrls: './asset/img/fruit.png',
@@ -130,7 +133,26 @@ define(function(require, exports) {
         };
     });
 
-    mock(/\/service\/address\/add$/, function(options) {
+    mock(/\/service\/address\/[\w\-]+$/, function(options) {
+        return {
+            cityCode: "372900",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryCode: "372922",
+            countryName: "曹县",
+            createDate: "2014-10-03 10:06:05",
+            detailAddress: "清河办事处",
+            id: "a1",
+            isDefault: "1",
+            openid: "abcd",
+            provinceCode: "370000",
+            provinecName: "山东省",
+            state: "0",
+            telPhone: "13800138000"
+        };
+    });
+
+    mock(/\/service\/address\/default\/[\w\-]+$/, function(options) {
         return {
             cityCode: "372900",
             cityName: "菏泽市",
@@ -364,4 +386,51 @@ define(function(require, exports) {
     mock(/\/service\/cookie/, function(options) {
         return {};
     });
+
+    mock(/\/service\/collection$/, function(options) {
+        return [
+            {
+                "id" : "1",
+                "fruitid" : "1",
+                "deleteDate" : "",
+                "fruitVO" : null,
+                "status" : 0,
+                "openid" : "001",
+                "createDate" : "2014-10-19 21:15:37",
+                "updateDate" : ""
+            }, {
+                "id" : "2",
+                "fruitid" : "2",
+                "deleteDate" : "",
+                "fruitVO" : null,
+                "status" : 0,
+                "openid" : "001",
+                "createDate" : "2014-10-19 21:15:42",
+                "updateDate" : ""
+            }, {
+                "id" : "3",
+                "fruitid" : "3",
+                "deleteDate" : "",
+                "fruitVO" : null,
+                "status" : 0,
+                "openid" : "001",
+                "createDate" : "2014-10-19 21:15:43",
+                "updateDate" : ""
+            }
+        ];
+    });
+
+    mock(/\/service\/collection\/add$/, function(options) {
+        return {
+            "id" : "1",
+            "fruitid" : "1",
+            "deleteDate" : "",
+            "fruitVO" : null,
+            "status" : 0,
+            "openid" : "001",
+            "createDate" : "2014-10-19 21:15:37",
+            "updateDate" : ""
+        };
+    });
+
 });
