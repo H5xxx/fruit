@@ -62,7 +62,7 @@ define(function(require, exports) {
                 addressId: order.addressId,
                 fruitIds: order.fruits.map(function(fruit){ return fruit.id; }).join(','),
                 fruitnums: order.fruits.map(function(fruit){ return fruit.num; }).join(','),
-                amount: order.amount / 100
+                amount: order.amount * 100
             }, function(response){
                 if(!response.err) Order.save(response.data);
                 callback(response.err, response.data);
