@@ -65,6 +65,24 @@ define(function(require, exports){
             return this.show(require('template')('popup-alert', {
                 cnt: cnt
             }));
+        },
+
+        confirm: function(cnt, callback){
+            var popup = this.show(require('template')('popup-confirm', {
+                cnt: cnt
+            }));
+
+            popup.wrapper.find('.j-popup-cancel').on('tap', function(e){
+                popup.hide();
+                callback(false);
+            });
+
+            popup.wrapper.find('.j-popup-confirm').on('tap', function(e){
+                popup.hide();
+                callback(true);
+            });
+
+            return popup;
         }
     });
 

@@ -58,6 +58,8 @@ define(function(require, exports) {
         },
 
         createRemotely: function(order, callback){
+            var Model = this;
+
             $.post(url.createOrder, {
                 addressId: order.addressId,
                 fruitIds: order.fruits.map(function(fruit){ return fruit.id; }).join(','),

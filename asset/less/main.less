@@ -15,6 +15,7 @@ body{
 		position: relative;
 		height: 100%;
 		padding-bottom: @navbarHeight + @barHeight;
+		overflow: auto;
 
 		background-color: @baseColor;
 
@@ -176,6 +177,34 @@ body{
 			background-color: @fontColor;
 			color: @baseColor;
 		}
+	}
+
+	.popup-confirm{
+		width: 70%;
+		margin-left: -35%;
+
+		.cnt{
+			padding: 20px 10px;
+
+			text-align: center;
+		}
+
+		.bar{
+			overflow: hidden;
+
+			.cancel, .confirm{
+				float: left;
+				width: 50%;
+
+				text-align: center;
+				line-height: 40px;
+
+				background-color: @fontColor;
+				color: @baseColor;
+			}
+		}
+
+		
 	}
 }
 

@@ -227,6 +227,7 @@ body {
   position: relative;
   height: 100%;
   padding-bottom: 80px;
+  overflow: auto;
   background-color: #fafafa;
 }
 .main-container .page-container .fruit-item {
@@ -363,6 +364,26 @@ body {
   background-color: #333333;
   color: #fafafa;
 }
+.popup-layer .popup-confirm {
+  width: 70%;
+  margin-left: -35%;
+}
+.popup-layer .popup-confirm .cnt {
+  padding: 20px 10px;
+  text-align: center;
+}
+.popup-layer .popup-confirm .bar {
+  overflow: hidden;
+}
+.popup-layer .popup-confirm .bar .cancel,
+.popup-layer .popup-confirm .bar .confirm {
+  float: left;
+  width: 50%;
+  text-align: center;
+  line-height: 40px;
+  background-color: #333333;
+  color: #fafafa;
+}
 .nav-bar {
   position: fixed;
   bottom: 0;
@@ -451,7 +472,7 @@ body {
   border-bottom: 1px solid #e3e3e3;
 }
 .shop-container .side-cnt {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 120px;

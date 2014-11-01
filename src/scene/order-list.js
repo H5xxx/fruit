@@ -6,6 +6,7 @@ define(function(require, exports) {
     var util = require('../util');
 
     var OrderModel = require('../model/order');
+    var Popup = require('../widget/popup');
 
     var OrderList = require('../proto/scene').sub({
 
@@ -47,10 +48,16 @@ define(function(require, exports) {
             this.el.find('.j-cancel').on('tap', function(e){
                 e.stopPropagation();
 
-                OrderModel.cancelRemotely({
-                    orderId: $(this).attr('data-order-id')
-                }, function(err, data){
-                    me.refreshList();
+                var orderId = $(this).attr('data-order-id');
+
+                Popup.confirm('订单删除后将无法恢复，确定要删除吗？', function(result){
+                    if(result){
+                        OrderModel.cancelRemotely({
+                            orderId: orderId
+                        }, function(err, data){
+                            me.refreshList();
+                        });
+                    }
                 });
             });
         },
