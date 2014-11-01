@@ -399,6 +399,12 @@ body {
 .nav-bar .nav.active .icon-head {
   background-image: url('../img/icon/head-green.png');
 }
+.nav-bar .nav.has-new::after {
+  content: "new";
+  position: absolute;
+  top: -7px;
+  font-size: smaller;
+}
 .home-container .logo-block {
   height: 120px;
   background: no-repeat center url('../img/logo.png');
@@ -473,9 +479,8 @@ body {
 .shop-container .side-cnt .side-items .side-item.has-new::after {
   content: "new";
   position: absolute;
-  right: 6px;
   top: 6px;
-  font-size: 8px;
+  font-size: smaller;
 }
 .shop-container .main-cnt {
   margin-left: 120px;
@@ -653,9 +658,16 @@ body {
 .address-container .items .new-item .input-block {
   padding: 0 8px 0 34px;
   margin-top: 10px;
+  overflow: hidden;
 }
 .address-container .items .new-item .input-block .input-line {
-  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+.address-container .items .new-item .input-block .input-line .icon {
+  position: absolute;
+  top: 8px;
+  left: -20px;
 }
 .address-container .items .new-item .input-block .input-line > * {
   margin-bottom: 9px;
@@ -694,9 +706,16 @@ body {
 .manage-address-container .items .new-item .input-block {
   padding: 0 8px 0 34px;
   margin-top: 10px;
+  overflow: hidden;
 }
 .manage-address-container .items .new-item .input-block .input-line {
-  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+.manage-address-container .items .new-item .input-block .input-line .icon {
+  position: absolute;
+  top: 8px;
+  left: -20px;
 }
 .manage-address-container .items .new-item .input-block .input-line > * {
   margin-bottom: 9px;

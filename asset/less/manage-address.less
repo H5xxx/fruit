@@ -43,8 +43,18 @@
 		.input-block{
 			padding: 0 8px 0 34px;
 			margin-top: 10px;
+
+			overflow: hidden;
+
 			.input-line{
-				overflow: hidden;
+				position: relative;
+				clear: both;
+
+				.icon{
+					position: absolute;
+					top: 8px;
+					left: -20px;
+				}
 
 				&>*{
 					margin-bottom: 9px;

@@ -33,5 +33,15 @@
     		.icon-cart{background-image: url('../img/icon/cart-green.png');}
     		.icon-head{background-image: url('../img/icon/head-green.png');}
 		}
+
+		&.has-new{
+			&::after{
+				content: "new";
+				position: absolute;
+				top: -7px;
+
+				font-size: smaller;
+			}
+		}
 	}
 }
