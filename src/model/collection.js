@@ -23,10 +23,12 @@ define(function(require, exports) {
         },
 
         createRemotely: function(collection, callback){
+            var Model = this;
+
             $.post(url.createCollection, {
                 fruitid: collection.fruitid
             }, function(response){
-                if(!response.err) Collection.save([response.data]);
+                if(!response.err) Model.fetch({}, null, true);
                 callback(response.err, response.data);
             });
         },
