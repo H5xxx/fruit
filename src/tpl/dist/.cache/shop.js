@@ -1,4 +1,4 @@
-/*TMODJS:{"version":34,"md5":"905db33a26beea1084f41614bb274f33"}*/
+/*TMODJS:{"version":35,"md5":"8ca74f6a6f63b39e8e16a86e918ebc3b"}*/
 template('shop',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,categories=$data.categories,category=$data.category,i=$data.i,$escape=$utils.$escape,$out='';$out+='<div class="side-cnt"> <div class="up-line logo"></div> <ul class="side-items"> ';
 $each(categories,function(category,i){
@@ -12,6 +12,6 @@ $out+='"> <span class="item-cnt">';
 $out+=$escape(category.name);
 $out+='</span> </li> ';
 });
-$out+=' </ul> </div> <div class="main-cnt">  <div class="j-fruit-list-wrapper"> </div> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num">3</span> 件，共 <span class="j-sum sum">15</span> 元</p> <i class="j-next op"></i> </div>';
+$out+=' </ul> </div> <div class="main-cnt">  <div class="j-fruit-list-wrapper"> </div> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num">3</span> 件，共 <span class="j-sum sum">15</span> 元</p> <i class="j-next op icon icon-tick"></i> </div>';
 return new String($out);
 });

@@ -1,2 +1,2 @@
-/*TMODJS:{"version":17,"md5":"b4cb315013377ad1265acfceed4d7bba"}*/
-template('cart','<div class="j-fruit-list-wrapper"> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num"></span> 件，共 <span class="j-sum sum"></span> 元</p> <i class="j-next op"></i> </div>');
+/*TMODJS:{"version":18,"md5":"cfc8c9990c77dac28447b1a904e4aeaa"}*/
+template('cart','<div class="j-fruit-list-wrapper"> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num"></span> 件，共 <span class="j-sum sum"></span> 元</p> <i class="j-next op icon icon-tick"></i> </div>');
