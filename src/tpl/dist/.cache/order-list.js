@@ -1,10 +1,12 @@
-/*TMODJS:{"version":9,"md5":"99489bc046fc18f2339d6fc0f5fd31d9"}*/
+/*TMODJS:{"version":10,"md5":"3d5ab2c12e101d314d8ad0296be63ff3"}*/
 template('order-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,orderList=$data.orderList,$each=$utils.$each,order=$data.order,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
 if(orderList.length){
 $out+=' ';
 $each(orderList,function(order,i){
-$out+=' <li class="order-item"> <h5 class="item-title">';
+$out+=' <li class="order-item order-status';
+$out+=$escape(order.status);
+$out+='"> <h5 class="item-title">';
 $out+=$escape(order.title);
 $out+='</h5> <span class="item-infos"> <span class="item-info">';
 $out+=$escape(order.statusDispalyText);

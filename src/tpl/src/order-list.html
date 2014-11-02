@@ -1,7 +1,7 @@
 <ul class="container-cnt items">
 	{{if orderList.length}}
 		{{each orderList as order i}}
-		<li class="order-item">
+		<li class="order-item order-status{{order.status}}">
 			<h5 class="item-title">{{order.title}}</h5>
 			<span class="item-infos">
 				<span class="item-info">{{order.statusDispalyText}}</span>

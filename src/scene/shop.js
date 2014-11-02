@@ -4,6 +4,7 @@
 
 define(function(require, exports) {
     var util = require('../util');
+    var template = require('template');
 
     var Category = require('../model/category');
     var FruitList = require('../widget/fruitList');
@@ -44,18 +45,37 @@ define(function(require, exports) {
 
         initCategoryList: function(){
             var categoryItems = this.el.find('.j-category-item'),
+                packageListWrapper = this.el.find('.j-package-list-wrapper'),
                 fruitListWrapper = this.el.find('.j-fruit-list-wrapper'),
                 fruitList = new FruitList(fruitListWrapper, 'shop');
 
             var active = function(categoryItem){
-                if(categoryItem.hasClass('active')){
-                    return;
-                }
-
                 categoryItems.removeClass('active');
                 categoryItem.addClass('active');
 
-                fruitList.render(Category.find(categoryItem.attr('data-id')).fruits);
+                var category = Category.find(categoryItem.attr('data-id'));
+
+                fruitList.render(category.fruits);
+
+                if(category.packages && category.packages.length){
+                    packageListWrapper.html(template('package-list', category));
+
+                    var packageItems = packageListWrapper.find('.j-package');
+                    packageItems.on('tap', function(){
+                        packageItems.removeClass('active');
+
+                        var _this = $(this),
+                            fruits = _this.attr('data-package-fruits');
+                        _this.addClass('active');
+
+                        fruits = fruits ? fruits.split(',') : [];
+                        fruitList.render(category.fruits.filter(function(fruit){
+                            return fruits.indexOf(fruit.id) >= 0;
+                        }));
+                    });
+                }else{
+                    packageListWrapper.html('');
+                }
             };
 
             categoryItems.on('tap', function(e){

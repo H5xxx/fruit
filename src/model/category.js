@@ -7,7 +7,7 @@ define(function(require, exports) {
 
     var Category = require('../proto/model').sub();
 
-    Category.configure('Category', 'id', 'name', 'fruits', 'isHaveNew');
+    Category.configure('Category', 'id', 'name', 'packages', 'fruits', 'isHaveNew');
 
     Category.extend({
         url: url.getCategories,

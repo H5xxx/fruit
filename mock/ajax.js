@@ -37,6 +37,16 @@ define(function(require, exports) {
                 id: 1,
                 name: '水果1',
                 isHaveNew: 1,
+                packages: [
+                    {
+                        name: '五元双拼',
+                        fruits: '1'
+                    },
+                    {
+                        name: '八元三拼',
+                        fruits: '2'
+                    }
+                ],
                 fruits: [
                     {
                         id: 1,
@@ -57,6 +67,12 @@ define(function(require, exports) {
             {
                 id: 2,
                 name: '水果2',
+                packages: [
+                    {
+                        name: '十元双拼',
+                        fruits: '4,5'
+                    }
+                ],
                 fruits: [
                     {
                         id: 3,
@@ -69,6 +85,27 @@ define(function(require, exports) {
                         name: '梨',
                         price: 1000,
                         oldprice: 2000,
+                        iconUrls: './asset/img/fruit.png'
+                    },
+                    {
+                        id: 5,
+                        name: '其他',
+                        price: 1500,
+                        oldprice: 3000,
+                        iconUrls: './asset/img/fruit.png'
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: '水果3',
+                packages: [],
+                fruits: [
+                    {
+                        id: 6,
+                        name: 'sth',
+                        price: 500,
+                        oldprice: 1000,
                         iconUrls: './asset/img/fruit.png'
                     }
                 ]

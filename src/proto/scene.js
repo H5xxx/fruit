@@ -5,6 +5,7 @@
 define(function(require, exports) {
     var util = require('../util');
     var transition = require('../transition');
+    var Popup = require('../widget/popup');
 
     var Cookie = require('../model/cookie');
 
@@ -49,7 +50,19 @@ define(function(require, exports) {
 
             params = params || {};
 
-            Cookie.fetch(util.parseURL().params, function(err){
+            var urlParams = util.parseURL().params;
+
+            if(!(urlParams && urlParams.code)){
+                Popup.alert('请从微信中访问！');
+                return;
+            }
+
+            Cookie.fetch(urlParams, function(err){
+
+                if(err){
+                    Popup.alert(err);
+                    return;
+                }
 
                 me.getData(params, function(err, data) {
 

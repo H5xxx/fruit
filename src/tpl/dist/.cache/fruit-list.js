@@ -1,4 +1,4 @@
-/*TMODJS:{"version":14,"md5":"1bec3f1816cb2944447921a450df4c61"}*/
+/*TMODJS:{"version":15,"md5":"a73b9e8a1a9dfea1e190131442c757ed"}*/
 template('fruit-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,fruits=$data.fruits,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
 if(fruits.length){
@@ -34,7 +34,15 @@ $out+=' </li> ';
 });
 $out+=' ';
 }else{
-$out+=' 没有内容 ';
+$out+=' ';
+if(type === 'shop'){
+$out+=' 亲，该分类下无商品 ';
+}else if(type === 'cart'){
+$out+=' 亲，您还没有购买任何商品，马上去逛逛吧 ';
+}else if(type === 'fav'){
+$out+=' 亲，您还没有收藏任何商品，马上去逛逛吧 ';
+}
+$out+=' ';
 }
 $out+=' </ul>';
 return new String($out);

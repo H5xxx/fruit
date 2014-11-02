@@ -13,6 +13,7 @@ define(function(require, exports) {
         url: url.getFruit,
 
         save: function(item){
+            item.id = item.id + '';
             item.price = item.price / 100;  // 单位为分
             item.oldprice = item.oldprice / 100;  // 单位为分
             item.icon = (item.iconUrls || '').split(',')[0];

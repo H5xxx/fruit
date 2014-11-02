@@ -538,8 +538,9 @@ body {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  color: #fafafa;
+  color: #333333;
   font-family: cursive;
+  font-weight: bold;
 }
 .popup-fruit .fruit-detail-wrapper {
   height: 100%;
@@ -812,6 +813,14 @@ body {
   float: right;
   margin-left: 8px;
   font-size: 12px;
+}
+.order-list-container .items .order-item.order-status1 .item-info {
+  color: #d19700;
+}
+.order-list-container .items .order-item.order-status3 .item-info,
+.order-list-container .items .order-item.order-status4 .item-info,
+.order-list-container .items .order-item.order-status5 .item-info {
+  color: #527713;
 }
 .order-list-container .items .order-item .item-address {
   margin-top: 12px;
