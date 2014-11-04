@@ -485,15 +485,27 @@ body {
   top: 0;
   width: 100px;
   height: 100%;
+  overflow: auto;
   background-color: #f0f0f0;
   border-right: 1px solid #e3e3e3;
+}
+.shop-container .side-cnt .up-line {
+  position: fixed;
+  width: 100px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  z-index: 10;
 }
 .shop-container .side-cnt .logo {
   background: no-repeat center url('../img/logo.png');
   background-size: 72px;
+  background-color: #f0f0f0;
 }
 .shop-container .side-cnt .side-items {
   font-size: 14px;
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
 .shop-container .side-cnt .side-items .side-item {
   position: relative;
@@ -515,8 +527,13 @@ body {
 .shop-container .main-cnt {
   margin-left: 100px;
 }
+.shop-container .main-cnt .sub-opts-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 .shop-container .main-cnt .sub-opts {
   text-align: right;
+  white-space: nowrap;
 }
 .shop-container .main-cnt .sub-opts .sub-opt {
   display: inline-block;
