@@ -1,7 +1,7 @@
-/*TMODJS:{"version":13,"md5":"de5d6521052014aeaacddf076fa6288a"}*/
+/*TMODJS:{"version":14,"md5":"578442976aac310813c7133e78449d43"}*/
 template('feedback',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,order=$data.order,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
-$each(order.fruits,function(fruit,i){
+$each(order.oldfruits,function(fruit,i){
 $out+=' <li class="fruit-item"> <img class="item-pic" src="';
 $out+=$escape(fruit.icon);
 $out+='"></img> <h5 class="item-title"> ';

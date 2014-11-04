@@ -34,7 +34,7 @@ define(function(require, exports) {
             '/personal/order-list': 'order-list',
             '/personal/order/:orderId/feedback': 'feedback',
             '/personal/fav': 'fav',
-            '/personal/feedback': 'feedback'
+            //'/personal/feedback': 'feedback'
         },
 
         extensions: [

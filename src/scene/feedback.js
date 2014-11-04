@@ -32,6 +32,10 @@ define(function(require, exports) {
         },
 
         render: function(params){
+            params.order.oldfruits.forEach(function(fruit){
+                fruit.icon = (fruit.iconUrls || '').split(',')[0];
+            });
+
             Feedback.__super__.render.apply(this, arguments);
 
             var page = this.page;
