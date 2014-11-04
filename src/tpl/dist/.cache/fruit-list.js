@@ -1,4 +1,4 @@
-/*TMODJS:{"version":15,"md5":"a73b9e8a1a9dfea1e190131442c757ed"}*/
+/*TMODJS:{"version":18,"md5":"514051f4c70790d2d44d320232168ae6"}*/
 template('fruit-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,fruits=$data.fruits,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
 if(fruits.length){
@@ -8,11 +8,15 @@ $out+=' <li class="j-fruit-item fruit-item" data-id="';
 $out+=$escape(fruit.id);
 $out+='"> <img class="item-pic" src="';
 $out+=$escape(fruit.icon);
-$out+='"></img> <h5 class="item-title">';
+$out+='"></img> <h5 class="item-title"> ';
 $out+=$escape(fruit.name);
-$out+='</h5> <p class="item-info"> ';
+$out+=' ';
 if(fruit.isNewFruit){
-$out+=' <i class="item-feature new">新</i> ';
+$out+=' <sup class="feature">new</sup> ';
+}
+$out+=' </h5> <p class="item-info"> ';
+if(fruit.isNewFruit){
+$out+='  ';
 }
 $out+=' ';
 if(fruit.oldprice){
