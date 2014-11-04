@@ -20,7 +20,7 @@ define(function(require, exports) {
     mock(/\/service\/firstpage$/, function(options) {
         return {
             id: 1,
-            title: '公告',
+            title: '公告关于我们关于我们关于我们关于我们关于我们关于我们',
             about_us: '关于我们',
             brand_culture: '企业文化',
             address: '地址',
