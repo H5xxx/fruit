@@ -17,6 +17,9 @@
 		color: @fontColor;
 		font-family: cursive;
 		font-weight: bold;
+
+		background: no-repeat url('../img/icon/x.png') center;
+		background-size: 16px 16px;
 	}
 
 	.fruit-detail-wrapper{
@@ -73,8 +76,8 @@
 		bottom: 0;
 
 		font-size: 12px;
-		color: #fafafa;
-		background-color: #262626;
+		background-color: #fafafa;
+		color: #262626;
 
 		.cnt{
 			padding: 0 16px;
@@ -94,6 +97,23 @@
 			font-style: normal;
 			border-radius: @barHeight / 2;
 			background-color: @themeColorGreen;
+
+			display: none;
+		}
+
+		.minus{
+			display: block;
+			position: absolute;
+			right: 66px;
+			top: -20px;
+			width: @barHeight;
+			height: @barHeight;
+			text-align: center;
+
+			font-size: 40px;
+			line-height: 35px;
+
+			display: none;
 		}
 	}
 }
