@@ -61,10 +61,16 @@ define(function(require, exports){
             return popup;
         },
 
-        alert: function(cnt){
-            return this.show(require('template')('popup-alert', {
+        alert: function(cnt, callback){
+            var popup = this.show(require('template')('popup-alert', {
                 cnt: cnt
             }));
+
+            popup.wrapper.find('.j-popup-close').on('tap', function(e){
+                callback();
+            });
+
+            return popup;
         },
 
         confirm: function(cnt, callback){

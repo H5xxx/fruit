@@ -115,7 +115,9 @@ define(function(require, exports) {
                     Popup.alert(err);
                 }else{
                     cart.clean();
-                    page.navigate('/personal/order/' + order.orderid);
+                    Popup.alert('订单已提交，我们会第一时间与您取得联系', function(){
+                        page.navigate('/personal/order/' + order.orderid);
+                    });
                 }
             });
         }
