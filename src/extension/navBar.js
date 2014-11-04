@@ -13,13 +13,14 @@ define(function(require, exports) {
         init: function(page){
             this.page = page;
 
-            Spine.Route.bind('navigate', this.onNavigate.bind(this));
+            Spine.Route.bind('change', this.onNavigate.bind(this));
 
-            this.onNavigate(Spine.Route.getPath());
+            this.onNavigate([ { path: Spine.Route.getPath() } ]);
         },
 
-        onNavigate: function(currPath){
-            var me = this;
+        onNavigate: function(curr){
+            var me = this,
+                currPath = curr[0].path;
 
             this.el.find('.j-nav').each(function(_, item){
                 var itemPath = (item = $(item)).attr('data-nav');
