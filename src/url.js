@@ -21,7 +21,8 @@ define(function(require, exports) {
         getCollectionList: '/service/collection',
         createCollection: '/service/collection',
         removeCollection: '/service/collection/${fruitid}',
-        getUser: '/service/user'
+        getUser: '/service/user',
+        addMalution: '/service/orders/malution/${orderId}'
     } : {
         getNotice: '/service/firstpage',
         getCategories: '/service/product',
@@ -38,7 +39,8 @@ define(function(require, exports) {
         getCollectionList: '/service/collection',
         createCollection: '/service/collection/add',
         removeCollection: '/service/collection/${fruitid}',
-        getUser: '/service/user'
+        getUser: '/service/user',
+        addMalution: '/service/orders/malution/${orderId}'
     };
 
     for (var name in urls) {

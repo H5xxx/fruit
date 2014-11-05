@@ -4,8 +4,10 @@
 
 define(function(require, exports) {
     var util = require('../util');
+    var url = require('../url');
 
     var OrderModel = require('../model/order');
+    var Popup = require('../widget/popup');
 
     var Feedback = require('../proto/scene').sub({
 
@@ -40,10 +42,31 @@ define(function(require, exports) {
 
             var page = this.page;
 
-            $('.j-submit').on('tap', function(e){
-                // TODO submit comment
+            var items = this.el.find('.j-fruit-item');
 
-                page.navigate('/personal');
+            $('.j-submit').on('tap', function(e){
+                var fruits = {
+                    ids: [],
+                    ratings: [],
+                    malutions: []
+                };
+
+                items.each(function(_, item){
+                    item = $(item);
+                    fruits.ids.push(item.attr('data-fruit-id'));
+                    fruits.ratings.push(item.find('.j-rating').val());
+                    fruits.malutions.push(item.find('.j-malution').val());
+                });
+
+                $.post(util.format(url.addMalution, params), {
+                    fruitIds: fruits.ids.join(','),
+                    malutionFlag: fruits.ratings.join(','),
+                    malutionText: fruits.malutions.join('@#?#@')
+                }, function(response){
+                    if(response.err) Popup.alert('提交失败！');
+                    else page.navigate('/personal/order-list');
+                });
+
             });
         }
     });

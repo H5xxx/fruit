@@ -1,4 +1,4 @@
-/*TMODJS:{"version":10,"md5":"3d5ab2c12e101d314d8ad0296be63ff3"}*/
+/*TMODJS:{"version":11,"md5":"65e19f1f697cc0f6f958d27996cec301"}*/
 template('order-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,orderList=$data.orderList,$each=$utils.$each,order=$data.order,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
 if(orderList.length){
@@ -28,7 +28,7 @@ $out+='">取消订单</span> ';
 }else if((order.status == 3 || order.status == 4)){
 $out+=' <span class="j-nav item-op" data-nav="/personal/order/';
 $out+=$escape(order.orderid);
-$out+='">去评价</span> <span class="j-nav item-op" data-nav="/personal/order/';
+$out+='/feedback">去评价</span> <span class="j-nav item-op" data-nav="/personal/order/';
 $out+=$escape(order.orderid);
 $out+='">查看详情</span> ';
 }else{

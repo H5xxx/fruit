@@ -13,7 +13,7 @@
 				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">去支付</span>
 				<span class="j-cancel item-op" data-order-id="{{order.orderid}}">取消订单</span>
 				{{else if (order.status == 3 || order.status == 4)}}
-				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">去评价</span>
+				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}/feedback">去评价</span>
 				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">查看详情</span>
 				{{else}}
 				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">查看详情</span>

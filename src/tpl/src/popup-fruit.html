@@ -21,7 +21,13 @@
 			</p>
 			<p class="fruit-info-item">
 				<span class="fruit-info-key">评价</span>
-				<span class="fruit-info-val"></span>
+				<span class="fruit-info-val">
+					{{each oldfruitlist as malution i}}
+						<span class="rating">{{malution.malutionFlag}}星</span>
+						<i>{{malution.malutionText}}</i>
+						<br/>
+					{{/each}}
+				</span>
 			</p>
 		</div>
 	</div>

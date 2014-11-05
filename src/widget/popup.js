@@ -58,6 +58,10 @@ define(function(require, exports){
         show: function(cnt){
             var popup = new Popup(cnt);
 
+            Spine.Route.bind('change', function(){
+                popup.hide();
+            });
+
             return popup;
         },
 

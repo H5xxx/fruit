@@ -47,10 +47,18 @@ define(function(require, exports) {
 
             var barDom = wrapper.find('.j-bar'),
                 numDom = barDom.find('.j-num'),
-                plusDom = barDom.find('.j-plus');
+                plusDom = barDom.find('.j-plus'),
+                minusDom = barDom.find('.j-minus');
 
             var updateBar = function(){
-                numDom.text(cart.cnt[fruit.id] || 0);
+                var num = cart.cnt[fruit.id] || 0;
+                numDom.text(num);
+                
+                if(num){
+                    minusDom.show();
+                }else{
+                    minusDom.hide();
+                }
             };
 
             cart.on('update', updateBar);
@@ -58,6 +66,10 @@ define(function(require, exports) {
 
             plusDom.on('tap', function(e){
                 cart.add(fruit.id, 1);
+            });
+
+            minusDom.on('tap', function(e){
+                cart.add(fruit.id, -1);
             });
         }
     });

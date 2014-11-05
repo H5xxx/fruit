@@ -123,7 +123,17 @@ define(function(require, exports) {
             discrbe: '新鲜的苹果',
             iconUrls: './asset/img/fruit.png',
             imageUrls: './asset/img/fruit-large.png',
-            isCollection: 0
+            isCollection: 0,
+            oldfruitlist: [
+                {
+                    malutionText: "不错，好吃",
+                    malutionFlag: 4
+                },
+                {
+                    malutionText: "真的很不错啊啊啊 啊，推荐啊推荐，嗯嗯嗯",
+                    malutionFlag: 5
+                }
+            ]
         };
     });
 
@@ -495,4 +505,7 @@ define(function(require, exports) {
         };
     });
 
+    mock(/\/service\/orders\/malution\/[\w\-]+$/, function(options) {
+        return null;
+    });
 });
