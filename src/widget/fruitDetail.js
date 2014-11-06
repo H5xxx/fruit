@@ -24,9 +24,11 @@ define(function(require, exports) {
             var me = this,
             	fruit = this.fruit,
                 wrapper = this.wrapper,
-                popup = this.popup;
+                popup = this.popup,
+                slider = wrapper.find('.j-fruit-img-slider');
 
-            Swipe(wrapper.find('.j-fruit-img-slider')[0]);
+            slider.css('height', slider.width() + 'px');
+            Swipe(slider[0]);
 
             wrapper.find('.j-fav').on('tap', function(e){
                 var _this = $(this);
