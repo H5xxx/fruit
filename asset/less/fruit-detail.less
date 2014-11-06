@@ -12,6 +12,7 @@
 		width: 40px;
 		height: 40px;
 		line-height: 40px;
+		z-index: 11;
 
 		text-align: center;
 		color: @fontColor;
@@ -25,6 +26,38 @@
 	.fruit-detail-wrapper{
 		height: 100%;
 		overflow: auto;
+
+		.fruit-img-swipe{
+			overflow: hidden;
+			visibility: hidden;
+			position: relative;
+
+			&::after{
+				content: "滑动查看更多图片";
+				position: absolute;
+				width: 100%;
+				padding: 5px 0;
+				height: 14px;
+				line-height: 14px;
+				margin-top: -24px;
+				z-index: 11;
+
+				font-size: 12px;
+				font-weight: normal;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #f0f0f0;
+			}
+		}
+		.swipe-wrap{
+			overflow: hidden;
+			position: relative;
+		}
+		.swipe-wrap > div{
+			float:left;
+			width:100%;
+			position: relative;
+		}
 
 		.fruit-img{
 			width: 100%;

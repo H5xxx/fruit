@@ -26,6 +26,8 @@ define(function(require, exports) {
                 wrapper = this.wrapper,
                 popup = this.popup;
 
+            Swipe(wrapper.find('.j-fruit-img-slider')[0]);
+
             wrapper.find('.j-fav').on('tap', function(e){
                 var _this = $(this);
             	if(!fruit.isCollection){

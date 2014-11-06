@@ -489,7 +489,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100px;
+  width: 118px;
   height: 100%;
   overflow: auto;
   background-color: #f0f0f0;
@@ -497,7 +497,7 @@ body {
 }
 .shop-container .side-cnt .up-line {
   position: fixed;
-  width: 100px;
+  width: 118px;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
@@ -529,10 +529,10 @@ body {
   content: "new";
   position: absolute;
   top: 6px;
-  font-size: smaller;
+  font-size: 12px;
 }
 .shop-container .main-cnt {
-  margin-left: 100px;
+  margin-left: 118px;
 }
 .shop-container .main-cnt .sub-opts-wrapper {
   overflow-x: auto;
@@ -572,6 +572,7 @@ body {
   width: 40px;
   height: 40px;
   line-height: 40px;
+  z-index: 11;
   text-align: center;
   color: #333333;
   font-family: cursive;
@@ -582,6 +583,35 @@ body {
 .popup-fruit .fruit-detail-wrapper {
   height: 100%;
   overflow: auto;
+}
+.popup-fruit .fruit-detail-wrapper .fruit-img-swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.popup-fruit .fruit-detail-wrapper .fruit-img-swipe::after {
+  content: "滑动查看更多图片";
+  position: absolute;
+  width: 100%;
+  padding: 5px 0;
+  height: 14px;
+  line-height: 14px;
+  margin-top: -24px;
+  z-index: 11;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+}
+.popup-fruit .fruit-detail-wrapper .swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.popup-fruit .fruit-detail-wrapper .swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative;
 }
 .popup-fruit .fruit-detail-wrapper .fruit-img {
   width: 100%;

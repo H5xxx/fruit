@@ -35,7 +35,7 @@ define(function(require, exports) {
         return [
             {
                 id: 1,
-                name: '水果1',
+                name: '新鲜水果',
                 isHaveNew: 1,
                 packages: [
                     {
@@ -122,7 +122,7 @@ define(function(require, exports) {
             weight: 500,
             discrbe: '新鲜的苹果',
             iconUrls: './asset/img/fruit.png',
-            imageUrls: './asset/img/fruit-large.png',
+            imageUrls: './asset/img/fruit-large.png,./asset/img/fruit-large.png',
             isCollection: 0,
             oldfruitlist: [
                 {

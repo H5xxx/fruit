@@ -63,8 +63,11 @@ define(function(require, exports) {
                     malutionFlag: fruits.ratings.join(','),
                     malutionText: fruits.malutions.join('@#?#@')
                 }, function(response){
-                    if(response.err) Popup.alert('提交失败！');
-                    else page.navigate('/personal/order-list');
+                    if(response.err) Popup.alert('提交失败！请重试');
+                    else Popup.alert('<i class="j-next op icon icon-tick-green"></i>评价成功', function(){
+                        OrderModel.fetched = null;
+                        page.navigate('/personal/order-list');
+                    });
                 });
 
             });

@@ -1,8 +1,12 @@
-/*TMODJS:{"version":17,"md5":"becadedbc2b73d10e2c607f0303685ba"}*/
+/*TMODJS:{"version":18,"md5":"6f4c81cc5420b1760672cf67178d2157"}*/
 template('popup-fruit',function($data,$filename) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,image=$data.image,isCollection=$data.isCollection,name=$data.name,price=$data.price,discrbe=$data.discrbe,weight=$data.weight,$each=$utils.$each,oldfruitlist=$data.oldfruitlist,malution=$data.malution,i=$data.i,$out='';$out+='<div class="popup-wrapper popup-fruit"> <div class="j-popup-close close"></div> <div class="fruit-detail-wrapper"> <div class="fruit-img"> <img src="';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,images=$data.images,image=$data.image,i=$data.i,$escape=$utils.$escape,isCollection=$data.isCollection,name=$data.name,price=$data.price,discrbe=$data.discrbe,weight=$data.weight,oldfruitlist=$data.oldfruitlist,malution=$data.malution,$out='';$out+='<div class="popup-wrapper popup-fruit"> <div class="j-popup-close close"></div> <div class="fruit-detail-wrapper"> <div class="j-fruit-img-slider fruit-img-swipe"> <div class="swipe-wrap"> ';
+$each(images,function(image,i){
+$out+=' <div class="fruit-img"> <img src="';
 $out+=$escape(image);
-$out+='" width="100%"> </div> <div class="fruit-info-block"> <span class="j-fav fav">';
+$out+='" width="100%"> </div> ';
+});
+$out+=' </div> </div> <div class="fruit-info-block"> <span class="j-fav fav">';
 if(isCollection){
 $out+='取消收藏';
 }else{
