@@ -250,7 +250,7 @@ body {
   font-weight: bold;
 }
 .main-container .page-container .fruit-item .item-title .feature {
-  color: #527713;
+  color: red;
 }
 .main-container .page-container .fruit-item .item-info {
   margin-top: 4px;
@@ -529,6 +529,7 @@ body {
   content: "new";
   position: absolute;
   top: 6px;
+  color: red;
   font-size: 12px;
 }
 .shop-container .main-cnt {
