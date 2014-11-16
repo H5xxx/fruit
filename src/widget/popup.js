@@ -71,7 +71,7 @@ define(function(require, exports){
             }));
 
             popup.wrapper.find('.j-popup-close').on('tap', function(e){
-                callback();
+                callback && callback();
             });
 
             return popup;
@@ -84,12 +84,12 @@ define(function(require, exports){
 
             popup.wrapper.find('.j-popup-cancel').on('tap', function(e){
                 popup.hide();
-                callback(false);
+                callback && callback(false);
             });
 
             popup.wrapper.find('.j-popup-confirm').on('tap', function(e){
                 popup.hide();
-                callback(true);
+                callback && callback(true);
             });
 
             return popup;

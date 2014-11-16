@@ -1,4 +1,4 @@
-/*TMODJS:{"version":18,"md5":"6f4c81cc5420b1760672cf67178d2157"}*/
+/*TMODJS:{"version":19,"md5":"c869a8a7f87ed33e417c761265973a1a"}*/
 template('popup-fruit',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,images=$data.images,image=$data.image,i=$data.i,$escape=$utils.$escape,isCollection=$data.isCollection,name=$data.name,price=$data.price,discrbe=$data.discrbe,weight=$data.weight,oldfruitlist=$data.oldfruitlist,malution=$data.malution,$out='';$out+='<div class="popup-wrapper popup-fruit"> <div class="j-popup-close close"></div> <div class="fruit-detail-wrapper"> <div class="j-fruit-img-slider fruit-img-swipe"> <div class="swipe-wrap"> ';
 $each(images,function(image,i){
@@ -28,6 +28,6 @@ $out+='星</span> <i>';
 $out+=$escape(malution.malutionText);
 $out+='</i> <br/> ';
 });
-$out+=' </span> </p> </div> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num"></span> 件</p> <i class="j-minus minus">-</i> <i class="j-plus op icon icon-plus"></i> </div> </div>';
+$out+=' </span> </p> </div> </div> <div class="j-bar bar"> <p class="cnt">已选购 <span class="j-num num"></span> 件</p> <i class="j-minus op minus">-</i> <i class="j-plus op icon icon-plus"></i> </div> </div>';
 return new String($out);
 });

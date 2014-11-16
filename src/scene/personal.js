@@ -6,6 +6,7 @@ define(function(require, exports) {
 	var util = require('../util');
 
     var User = require('../model/user');
+    var Popup = require('../widget/popup');
 
     var Personal = require('../proto/scene').sub({
 
@@ -29,6 +30,14 @@ define(function(require, exports) {
 
             });
 
+        },
+
+        render: function(){
+            Personal.__super__.render.apply(this, arguments);
+
+            this.el.find('.j-coupon').on('tap', function(e){
+                Popup.alert('即将开放，敬请期待！');
+            });
         }
     });
 
