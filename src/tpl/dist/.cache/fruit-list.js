@@ -1,4 +1,4 @@
-/*TMODJS:{"version":18,"md5":"514051f4c70790d2d44d320232168ae6"}*/
+/*TMODJS:{"version":22,"md5":"90b0e22502f09de8ea785ed19152d3d4"}*/
 template('fruit-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,fruits=$data.fruits,$each=$utils.$each,fruit=$data.fruit,i=$data.i,$escape=$utils.$escape,type=$data.type,$out='';$out+='<ul class="items"> ';
 if(fruits.length){
@@ -9,6 +9,12 @@ $out+=$escape(fruit.id);
 $out+='"> <img class="item-pic" src="';
 $out+=$escape(fruit.icon);
 $out+='"></img> <h5 class="item-title"> ';
+if(type === 'shop'){
+$out+=' <div class="item-ops"> <span class="j-plus plus">+</span> <span class="j-num num" style="display:none;">0</span> <span class="j-minus minus" style="display:none;">-</span> </div> ';
+}else if(type === 'cart'){
+$out+=' <div class="item-ops"> <span class="j-plus plus">+</span> <span class="j-num num" style="display:none;">0</span> <span class="j-minus minus" style="display:none;">-</span> </div> ';
+}
+$out+=' ';
 $out+=$escape(fruit.name);
 $out+=' ';
 if(fruit.isNewFruit){
@@ -27,11 +33,7 @@ $out+='元</span> ';
 $out+=' <span class="item-price">';
 $out+=$escape(fruit.price);
 $out+='元</span> </p> ';
-if(type === 'shop'){
-$out+=' <div class="item-ops"> <span class="j-plus plus">+</span> <span class="j-num num" style="display:none;">0</span> <span class="j-minus minus" style="display:none;">-</span> </div> ';
-}else if(type === 'cart'){
-$out+=' <div class="item-ops"> <span class="j-plus plus">+</span> <span class="j-num num" style="display:none;">0</span> <span class="j-minus minus" style="display:none;">-</span> </div> ';
-}else if(type === 'fav'){
+if(type === 'fav'){
 $out+=' <span class="show-detail">点击查看详情</span> ';
 }
 $out+=' </li> ';

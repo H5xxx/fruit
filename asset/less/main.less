@@ -27,7 +27,8 @@ body{
 				@size: 48px;
 
 				position: absolute;
-				top: 0;
+				top: 50%;
+				margin-top: -@size / 2;
 				left: 5px;
 				width: @size;
 				height: @size;
@@ -37,10 +38,11 @@ body{
 			.item-title{
 				font-size: 14px;
 				font-weight: bold;
+				line-height: 20px;
 
 				.feature{
-					position: relative;
-					top: -5px;
+					position: absolute;
+					margin-top: -8px;
 
 					//color: @themeColorGreen;
 					color: red;
@@ -87,19 +89,17 @@ body{
 			}
 
 			.item-ops{
-				position: absolute;
-				top: 0px;
-				right: 5px;
+				float: right;
 				line-height: 18px;
 
-				font-size: 24px;
+				font-size: 20px;
 
 				.minus, .num, .plus{
 					float: right;
 					.inline-block;
-					height: 24px;
+					height: 20px;
 					width: 24px;
-					padding: 4px;
+					//padding: 4px;
 
 					text-align: center;
 				}
@@ -110,6 +110,7 @@ body{
 
 				.num{
 					width: auto;
+					font-size: 18px;
 					color: @themeColorPurple;
 					font-weight: bold;
 				}

@@ -214,7 +214,8 @@ body {
 }
 .main-container .page-container .fruit-item .item-pic {
   position: absolute;
-  top: 0;
+  top: 50%;
+  margin-top: -24px;
   left: 5px;
   width: 48px;
   height: 48px;
@@ -223,10 +224,11 @@ body {
 .main-container .page-container .fruit-item .item-title {
   font-size: 14px;
   font-weight: bold;
+  line-height: 20px;
 }
 .main-container .page-container .fruit-item .item-title .feature {
-  position: relative;
-  top: -5px;
+  position: absolute;
+  margin-top: -8px;
   color: red;
 }
 .main-container .page-container .fruit-item .item-info {
@@ -261,11 +263,9 @@ body {
   color: #7e7e7e;
 }
 .main-container .page-container .fruit-item .item-ops {
-  position: absolute;
-  top: 0px;
-  right: 5px;
+  float: right;
   line-height: 18px;
-  font-size: 24px;
+  font-size: 20px;
 }
 .main-container .page-container .fruit-item .item-ops .minus,
 .main-container .page-container .fruit-item .item-ops .num,
@@ -274,9 +274,8 @@ body {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  height: 24px;
+  height: 20px;
   width: 24px;
-  padding: 4px;
   text-align: center;
 }
 .main-container .page-container .fruit-item .item-ops .minus,
@@ -285,6 +284,7 @@ body {
 }
 .main-container .page-container .fruit-item .item-ops .num {
   width: auto;
+  font-size: 18px;
   color: #5d255c;
   font-weight: bold;
 }
@@ -481,7 +481,7 @@ body {
   margin-right: 4px;
 }
 .shop-container .up-line {
-  margin: 0 12px;
+  margin: 0 8px;
   padding: 12px 10px;
   height: 24px;
   line-height: 24px;
@@ -491,7 +491,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 118px;
+  width: 110px;
   height: 100%;
   overflow: auto;
   background-color: #f0f0f0;
@@ -499,7 +499,7 @@ body {
 }
 .shop-container .side-cnt .up-line {
   position: fixed;
-  width: 118px;
+  width: 110px;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
@@ -525,17 +525,18 @@ body {
 }
 .shop-container .side-cnt .side-items .side-item.active {
   color: #527713;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .shop-container .side-cnt .side-items .side-item.has-new::after {
   content: "new";
   position: absolute;
   top: 6px;
+  margin-left: -6px;
   color: red;
   font-size: 12px;
 }
 .shop-container .main-cnt {
-  margin-left: 118px;
+  margin-left: 110px;
 }
 .shop-container .main-cnt .sub-opts-wrapper {
   overflow-x: auto;
@@ -558,10 +559,14 @@ body {
   color: #5d255c;
 }
 .shop-container .main-cnt .items {
-  padding: 15px 12px;
+  padding: 15px 8px;
 }
 .shop-container .main-cnt .items .fruit-item {
   margin-bottom: 30px;
+  padding-left: 54px;
+}
+.shop-container .main-cnt .items .fruit-item .item-pic {
+  left: 0;
 }
 .popup-fruit {
   width: 80%;
@@ -940,7 +945,7 @@ body {
   padding: 20px;
 }
 .fav-container .items .fruit-item {
-  margin-bottom: 16px;
+  padding-top: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #e3e3e3;
 }
@@ -949,7 +954,7 @@ body {
 }
 .fav-container .items .fruit-item .show-detail {
   position: absolute;
-  top: 12px;
+  top: 28px;
   right: 4px;
   font-size: 12px;
   color: #7e7e7e;

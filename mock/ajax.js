@@ -75,6 +75,14 @@ define(function(require, exports) {
                         price: 800,
                         isNew: 1,
                         iconUrls: './asset/img/fruit.png'
+                    },
+                    {
+                        id: 3,
+                        name: '香蕉香蕉香蕉',
+                        price: 800,
+                        oldprice: 1200,
+                        isNew: 1,
+                        iconUrls: './asset/img/fruit.png'
                     }
                 ]
             },

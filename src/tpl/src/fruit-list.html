@@ -4,10 +4,26 @@
 		<li class="j-fruit-item fruit-item" data-id="{{fruit.id}}">
 			<img class="item-pic" src="{{fruit.icon}}"></img>
 			<h5 class="item-title">
+
+				{{if type === 'shop'}}
+				<div class="item-ops">
+					<span class="j-plus plus">+</span>
+					<span class="j-num num" style="display:none;">0</span>
+					<span class="j-minus minus" style="display:none;">-</span>
+				</div>
+				{{else if type === 'cart'}}
+				<div class="item-ops">
+					<span class="j-plus plus">+</span>
+					<span class="j-num num" style="display:none;">0</span>
+					<span class="j-minus minus" style="display:none;">-</span>
+				</div>
+				{{/if}}
+
 				{{fruit.name}}
 				{{if fruit.isNewFruit}}
 				<sup class="feature">new</sup>
 				{{/if}}
+
 			</h5>
 			<p class="item-info">
 				{{if fruit.isNewFruit}}
@@ -19,19 +35,7 @@
 				{{/if}}
 				<span class="item-price">{{fruit.price}}元</span>
 			</p>
-			{{if type === 'shop'}}
-			<div class="item-ops">
-				<span class="j-plus plus">+</span>
-				<span class="j-num num" style="display:none;">0</span>
-				<span class="j-minus minus" style="display:none;">-</span>
-			</div>
-			{{else if type === 'cart'}}
-			<div class="item-ops">
-				<span class="j-plus plus">+</span>
-				<span class="j-num num" style="display:none;">0</span>
-				<span class="j-minus minus" style="display:none;">-</span>
-			</div>
-			{{else if type === 'fav'}}
+			{{if type === 'fav'}}
 			<span class="show-detail">点击查看详情</span>
 			{{/if}}
 		</li>
