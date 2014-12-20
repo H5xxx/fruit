@@ -17,11 +17,14 @@ define(function(require, exports) {
         createOrder: '/service/orders',
         getOrder: '/service/orders/${orderId}',
         cancelOrder: '/service/orders/cancel/${orderId}',
+        payOrder: '/service/orders/pay/${orderId}',
         getCookie: '/service/cookie?code=${code}',
         getCollectionList: '/service/collection',
         createCollection: '/service/collection',
         removeCollection: '/service/collection/${fruitid}',
         getUser: '/service/user',
+        getToken: '/service/token',
+        getTransfee: '/service/transfee',
         addMalution: '/service/orders/malution/${orderId}'
     } : {
         getNotice: '/service/firstpage',
@@ -35,11 +38,14 @@ define(function(require, exports) {
         createOrder: '/service/orders/add',
         getOrder: '/service/orders/${orderId}',
         cancelOrder: '/service/orders/cancel/${orderId}',
+        payOrder: '/service/orders/pay/${orderId}',
         getCookie: '/service/cookie?code=${code}',
         getCollectionList: '/service/collection',
         createCollection: '/service/collection/add',
         removeCollection: '/service/collection/${fruitid}',
         getUser: '/service/user',
+        getToken: '/service/token',
+        getTransfee: '/service/transfee',
         addMalution: '/service/orders/malution/${orderId}'
     };
 

@@ -80,6 +80,16 @@ define(function(require, exports) {
                 if(!response.err) Model.fetchList({}, null, true);
                 callback(response.err, response.data);
             });
+        },
+
+        payRemotely: function(params, callback){
+            var Model = this;
+
+            $.post(util.format(url.payOrder, {
+                orderId: params.orderId
+            }), function(response){
+                callback(response.err, response.data);
+            });
         }
     });
 

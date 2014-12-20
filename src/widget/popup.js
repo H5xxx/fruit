@@ -65,9 +65,10 @@ define(function(require, exports){
             return popup;
         },
 
-        alert: function(cnt, callback){
+        alert: function(cnt, callback, op){
             var popup = this.show(require('template')('popup-alert', {
-                cnt: cnt
+                cnt: cnt,
+                op: op || '确定'
             }));
 
             popup.wrapper.find('.j-popup-close').on('tap', function(e){

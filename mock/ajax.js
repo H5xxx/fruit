@@ -5,6 +5,20 @@ define(function(require, exports) {
         return;
     }
 
+    // 模拟微信支付接口
+    if(typeof WeixinJSBridge === 'undefined'){
+        window.WeixinJSBridge = window.WeixinJSBridge || {
+            invoke: function(name, params, callback){
+                console.log(params);
+                setTimeout(function(){
+                    callback({
+                        err_msg: 'get_brand_wcpay_request:ok'
+                    });
+                }, 500);
+            }
+        };
+    }
+
     var mock = function(path, handler){
         return Mock.mock(path, function(options){
             var result = {
@@ -400,12 +414,23 @@ define(function(require, exports) {
         return null;
     });
 
+    mock(/\/service\/orders\/pay\/[\w\-]+$/, function(options) {
+        return {
+            "timeStamp" : "1418635340",
+            "signType" : "MD5",
+            "package" : "prepay_id=wx201412151722193dc4332d4f0869134636",
+            "appid" : "wxc6d22f8dcd8bcdbd",
+            "nonceStr" : "Iome1QjYWEEcMyDB",
+            "paySign" : "883C9829606CBB8B8347A5146510E585"
+        }
+    });
+
     mock(/\/service\/orders\/[\w\-]+$/, function(options) {
         return {
             "deleteDate" : "",
             "fruitIds" : "1,2",
-            "status" : 6,
-            "statusDispalyText" : "已删除",
+            "status" : 1,
+            "statusDispalyText" : "未支付",
             "oldfruits" : [
                 {
                     id: 1,
@@ -496,6 +521,14 @@ define(function(require, exports) {
 
     mock(/\/service\/collection\/[\w\-]+$/, function(options) {
         return null;
+    });
+
+    mock(/\/service\/transfee$/, function(options) {
+        return {
+            "id" : "1",
+            "trans_fee" : 10,
+            "start_fee" : 50
+        };
     });
 
     mock(/\/service\/user$/, function(options) {

@@ -6,6 +6,7 @@ define(function(require, exports) {
     var util = require('../util');
 
     var Category = require('../model/category');
+    var Transfee = require('../model/transfee');
     var Fruit = require('../model/fruit');
     var FruitList = require('../widget/fruitList');
     var cart = require('../widget/cart');
@@ -20,7 +21,17 @@ define(function(require, exports) {
         template: 'cart',
 
         getData: function(params, callback) {
-            callback(null, {});
+            util.finish([
+
+                Transfee.fetch.bind(Transfee, params)
+
+            ], function(transfee){
+
+                callback(null, {
+                    transfee: transfee
+                });
+
+            });
         },
 
         render: function(params){
@@ -33,11 +44,15 @@ define(function(require, exports) {
 
             var barDom = this.el.find('.j-bar'),
                 numDom = barDom.find('.j-num'),
-                sumDom = barDom.find('.j-sum');
+                sumDom = barDom.find('.j-sum'),
+                transfeeDom = barDom.find('.j-transfee'),
+                startfeeDom = barDom.find('.j-startfee');
 
             var updateBar = function(){
                 numDom.text(cart.num);
                 sumDom.text(cart.sum);
+                transfeeDom.text(cart.sum >= params.transfee.start_fee ? 0 : params.transfee.trans_fee);
+                startfeeDom.text(params.transfee.start_fee);
             };
 
             cart.on('update', updateBar);

@@ -115,9 +115,9 @@ define(function(require, exports) {
                     Popup.alert(err);
                 }else{
                     cart.clean();
-                    Popup.alert('<i class="j-next op icon icon-tick-green"></i>订单已提交，我们会第一时间与您取得联系', function(){
+                    Popup.alert('<i class="j-next op icon icon-tick-green"></i>订单已提交！', function(){
                         page.navigate('/personal/order/' + order.orderid);
-                    });
+                    }, '去支付');
                 }
             });
         }

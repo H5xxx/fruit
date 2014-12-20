@@ -5,6 +5,8 @@
 define(function(require, exports) {
     var util = require('../util');
 
+    var Popup = require('../widget/popup');
+
     var OrderModel = require('../model/order');
 
     /*var statusMap = {
@@ -49,6 +51,29 @@ define(function(require, exports) {
 
             $('.j-comment').on('tap', function(e){
                 page.navigate('/personal/order/' + params.order.id + '/feedback');
+            });
+
+            $('.j-pay').on('tap', function(e){
+                OrderModel.payRemotely({
+                    orderId: params.order.id
+                }, function(err, data){
+                    if(err){
+                        Popup.alert('请求失败！请重试');
+                    }else{
+                        if(typeof WeixinJSBridge === 'undefined'){
+                            Popup.alert('请在微信（版本5.0以后）中进行操作！');
+                            return;
+                        }
+                        WeixinJSBridge.invoke('getBrandWCPayRequest', data, function(res){
+                            if(res.err_msg === 'get_brand_wcpay_request:ok'){
+                                Popup.alert('支付完成！我们将尽快安排配送', function(){
+                                    OrderModel.cleanCache();
+                                    page.navigate('/personal/order-list');
+                                });
+                            }
+                        });
+                    }
+                });
             });
         }
     });

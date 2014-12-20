@@ -7,21 +7,14 @@
      "err": null,
      "data": ...
 }
-data部分即为原来的json内容，err部分为null，若出错（无权限，id不存在等），则将错误信息写到err上：
-即出错时返回如下：（code为200）
-{
-     "err": "无权限",
-     "data": null
-}
 
-1：产品资源接口（开放）
 
-1.1获取品类及商品列表
+1：产品资源接口
+
+1.1	获取品类及商品列表
 资源标识: /service/product
 方法: GET
 请求响应示例：
-ccept: application/json
-HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 341
 {
@@ -119,7 +112,7 @@ Content-Length: 341
 
 
 
-1.2获取商品详情(根据ID)
+1.2	获取商品详情(根据ID)
 资源标识: /service/product /{id}
 方法: GET
 请求响应示例：
@@ -149,8 +142,8 @@ Content-Length: 341
 
 2：用户地址接口
 2.1获取用户地址列表接口
-资源标识: /service/address
-方法: GET
+资源标识: /service/address
+方法: GET
 请求响应示例：
 Accept: application/json
 HTTP/1.1 200 OK
@@ -188,8 +181,8 @@ Content-Type: application/json
 
 
 2.2获取单个地址
-资源标识: /service/address/{id}
-方法: GET
+资源标识: /service/address/{id}
+方法: GET
 请求响应示例：
 Accept: application/json
 HTTP/1.1 200 OK
@@ -215,8 +208,8 @@ Content-Type: application/json
 
 
 2.3添加一个地址
-资源标识: /service/orderss
-方法: POST
+资源标识: /service/orderss
+方法: POST
 请求响应示例：
 Accept: application/json
 HTTP/1.1 200 OK
@@ -251,8 +244,8 @@ telPhone:13800138000
 
 
 2.4用户设置默认地址接口
-资源标识: /service/address/default/{id}
-方法: POST
+资源标识: /service/address/default/{id}
+方法: POST
 请求响应示例：
 Content-Type: application/json
 {
@@ -277,8 +270,8 @@ Content-Type: application/json
 
 3：用户订单
 3.1 获取用户订单列表接口
-资源标识: /service/orders
-方法: GET
+资源标识: /service/orders
+方法: GET
 请求响应示例：
 POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
@@ -356,8 +349,8 @@ Content-Type: application/json
 
 
 3.2 用户提交订单
-资源标识: /service/orders
-方法: POST
+资源标识: /service/orders
+方法: POST
 请求响应示例：
 POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
@@ -399,24 +392,27 @@ Form Dataview sourceview URL encoded
 
 
 3.3用户订单支付接口（可能还需要修改）
-资源标识: /service/orders/pay/{orderid}
-方法: POST
+资源标识: /service/orders/pay/{orderid}
+方法: POST
 请求响应示例：
 POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
 {
-	"timestamp" : "1413731049",
-	"noncestr" : "tvxmpBm8sJZIwAzV",
-	"appId" : "wxf8b4f85f3a794e77",
-	"signType" : "sha1",
-	"package" : "bank_type=WX&body=%E5%95%86%E5%93%81%E6%8F%8F%E8%BF%B0&fee_type=1&input_charset=GBK&notify_url=htttp%3A%2F%2Fwww.baidu.com&out_trade_no=A01B001-001&partner=1900000109&spbill_create_ip=0%3A0%3A0%3A0%3A0%3A0%3A0%3A1&total_fee=45&sign=301793DAAD262F4CFCEFB281018A92A7",
-	"paySign" : "f90786db13a410b3aa6d9e859fafb3f513a2702a"
+	"err" : null,
+	"data" : {
+		"timeStamp" : "1418635340",
+		"signType" : "MD5",
+		"package" : "prepay_id=wx201412151722193dc4332d4f0869134636",
+		"appid" : "wxc6d22f8dcd8bcdbd",
+		"nonceStr" : "Iome1QjYWEEcMyDB",
+		"paySign" : "883C9829606CBB8B8347A5146510E585"
+	}
 }
 
 
 3.4用户订单取消接口
-资源标识: /service/orders/cancel/{ orderid }
-方法: POST
+资源标识: /service/orders/cancel/{ orderid }
+方法: POST
 请求响应示例：
 POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
@@ -498,8 +494,8 @@ Form Dataview sourceview URL encoded
 
 
 3.5用户订单评价接口
-资源标识: /service/orders/malution/{ orderid }
-方法: POST
+资源标识: /service/orders/malution/{ orderid }
+方法: POST
 请求响应示例：
 Content-Type: application/json
 Form Dataview sourceview URL encoded
@@ -582,63 +578,144 @@ Form Dataview sourceview URL encoded
 
 4：用户收藏
 4.1 获取用户收藏列表接口
-资源标识: /service/collection
-方法: GET
+资源标识: /service/collection
+方法: GET
 请求响应示例：
-POST  /user/orders/cancel/{openid} HTTP/1.1
+POST   HTTP/1.1
 Content-Type: application/json
-[
-	{
+{
+	"err" : null,
+	"data" : [{
 		"id" : "1",
 		"fruitid" : "1",
 		"deleteDate" : "",
-		"fruitVO" : null,
+		"fruitVO" : {
+			"deleteDate" : "",
+			"status" : 0,
+			"categoryId" : "1",
+			"imageUrls" : "ht1.jpg,",
+			"discrbe" : "好吃又好看",
+			"updateDate" : "2014-10-28 22:44:02",
+			"id" : "1",
+			"categoryName" : "",
+			"price" : 300,
+			"name" : "苹果",
+			"iconUrls" : "h06.jpg",
+			"createDate" : "2014-10-21 20:51:18",
+			"oldprice" : 1
+		},
 		"status" : 0,
 		"openid" : "001",
 		"createDate" : "2014-10-19 21:15:37",
 		"updateDate" : ""
 	}, {
 		"id" : "2",
-		"fruitid" : "1",
+		"fruitid" : "2",
 		"deleteDate" : "",
-		"fruitVO" : null,
+		"fruitVO" : {
+			"deleteDate" : "",
+			"status" : 0,
+			"categoryId" : "1",
+			"imageUrls" : "98f57663.jpg,",
+			"discrbe" : "好吃",
+			"updateDate" : "2014-10-21 23:26:59",
+			"id" : "2",
+			"categoryName" : "",
+			"price" : 500,
+			"name" : "大鸭梨",
+			"iconUrls" : "e177e8e3.jpg",
+			"createDate" : "2014-10-21 20:51:18",
+			"oldprice" : 1
+		},
 		"status" : 0,
 		"openid" : "001",
 		"createDate" : "2014-10-19 21:15:42",
 		"updateDate" : ""
-	}, {
-		"id" : "3",
-		"fruitid" : "1",
-		"deleteDate" : "",
-		"fruitVO" : null,
-		"status" : 0,
-		"openid" : "001",
-		"createDate" : "2014-10-19 21:15:43",
-		"updateDate" : ""
-	}
-]
+	}]
+}
+
 
 4.2用户添加收藏接口
-资源标识: /service/collection
-方法: POST
+资源标识: /service/collection
+方法: POST
 请求响应示例：
-POST  /user/orders/cancel/{openid} HTTP/1.1
+POST   HTTP/1.1
 Content-Type: application/json
+Form Dataview sourceview URL encoded
+	fruitid:3
+相应数据
+{
+	"err" : null,
+	"data" : {
+		"id" : "8",
+		"fruitid" : "3",
+		"deleteDate" : "",
+		"status" : 0,
+		"fruitVO" : null,
+		"openid" : "001",
+		"createDate" : "2014-10-30 21:16:43",
+		"updateDate" : ""
+	}
+}
+
 
 
 5：用户反馈
-5.1 用户反馈接口
-资源标识: /service/user/feedback
-方法: POST
+5.1 用户获取反馈接口
+资源标识: /service/feedback
+方法: GET
+请求响应示例：
+Content-Type: application/json
+{
+	"err" : null,
+	"data" : [{
+				"id" : "1",
+				"deleteDate" : "",
+				"status" : 0,
+				"feedbackText" : "用户的意见",
+				"openid" : "001",
+				"createDate" : "2014-10-19 21:59:59",
+				"updateDate" : ""
+			}, {
+				"id" : "2",
+				"deleteDate" : "",
+				"status" : 0,
+				"feedbackText" : "我要说话，怎么不让说",
+				"openid" : "001",
+				"createDate" : "2014-10-19 21:59:59",
+				"updateDate" : ""
+			}]
+}
+
+
+5.2 用户反馈信息接口
+资源标识: /service/feedback
+方法: POST
 请求响应示例：
 POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
+Form Dataview sourceview URL encoded
+	feedbackText:不想买了，不好用
 
-5.2获取用户基本信息接口
-资源标识: / service/user
-方法: GET
+相应数据：
+{
+	"err" : null,
+	"data" : {
+		"id" : "0",
+		"deleteDate" : "",
+		"status" : 0,
+		"feedbackText" : "不想买了，不好用",
+		"openid" : "001",
+		"createDate" : "",
+		"updateDate" : ""
+	}
+}
+
+
+5.3获取用户基本信息接口
+资源标识: / service/user
+方法: GET
 请求响应示例：
-POST  /user/orders/cancel/{openid} HTTP/1.1
 Content-Type: application/json
 [{
 	"id" : "1",
@@ -650,5 +727,31 @@ Content-Type: application/json
 	"updateDate" : "s"
 }]
 
+
+
+5.4获取access_token接口
+资源标识: / service/token
+方法: GET
+请求响应示例：
+Content-Type: application/json
+{
+	"err" : null,
+	"data" : "zn2qH2ufEzmlQoV9-R_W0E1GCtaxAkgNE05DZePtQvbEgoFHbCfxM7RxkI3j7mc431vx2XXOc9kMAOZzx-Hb9WYyDNs9cbhZWA12g_ZmYec"
+}
+
+
+5.4获取包邮运费信息接口
+资源标识: / service/transfee
+方法: GET
+请求响应示例：
+Content-Type: application/json
+{
+"err" : null,
+"data" : {
+	"id" : "1",
+	"trans_fee" : 1200,
+	"start_fee" : 1100
+}
+}
 
 

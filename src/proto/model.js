@@ -10,6 +10,11 @@ define(function(require, exports) {
     Model.extend({
         url: '',
 
+        // clean fetch cache
+        cleanCache: function(){
+            this.fetched = {};
+        },
+
         // fetch data with its url & given params
         fetch: function(params, callback, nocache){
             var Model = this;
