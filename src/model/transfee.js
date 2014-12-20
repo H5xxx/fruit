@@ -13,6 +13,8 @@ define(function(require, exports) {
         url: url.getTransfee,
 
         save: function(item){
+            item.start_fee = item.start_fee / 100;
+            item.trans_fee = item.trans_fee / 100;
             this.create(item);
         }
     });

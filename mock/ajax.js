@@ -534,8 +534,8 @@ define(function(require, exports) {
     mock(/\/service\/transfee$/, function(options) {
         return {
             "id" : "1",
-            "trans_fee" : 10,
-            "start_fee" : 50
+            "trans_fee" : 1000,
+            "start_fee" : 5000
         };
     });
 
