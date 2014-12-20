@@ -50,12 +50,12 @@ define(function(require, exports) {
             var page = this.page;
 
             $('.j-comment').on('tap', function(e){
-                page.navigate('/personal/order/' + params.order.id + '/feedback');
+                page.navigate('/personal/order/' + params.orderId + '/feedback');
             });
 
             $('.j-pay').on('tap', function(e){
                 OrderModel.payRemotely({
-                    orderId: params.order.id
+                    orderId: params.orderId
                 }, function(err, data){
                     if(err){
                         Popup.alert('请求失败！请重试');
