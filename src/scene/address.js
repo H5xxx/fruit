@@ -4,6 +4,7 @@
 
 define(function(require, exports) {
     var util = require('../util');
+    var Transfee = require('../model/transfee');
     var AddressModel = require('../model/address');
     var Order = require('../model/order');
     var Popup = require('../widget/popup');
@@ -21,11 +22,13 @@ define(function(require, exports) {
 
             util.finish([
 
+                Transfee.fetch.bind(Transfee, params),
                 AddressModel.fetch.bind(AddressModel, params)
 
-            ], function(addressList){
+            ], function(transfee, addressList){
 
                 callback(null, {
+                    transfee: transfee,
                     addressList: addressList
                 });
 
@@ -38,7 +41,7 @@ define(function(require, exports) {
 
             this.initAddressList();
 
-            this.initBar();
+            this.initBar(params);
         },
 
         initAddressList: function(){
@@ -64,21 +67,21 @@ define(function(require, exports) {
             this.el.find('.j-default').trigger('tap');
         },
 
-        initBar: function(){
+        initBar: function(params){
             var me = this;
                 barDom = this.el.find('.j-bar'),
                 next = barDom.find('.j-next');
 
             next.on('tap', function(e){
                 if(me.addressId !== -1){
-                    me.submitOrder();
+                    me.submitOrder(params);
                 }else{
                     me.createAddress(function(err, address){
                         if(err){
                             Popup.alert(err);
                         }else{
                             me.addressId = address.id;
-                            me.submitOrder();
+                            me.submitOrder(params);
                         }
                     });
                 }
@@ -103,13 +106,15 @@ define(function(require, exports) {
             AddressModel.createRemotely(address, callback);
         },
 
-        submitOrder: function(){
+        submitOrder: function(params){
             var page = this.page;
+
+            var transfee = cart.sum >= params.transfee.start_fee ? 0 : params.transfee.trans_fee;
 
             Order.createRemotely({
                 addressId: this.addressId,
                 fruits: cart.list(),
-                amount: cart.sum
+                amount: cart.sum + transfee
             }, function(err, order){
                 if(err){
                     Popup.alert(err);

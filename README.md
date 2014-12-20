@@ -24,3 +24,10 @@ fruit shop（仙果堂）
 ## SERVE
 
 	gulp connect
+
+## server
+
+IP:			182.92.104.216
+User		root/MyEclipse10
+
+/opt/install/apache-tomcat-6.0.14/webapps/xgt/fruit
