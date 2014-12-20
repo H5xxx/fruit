@@ -29,6 +29,26 @@ define(function(require, exports) {
 
             });
 
+        },
+
+        render: function(){
+            Home.__super__.render.apply(this, arguments);
+
+            var noticeCnt = $('#notice-cnt'),
+                noticeLen = noticeCnt.width(),
+                wrapperLen = noticeCnt.parent().width(),
+                maxOffset = noticeLen - wrapperLen,
+                offset = 0;
+
+            if(maxOffset > 0){
+                setInterval(function(){
+                    offset += 1;
+                    if(offset >= maxOffset + 40){
+                        offset = -20;
+                    }
+                    noticeCnt.css('margin-left', -offset + 'px');
+                }, 30);
+            }
         }
     });
 

@@ -15,6 +15,7 @@ body{
 		position: relative;
 		height: 100%;
 		padding-bottom: @navbarHeight + @barHeight;
+		overflow: auto;
 
 		background-color: @baseColor;
 
@@ -26,7 +27,8 @@ body{
 				@size: 48px;
 
 				position: absolute;
-				top: 0;
+				top: 50%;
+				margin-top: -@size / 2;
 				left: 5px;
 				width: @size;
 				height: @size;
@@ -34,8 +36,17 @@ body{
 			}
 
 			.item-title{
-				font-size: 16px;
+				font-size: 14px;
 				font-weight: bold;
+				line-height: 20px;
+
+				.feature{
+					position: absolute;
+					margin-top: -8px;
+
+					//color: @themeColorGreen;
+					color: red;
+				}
 			}
 
 			.item-info{
@@ -78,18 +89,17 @@ body{
 			}
 
 			.item-ops{
-				position: absolute;
-				top: 6px;
-				right: 5px;
-				line-height: 20px;
+				float: right;
+				line-height: 18px;
 
-				font-size: 16px;
+				font-size: 20px;
 
 				.minus, .num, .plus{
 					float: right;
 					.inline-block;
 					height: 20px;
 					width: 24px;
+					//padding: 4px;
 
 					text-align: center;
 				}
@@ -100,6 +110,7 @@ body{
 
 				.num{
 					width: auto;
+					font-size: 18px;
 					color: @themeColorPurple;
 					font-weight: bold;
 				}
@@ -167,6 +178,10 @@ body{
 			padding: 20px 10px;
 
 			text-align: center;
+
+			.icon{
+				margin-right: 8px;
+			}
 		}
 
 		.confirm{
@@ -176,6 +191,34 @@ body{
 			background-color: @fontColor;
 			color: @baseColor;
 		}
+	}
+
+	.popup-confirm{
+		width: 70%;
+		margin-left: -35%;
+
+		.cnt{
+			padding: 20px 10px;
+
+			text-align: center;
+		}
+
+		.bar{
+			overflow: hidden;
+
+			.cancel, .confirm{
+				float: left;
+				width: 50%;
+
+				text-align: center;
+				line-height: 40px;
+
+				background-color: @fontColor;
+				color: @baseColor;
+			}
+		}
+
+		
 	}
 }
 

@@ -7,6 +7,7 @@ define(function(require, exports) {
     var AddressModel = require('../model/address');
     var Order = require('../model/order');
     var Popup = require('../widget/popup');
+    var cart = require('../widget/cart');
 
     var Address = require('../proto/scene').sub({
 
@@ -72,11 +73,11 @@ define(function(require, exports) {
                 if(me.addressId !== -1){
                     me.submitOrder();
                 }else{
-                    me.createAddress(function(err, addressId){
+                    me.createAddress(function(err, address){
                         if(err){
                             Popup.alert(err);
                         }else{
-                            me.addressId = addressId;
+                            me.addressId = address.id;
                             me.submitOrder();
                         }
                     });
@@ -85,25 +86,38 @@ define(function(require, exports) {
         },
 
         createAddress: function(callback){
-            AddressModel.createRemotely({
-                province: this.el.find('.j-province').val(),
+            var address = {
                 city: this.el.find('.j-city').val(),
+                country: this.el.find('.j-country').val(),
                 detail: this.el.find('.j-detail').val(),
                 consignee: this.el.find('.j-consignee').val(),
-                phone: this.el.find('.j-phone').val()
-            }, callback);
+                phone: this.el.find('.j-phone').val(),
+                isDefault: 1
+            };
+
+            if(!(address.city && address.country && address.detail && address.consignee && address.phone)){
+                Popup.alert('请填写正确的地址信息！');
+                return;
+            }
+
+            AddressModel.createRemotely(address, callback);
         },
 
         submitOrder: function(){
             var page = this.page;
 
             Order.createRemotely({
-                addressId: this.addressId
-            }, function(err, orderId){
+                addressId: this.addressId,
+                fruits: cart.list(),
+                amount: cart.sum
+            }, function(err, order){
                 if(err){
                     Popup.alert(err);
                 }else{
-                    page.navigate('/personal/order/' + orderId);
+                    cart.clean();
+                    Popup.alert('<i class="j-next op icon icon-tick-green"></i>订单已提交！', function(){
+                        page.navigate('/personal/order/' + order.orderid);
+                    }, '去支付');
                 }
             });
         }

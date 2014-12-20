@@ -5,6 +5,9 @@
 define(function(require, exports) {
     var util = require('../util');
     var transition = require('../transition');
+    var Popup = require('../widget/popup');
+
+    var Cookie = require('../model/cookie');
 
     var Scene = Spine.Controller.sub({
         // 该controller要渲染&控制的区域
@@ -47,11 +50,27 @@ define(function(require, exports) {
 
             params = params || {};
 
-            this.getData(params, function(err, data) {
+            var urlParams = util.parseURL().params;
 
-                me.enter();
+            if(!(urlParams && urlParams.code)){
+                Popup.alert('请从微信中访问！');
+                return;
+            }
 
-                me.render($.extend(params, data));
+            Cookie.fetch(urlParams, function(err){
+
+                if(err){
+                    Popup.alert(err);
+                    return;
+                }
+
+                me.getData(params, function(err, data) {
+
+                    me.enter();
+
+                    me.render($.extend(params, data));
+
+                });
 
             });
 

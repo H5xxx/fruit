@@ -1,30 +1,24 @@
 <ul class="container-cnt items">
-	<li class="fruit-item">
-		<img class="item-pic" src="./asset/img/fruit.png"></img>
+	{{each order.oldfruits as fruit i}}
+	<li class="j-fruit-item fruit-item" data-fruit-id="{{fruit.id}}">
+		<img class="item-pic" src="{{fruit.icon}}"></img>
 		<h5 class="item-title">
-			苹果套餐
-			<select class="rating">
-				<option>5星</option>
+			{{fruit.name}}
+			<select class="j-rating rating">
+				<option value="5">5星</option>
+				<option value="4">4星</option>
+				<option value="3">3星</option>
+				<option value="2">2星</option>
+				<option value="1">1星</option>
 			</select>
 		</h5>
 		<div class="input-line">
-			<input class="long" type="text" name="name" placeholder="味道不错">
+			<input class="j-malution long" type="text" name="name" placeholder="味道不错">
 		</div>
 	</li>
-	<li class="fruit-item">
-		<img class="item-pic" src="./asset/img/fruit.png"></img>
-		<h5 class="item-title">
-			苹果套餐
-			<select class="rating">
-				<option>5星</option>
-			</select>
-		</h5>
-		<div class="input-line">
-			<input class="long" type="text" name="name" placeholder="味道不错">
-		</div>
-	</li>
+	{{/each}}
 </ul>
 <div class="bar">
 	<p class="cnt">提交评价？</p>
-	<i class="j-nav op" data-nav="/personal"></i>
+	<i class="j-submit op icon icon-tick"></i>
 </div>

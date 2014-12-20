@@ -2,10 +2,10 @@
 
 .shop-container{
 
-@sideWidth: 120px;
+@sideWidth: 110px;
 
 .up-line{
-	margin: 0 12px;
+	margin: 0 8px;
 	padding: 12px 10px;
 	height: 24px;
 	line-height: 24px;
@@ -13,32 +13,60 @@
 }
 
 .side-cnt{
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	width: @sideWidth;
 	height: 100%;
+	overflow: auto;
 
 	background-color: #f0f0f0;
 	border-right: 1px solid @lineColor;
 
+	.up-line{
+		position: fixed;
+		width: @sideWidth;
+		margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+		z-index: 10;
+	}
+
 	.logo{
 		background: no-repeat center url('../img/logo.png');
 		background-size: 72px;
+		background-color: #f0f0f0;
 	}
 
 	.side-items{
 		font-size: 14px;
+		padding-top: 48px;
+		padding-bottom: @navbarHeight + @barHeight;
 
 		.side-item{
+			position: relative;
 			width: 100%;
 			padding: 15px 0;
 			line-height: 1em;
 
 			text-align: center;
+			font-weight: bold;
 
 			&.active{
 				color: @themeColorGreen;
+				font-size: 1.1em;
+			}
+
+			&.has-new{
+				&::after{
+					content: "new";
+					position: absolute;
+					top: 6px;
+					margin-left: -6px;
+
+					color: red;
+					font-size: 12px;
+				}
 			}
 		}
 	}
@@ -47,25 +75,38 @@
 .main-cnt{
 	margin-left: @sideWidth;
 
+	.sub-opts-wrapper{
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
 	.sub-opts{
 		text-align: right;
+		white-space: nowrap;
 
 		.sub-opt{
 			.inline-block;
 			margin-left: 5px;
+			font-weight: bold;
 
 			&.active{
 				font-weight: bold;
+				font-size: 1.2em;
 				color: @themeColorPurple;
 			}
 		}
 	}
 
 	.items{
-		padding: 15px 12px;
+		padding: 15px 8px;
 
 		.fruit-item{
 			margin-bottom: 30px;
+			padding-left: 54px;
+
+			.item-pic{
+				left: 0;
+			}
 		}
 	}
 }

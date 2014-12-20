@@ -58,13 +58,42 @@ define(function(require, exports){
         show: function(cnt){
             var popup = new Popup(cnt);
 
+            Spine.Route.bind('change', function(){
+                popup.hide();
+            });
+
             return popup;
         },
 
-        alert: function(cnt){
-            return this.show(require('template')('popup-alert', {
+        alert: function(cnt, callback, op){
+            var popup = this.show(require('template')('popup-alert', {
+                cnt: cnt,
+                op: op || '确定'
+            }));
+
+            popup.wrapper.find('.j-popup-close').on('tap', function(e){
+                callback && callback();
+            });
+
+            return popup;
+        },
+
+        confirm: function(cnt, callback){
+            var popup = this.show(require('template')('popup-confirm', {
                 cnt: cnt
             }));
+
+            popup.wrapper.find('.j-popup-cancel').on('tap', function(e){
+                popup.hide();
+                callback && callback(false);
+            });
+
+            popup.wrapper.find('.j-popup-confirm').on('tap', function(e){
+                popup.hide();
+                callback && callback(true);
+            });
+
+            return popup;
         }
     });
 

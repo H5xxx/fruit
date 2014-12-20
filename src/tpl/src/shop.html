@@ -2,23 +2,20 @@
 	<div class="up-line logo"></div>
 	<ul class="side-items">
 		{{each categories as category i}}
-		<li class="j-category-item side-item" data-id="{{category.id}}">
+		<li class="j-category-item side-item{{if category.isHaveNew}} has-new{{/if}}" data-id="{{category.id}}">
 			<span class="item-cnt">{{category.name}}</span>
 		</li>
 		{{/each}}
 	</ul>
 </div>
 <div class="main-cnt">
-	<!-- <ul class="up-line sub-opts">
-		<li class="sub-opt">十元四拼</li>
-		<li class="sub-opt active">五元双拼</li>
-		<li class="sub-opt">八元三拼</li>
-	</ul> -->
+	<div class="j-package-list-wrapper sub-opts-wrapper">
+	</div>
 	<div class="j-fruit-list-wrapper">
 		
 	</div>
 </div>
 <div class="j-bar bar">
 	<p class="cnt">已选购 <span class="j-num num">3</span> 件，共 <span class="j-sum sum">15</span> 元</p>
-	<i class="j-next op"></i>
+	<i class="j-next op icon icon-tick"></i>
 </div>

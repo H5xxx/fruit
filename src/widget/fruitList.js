@@ -42,10 +42,10 @@ define(function(require, exports) {
                     minusBtn = itemDom.find('.j-minus'),
                     numDom = itemDom.find('.j-num');
 
-                if(type === 'shop'){
+                if(type === 'shop' || type === 'fav'){
                     itemDom.on('tap', function(e){
                         Fruit.fetch({
-                            id: fruitId
+                            fruitId: fruitId
                         }, function(err, fruit){
                             !err && new FruitDetail(fruit);
                         });

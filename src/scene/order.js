@@ -3,8 +3,21 @@
  */
 
 define(function(require, exports) {
+    var util = require('../util');
 
-	var OrderModel = require('../model/order');
+    var Popup = require('../widget/popup');
+
+    var OrderModel = require('../model/order');
+
+    /*var statusMap = {
+        0: '正常',
+        1: '未支付',
+        2: '已取消',
+        3: '已支付',
+        4: '未评价',
+        5: '已评价',
+        6: '已删除'
+    };*/
 
     var Order = require('../proto/scene').sub({
 
@@ -20,10 +33,10 @@ define(function(require, exports) {
 
                 OrderModel.fetch.bind(OrderModel, params)
 
-            ], function(orders){
+            ], function(order){
 
                 callback(null, {
-                    orders: orders
+                    order: order
                 });
 
             });
@@ -31,9 +44,37 @@ define(function(require, exports) {
         },
 
         render: function(params){
-            Shop.__super__.render.apply(this, arguments);
+            //params.order.statusText = statusMap[params.order.status];
+            Order.__super__.render.apply(this, arguments);
 
-            this.initOrderList();
+            var page = this.page;
+
+            $('.j-comment').on('tap', function(e){
+                page.navigate('/personal/order/' + params.order.id + '/feedback');
+            });
+
+            $('.j-pay').on('tap', function(e){
+                OrderModel.payRemotely({
+                    orderId: params.order.id
+                }, function(err, data){
+                    if(err){
+                        Popup.alert('请求失败！请重试');
+                    }else{
+                        if(typeof WeixinJSBridge === 'undefined'){
+                            Popup.alert('请在微信（版本5.0以后）中进行操作！');
+                            return;
+                        }
+                        WeixinJSBridge.invoke('getBrandWCPayRequest', data, function(res){
+                            if(res.err_msg === 'get_brand_wcpay_request:ok'){
+                                Popup.alert('支付完成！我们将尽快安排配送', function(){
+                                    OrderModel.cleanCache();
+                                    page.navigate('/personal/order-list');
+                                });
+                            }
+                        });
+                    }
+                });
+            });
         }
     });
 

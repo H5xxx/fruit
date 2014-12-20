@@ -12,15 +12,52 @@
 		width: 40px;
 		height: 40px;
 		line-height: 40px;
+		z-index: 12;
 
 		text-align: center;
-		color: @baseColor;
+		color: @fontColor;
 		font-family: cursive;
+		font-weight: bold;
+
+		background: no-repeat url('../img/icon/x.png') center;
+		background-size: 16px 16px;
 	}
 
 	.fruit-detail-wrapper{
 		height: 100%;
 		overflow: auto;
+
+		.fruit-img-swipe{
+			overflow: hidden;
+			visibility: hidden;
+			position: relative;
+
+			&::after{
+				content: "滑动查看更多图片";
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				padding: 5px 0;
+				height: 14px;
+				line-height: 14px;
+				z-index: 11;
+
+				font-size: 12px;
+				font-weight: normal;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #f0f0f0;
+			}
+		}
+		.swipe-wrap{
+			overflow: hidden;
+			position: relative;
+		}
+		.swipe-wrap > div{
+			float:left;
+			width:100%;
+			position: relative;
+		}
 
 		.fruit-img{
 			width: 100%;
@@ -49,16 +86,26 @@
 			}
 
 			.fruit-info-item{
+				position: relative;
 				margin-bottom: 6px;
 
 				font-size: 12px;
+				line-height: 1.6em;
 
 				.fruit-info-key{
-					margin-right: 0.5em;
+					position: absolute;
+					top: 0;
+					left: 0;
 				}
 
 				.fruit-info-val{
-					
+					display: block;
+					margin-left: 3em;
+
+					.rating{
+						margin-right: 0.3em;
+						color: @themeColorGreen;
+					}
 				}
 			}
 		}
@@ -72,8 +119,8 @@
 		bottom: 0;
 
 		font-size: 12px;
-		color: #fafafa;
-		background-color: #262626;
+		background-color: #fafafa;
+		color: #262626;
 
 		.cnt{
 			padding: 0 16px;
@@ -93,6 +140,20 @@
 			font-style: normal;
 			border-radius: @barHeight / 2;
 			background-color: @themeColorGreen;
+		}
+
+		.minus{
+			display: block;
+			position: absolute;
+			right: 76px;
+			top: -20px;
+			width: @barHeight;
+			height: @barHeight;
+			text-align: center;
+
+			color: #f0f0f0;
+			font-size: 40px;
+			line-height: 35px;
 		}
 	}
 }

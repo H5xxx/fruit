@@ -21,8 +21,27 @@
 		text-align: center;
 		cursor: pointer;
 
+		.icon{
+			background-size: 1em 1em;
+		}
+
 		&.active{
 			color: @themeColorGreen;
+
+    		.icon-home{background-image: url('../img/icon/home-green.png');}
+    		.icon-shop{background-image: url('../img/icon/shop-green.png');}
+    		.icon-cart{background-image: url('../img/icon/cart-green.png');}
+    		.icon-head{background-image: url('../img/icon/head-green.png');}
+		}
+
+		&.has-new{
+			&::after{
+				content: "new";
+				position: absolute;
+				top: -7px;
+
+				font-size: smaller;
+			}
 		}
 	}
 }

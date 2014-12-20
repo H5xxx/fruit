@@ -1,38 +1,27 @@
 <ul class="container-cnt items">
-	<li class="order-item">
-		<h5 class="item-title">夏日午后*3, 苹果套餐*2</h5>
-		<span class="item-infos">
-			<span class="item-info">未支付</span>
-			<span class="item-info">￥100</span>
-		</span>
-		<p class="item-address">张先生，上海市杨浦区邯郸路113号</p>
-		<span class="item-ops">
-			<span class="item-op">去支付</span>
-			<span class="item-op">查看详情</span>
-		</span>
-	</li>
-	<li class="order-item">
-		<h5 class="item-title">夏日午后*3, 苹果套餐*2，夏日午后*3, 苹果套餐*2</h5>
-		<span class="item-infos">
-			<span class="item-info">未支付</span>
-			<span class="item-info">￥100</span>
-		</span>
-		<p class="item-address">张先生，上海市杨浦区邯郸路113号</p>
-		<span class="item-ops">
-			<span class="item-op">去支付</span>
-			<span class="item-op">查看详情</span>
-		</span>
-	</li>
-	<li class="order-item">
-		<h5 class="item-title">夏日午后*3</h5>
-		<span class="item-infos">
-			<span class="item-info">未支付</span>
-			<span class="item-info">￥100</span>
-		</span>
-		<p class="item-address">张先生，上海市杨浦区邯郸路113号</p>
-		<span class="item-ops">
-			<span class="item-op">去支付</span>
-			<span class="item-op">查看详情</span>
-		</span>
-	</li>
+	{{if orderList.length}}
+		{{each orderList as order i}}
+		<li class="order-item order-status{{order.status}}">
+			<h5 class="item-title">{{order.title}}</h5>
+			<span class="item-infos">
+				<span class="item-info">{{order.statusDispalyText}}</span>
+				<span class="item-info">￥{{order.amount}}</span>
+			</span>
+			<p class="item-address">{{order.consignee}}，{{order.cityName}}{{order.countryName}}{{order.detailAddress}}</p>
+			<span class="item-ops">
+				{{if order.status == 1}}
+				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">去支付</span>
+				<span class="j-cancel item-op" data-order-id="{{order.orderid}}">取消订单</span>
+				{{else if (order.status == 3 || order.status == 4)}}
+				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}/feedback">去评价</span>
+				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">查看详情</span>
+				{{else}}
+				<span class="j-nav item-op" data-nav="/personal/order/{{order.orderid}}">查看详情</span>
+				{{/if}}
+			</span>
+		</li>
+		{{/each}}
+	{{else}}
+		还没有订单
+	{{/if}}
 </ul>

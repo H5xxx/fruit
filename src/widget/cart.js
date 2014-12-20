@@ -17,6 +17,10 @@ define(function(require, exports) {
             this.update();
             return num;
         },
+        clean: function(){
+            this.cnt = {};
+            this.update();
+        },
         update: function(){
             var num = 0,
                 sum = 0;
@@ -39,7 +43,9 @@ define(function(require, exports) {
         list: function(){
             var cnt = this.cnt;
             return Object.keys(cnt).map(function(fruitId){
-                return Fruit.find(fruitId);
+                var fruit = Fruit.find(fruitId);
+                fruit.num = cnt[fruitId];
+                return fruit;
             });
         }
     }, Spine.Events);
