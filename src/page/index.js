@@ -6,6 +6,16 @@ define(function(require, exports) {
 
     require('../../mock/ajax');
 
+    // weixin params
+    if(location.hash.indexOf('?') >= 0){
+        var pos = location.hash.indexOf('?'),
+            hash = location.hash.slice(0, pos),
+            search = location.hash.slice(pos);
+
+        location.hash = hash;
+        location.search = search;
+    }
+
     var Page = require('../proto/page').sub({
 
         controllers: {
