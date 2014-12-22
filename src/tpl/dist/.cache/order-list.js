@@ -1,4 +1,4 @@
-/*TMODJS:{"version":11,"md5":"65e19f1f697cc0f6f958d27996cec301"}*/
+/*TMODJS:{"version":13,"md5":"aedf6e75d47a3c5fc9761537a497e657"}*/
 template('order-list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,orderList=$data.orderList,$each=$utils.$each,order=$data.order,i=$data.i,$escape=$utils.$escape,$out='';$out+='<ul class="container-cnt items"> ';
 if(orderList.length){
@@ -6,7 +6,9 @@ $out+=' ';
 $each(orderList,function(order,i){
 $out+=' <li class="order-item order-status';
 $out+=$escape(order.status);
-$out+='"> <h5 class="item-title">';
+$out+='"> <h5 class="j-nav item-title" data-nav="/personal/order/';
+$out+=$escape(order.orderid);
+$out+='">';
 $out+=$escape(order.title);
 $out+='</h5> <span class="item-infos"> <span class="item-info">';
 $out+=$escape(order.statusDispalyText);
