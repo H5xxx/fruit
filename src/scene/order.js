@@ -54,9 +54,14 @@ define(function(require, exports) {
             });
 
             $('.j-pay').on('tap', function(e){
+                var loading = Popup.alert('请求支付中...');
+
                 OrderModel.payRemotely({
                     orderId: params.orderId
                 }, function(err, data){
+
+                    loading.hide();
+
                     if(err){
                         Popup.alert('请求失败！请重试');
                     }else{
