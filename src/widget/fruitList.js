@@ -42,15 +42,13 @@ define(function(require, exports) {
                     minusBtn = itemDom.find('.j-minus'),
                     numDom = itemDom.find('.j-num');
 
-                if(type === 'shop' || type === 'fav'){
-                    itemDom.on('tap', function(e){
-                        Fruit.fetch({
-                            fruitId: fruitId
-                        }, function(err, fruit){
-                            !err && new FruitDetail(fruit);
-                        });
+                itemDom.on('tap', function(e){
+                    Fruit.fetch({
+                        fruitId: fruitId
+                    }, function(err, fruit){
+                        !err && new FruitDetail(fruit);
                     });
-                }
+                });
 
                 plusBtn.on('tap', function(e){
                     e.stopPropagation();

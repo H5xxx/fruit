@@ -6,8 +6,12 @@
 	padding: 20px;
 
 	.fruit-item{
-		margin-bottom: 16px;
+		padding-top: 16px;
 		padding-bottom: 16px;
+
+		&:first-child{
+			margin-top: -16px;
+		}
 
 		.item-title{
 			font-weight: normal;
@@ -15,7 +19,7 @@
 			.rating{
 				position: absolute;
 				width: 72px;
-				top: 0px;
+				top: 10px;
 				right: 0;
 			}
 		}

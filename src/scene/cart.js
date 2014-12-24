@@ -42,6 +42,10 @@ define(function(require, exports) {
 
             fruitList.renderFromCart();
 
+            cart.on('update', function(){
+                fruitList.renderFromCart();
+            });
+
             var barDom = this.el.find('.j-bar'),
                 numDom = barDom.find('.j-num'),
                 sumDom = barDom.find('.j-sum'),
