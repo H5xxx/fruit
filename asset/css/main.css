@@ -1,28 +1,3 @@
-.inline-block {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-.code-font {
-  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-}
-.select-none {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-.border-box {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  /* Firefox */
-  -webkit-box-sizing: border-box;
-  /* Safari */
-}
-.overflow-ellipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
 * {
   margin: 0;
   padding: 0;
@@ -396,6 +371,31 @@ body {
   background-color: #333333;
   color: #fafafa;
 }
+.inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.code-font {
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+}
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .nav-bar {
   position: fixed;
   bottom: 0;
@@ -660,7 +660,7 @@ body {
   margin-left: 3em;
 }
 .popup-fruit .fruit-detail-wrapper .fruit-info-block .fruit-info-item .fruit-info-val.fruit-desc {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 .popup-fruit .fruit-detail-wrapper .fruit-info-block .fruit-info-item .fruit-info-val .rating {
   margin-right: 0.3em;
