@@ -142,7 +142,7 @@ define(function(require, exports) {
             price: 1000,
             oldprice: 2000,
             weight: 500,
-            discrbe: '新鲜的苹果',
+            discrbe: '新鲜的苹果\n真的 呀！',
             iconUrls: './asset/img/fruit.png',
             imageUrls: './asset/img/fruit-large.png,./asset/img/fruit-large.png',
             isCollection: 0,
