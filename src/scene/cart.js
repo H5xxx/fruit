@@ -23,9 +23,10 @@ define(function(require, exports) {
         getData: function(params, callback) {
             util.finish([
 
+                Category.fetch.bind(Category, params),
                 Transfee.fetch.bind(Transfee, params)
 
-            ], function(transfee){
+            ], function(categories, transfee){
 
                 callback(null, {
                     transfee: transfee

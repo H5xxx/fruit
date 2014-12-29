@@ -22,6 +22,8 @@ define(function(require, exports) {
             this.update();
         },
         update: function(){
+            this.save();
+
             var num = 0,
                 sum = 0;
 
@@ -44,11 +46,23 @@ define(function(require, exports) {
             var cnt = this.cnt;
             return Object.keys(cnt).map(function(fruitId){
                 var fruit = Fruit.find(fruitId);
-                fruit.num = cnt[fruitId];
+                if(fruit) fruit.num = cnt[fruitId];
                 return fruit;
             });
+        },
+        save: function(){
+            try{
+                localStorage['cart-cnt'] = JSON.stringify(this.cnt);
+            }catch(e){}
+        },
+        resume: function(){
+            try{
+                this.cnt = JSON.parse(localStorage['cart-cnt']);
+            }catch(e){}
         }
     }, Spine.Events);
+
+    cart.resume();
 
     return cart;
 });
