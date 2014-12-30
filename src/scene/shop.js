@@ -91,8 +91,8 @@ define(function(require, exports) {
                 sumDom = barDom.find('.j-sum');
 
             var updateBar = function(){
-                numDom.text(cart.num);
-                sumDom.text(cart.sum);
+                numDom.text(cart.num());
+                sumDom.text(cart.sum());
             };
 
             cart.on('update', updateBar);
@@ -102,7 +102,7 @@ define(function(require, exports) {
                 next = barDom.find('.j-next');
 
             next.on('tap', function(e){
-                if(cart.num){
+                if(cart.num()){
                     page.navigate('/cart');
                 }else{
                     Popup.alert('还没有选择商品！');

@@ -97,20 +97,20 @@ define(function(require, exports) {
                 ],
                 fruits: [
                     {
-                        id: 3,
+                        id: 4,
                         name: '桃子',
                         price: 500,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
-                        id: 4,
+                        id: 5,
                         name: '梨',
                         price: 1000,
                         oldprice: 2000,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
-                        id: 5,
+                        id: 6,
                         name: '其他',
                         price: 1500,
                         oldprice: 3000,
@@ -124,7 +124,7 @@ define(function(require, exports) {
                 packages: [],
                 fruits: [
                     {
-                        id: 6,
+                        id: 7,
                         name: 'sth',
                         price: 500,
                         oldprice: 1000,

@@ -109,12 +109,12 @@ define(function(require, exports) {
         submitOrder: function(params){
             var page = this.page;
 
-            var transfee = cart.sum >= params.transfee.start_fee ? 0 : params.transfee.trans_fee;
+            var transfee = cart.sum() >= params.transfee.start_fee ? 0 : params.transfee.trans_fee;
 
             Order.createRemotely({
                 addressId: this.addressId,
                 fruits: cart.list(),
-                amount: cart.sum + transfee
+                amount: cart.sum() + transfee
             }, function(err, order){
                 if(err){
                     Popup.alert(err);

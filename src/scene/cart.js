@@ -54,9 +54,9 @@ define(function(require, exports) {
                 startfeeDom = barDom.find('.j-startfee');
 
             var updateBar = function(){
-                numDom.text(cart.num);
-                sumDom.text(cart.sum);
-                transfeeDom.text(cart.sum >= params.transfee.start_fee ? 0 : params.transfee.trans_fee);
+                numDom.text(cart.num());
+                sumDom.text(cart.sum());
+                transfeeDom.text(cart.sum() >= params.transfee.start_fee ? 0 : params.transfee.trans_fee);
                 startfeeDom.text(params.transfee.start_fee);
             };
 
@@ -67,7 +67,7 @@ define(function(require, exports) {
                 next = barDom.find('.j-next');
 
             next.on('tap', function(e){
-                if(cart.num){
+                if(cart.num()){
                     page.navigate('/personal/address');
                 }else{
                     Popup.alert('购物车是空的！');
