@@ -10,6 +10,7 @@ define(function(require, exports) {
 
     Order.configure(
         'Order', 'id', 'createDate', 'status', 'payStatus', 'malutionStatus',
+        'price', 'amount',
         'oldfruits', 'num', 'consignee', 'telPhone', 'cityName', 'countryName', 'detailAddress', 'orderid'
     );
 
@@ -22,6 +23,8 @@ define(function(require, exports) {
                 fruit.num = nums[i];
             });*/
             item.amount = item.amount / 100;
+            item.trans_fee = item.trans_fee / 100;
+            item.price = item.amount - item.trans_fee;
             this.create(item);
         },
 

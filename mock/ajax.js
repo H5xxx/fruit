@@ -283,6 +283,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -323,6 +324,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "2",
             "receptionAddressId" : "1",
             "cancelDate" : "",
@@ -363,6 +365,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "3",
             "receptionAddressId" : "1",
             "cancelDate" : "",
@@ -407,6 +410,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -466,6 +470,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee" : 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -542,7 +547,8 @@ define(function(require, exports) {
     mock(/\/service\/user$/, function(options) {
         return {
             id: 1,
-            name: '用户1'
+            name: '用户1',
+            headimgurl: './asset/img/avatar.png'
         };
     });
 
