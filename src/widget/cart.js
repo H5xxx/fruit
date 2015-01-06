@@ -26,7 +26,9 @@ define(function(require, exports) {
         add: function(id, num){
             num = (this.cnt[id] || 0) + num;
             num = num < 0 ? 0 : num;
-            this.cnt[id] = num;
+
+            if(num) this.cnt[id] = num;
+            else delete this.cnt[id];
 
             this.update();
 
