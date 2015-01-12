@@ -31,7 +31,7 @@ define(function(require, exports) {
             'feedback': require('../scene/feedback')
         },
 
-        indexPage: '/home',
+        indexPage: '/shop',
 
         routes: {
             '/home': 'home',
