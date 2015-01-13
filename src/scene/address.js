@@ -73,6 +73,11 @@ define(function(require, exports) {
                 next = barDom.find('.j-next');
 
             next.on('tap', function(e){
+                if(!cart.num()){
+                    Popup.alert('购物车是空的！');
+                    return;
+                }
+
                 if(me.addressId !== -1){
                     me.submitOrder(params);
                 }else{
