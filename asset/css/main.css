@@ -53,7 +53,8 @@ input[type="password"],
 input[type="number"],
 div[contentEditable="true"],
 button,
-select {
+select,
+textarea {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   /* Firefox */
@@ -74,7 +75,8 @@ input[type="password"]:-moz-placeholder,
 input[type="number"]:-moz-placeholder,
 div[contentEditable="true"]:-moz-placeholder,
 button:-moz-placeholder,
-select:-moz-placeholder {
+select:-moz-placeholder,
+textarea:-moz-placeholder {
   color: #7e7e7e;
 }
 input[type="text"]::-moz-input-placeholder,
@@ -82,7 +84,8 @@ input[type="password"]::-moz-input-placeholder,
 input[type="number"]::-moz-input-placeholder,
 div[contentEditable="true"]::-moz-input-placeholder,
 button::-moz-input-placeholder,
-select::-moz-input-placeholder {
+select::-moz-input-placeholder,
+textarea::-moz-input-placeholder {
   color: #7e7e7e;
 }
 input[type="text"]::-webkit-input-placeholder,
@@ -90,7 +93,8 @@ input[type="password"]::-webkit-input-placeholder,
 input[type="number"]::-webkit-input-placeholder,
 div[contentEditable="true"]::-webkit-input-placeholder,
 button::-webkit-input-placeholder,
-select::-webkit-input-placeholder {
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   color: #7e7e7e;
 }
 input[type="text"].short,
@@ -98,7 +102,8 @@ input[type="password"].short,
 input[type="number"].short,
 div[contentEditable="true"].short,
 button.short,
-select.short {
+select.short,
+textarea.short {
   width: 50%;
 }
 input[type="text"].long,
@@ -106,7 +111,8 @@ input[type="password"].long,
 input[type="number"].long,
 div[contentEditable="true"].long,
 button.long,
-select.long {
+select.long,
+textarea.long {
   width: 100%;
 }
 input[type="text"]:focus,
@@ -115,18 +121,21 @@ input[type="number"]:focus,
 div[contentEditable="true"]:focus,
 button:focus,
 select:focus,
+textarea:focus,
 input[type="text"].active,
 input[type="password"].active,
 input[type="number"].active,
 div[contentEditable="true"].active,
 button.active,
-select.active {
+select.active,
+textarea.active {
   outline: none;
 }
 input[type="text"],
 input[type="password"],
 input[type="number"],
-div[contentEditable="true"] {
+div[contentEditable="true"],
+textarea {
   line-height: 20px;
   padding: 6px 6px 6px 6px;
   border-bottom: 1px solid #bdbdbd;
@@ -375,6 +384,20 @@ body {
   line-height: 40px;
   background-color: #333333;
   color: #fafafa;
+}
+.popup-layer .popup-loading {
+  width: 50%;
+  margin-left: -25%;
+  background: none;
+}
+.popup-layer .popup-loading .cnt {
+  padding: 20px 10px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+.popup-layer .popup-loading .cnt .icon {
+  margin-right: 8px;
 }
 .popup-layer .popup-confirm {
   width: 70%;
@@ -922,7 +945,8 @@ body {
   margin-left: 8px;
   font-size: 12px;
 }
-.order-list-container .items .order-item.order-status1 .item-info {
+.order-list-container .items .order-item.order-status1 .item-info,
+.order-list-container .items .order-item.order-status7 .item-info {
   color: #d19700;
 }
 .order-list-container .items .order-item.order-status3 .item-info,
@@ -993,4 +1017,15 @@ body {
 }
 .feedback-container .items .fruit-item .input-line {
   margin-top: 12px;
+}
+.refund-container .container-cnt {
+  padding: 20px;
+}
+.refund-container .container-cnt .title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.refund-container .container-cnt .reason-in {
+  height: 72px;
 }

@@ -28,7 +28,8 @@ define(function(require, exports) {
             'order': require('../scene/order'),
             'order-list': require('../scene/order-list'),
             'fav': require('../scene/fav'),
-            'feedback': require('../scene/feedback')
+            'feedback': require('../scene/feedback'),
+            'refund': require('../scene/refund')
         },
 
         indexPage: '/shop',
@@ -43,8 +44,8 @@ define(function(require, exports) {
             '/personal/order/:orderId': 'order',
             '/personal/order-list': 'order-list',
             '/personal/order/:orderId/feedback': 'feedback',
-            '/personal/fav': 'fav',
-            //'/personal/feedback': 'feedback'
+            '/personal/order/:orderId/refund': 'refund',
+            '/personal/fav': 'fav'
         },
 
         extensions: [

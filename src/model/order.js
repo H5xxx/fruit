@@ -93,6 +93,16 @@ define(function(require, exports) {
             }), function(response){
                 callback(response.err, response.data);
             });
+        },
+
+        refundRemotely: function(params, callback){
+            var Model = this;
+
+            $.post(util.format(url.refundOrder, {
+                orderId: params.orderId
+            }), function(response){
+                callback(response.err, response.data);
+            });
         }
     });
 

@@ -78,6 +78,14 @@ define(function(require, exports){
             return popup;
         },
 
+        loading: function(cnt){
+            var popup = this.show(require('template')('popup-loading', {
+                cnt: cnt
+            }));
+
+            return popup;
+        },
+
         confirm: function(cnt, callback){
             var popup = this.show(require('template')('popup-confirm', {
                 cnt: cnt

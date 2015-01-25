@@ -71,12 +71,14 @@ define(function(require, exports) {
             var me = this;
                 barDom = this.el.find('.j-bar'),
                 next = barDom.find('.j-next');
-
+            
             next.on('tap', function(e){
                 if(!cart.num()){
                     Popup.alert('购物车是空的！');
                     return;
                 }
+
+                Popup.loading('正在提交...');
 
                 if(me.addressId !== -1){
                     me.submitOrder(params);
