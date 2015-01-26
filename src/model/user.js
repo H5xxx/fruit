@@ -7,7 +7,7 @@ define(function(require, exports) {
 
     var User = require('../proto/model').sub();
 
-    User.configure('User', 'id', 'name');
+    User.configure('User', 'id', 'name', 'headimgurl');
 
     User.extend({
         url: url.getUser,

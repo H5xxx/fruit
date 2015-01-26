@@ -2,7 +2,7 @@
 	{{if orderList.length}}
 		{{each orderList as order i}}
 		<li class="order-item order-status{{order.status}}">
-			<h5 class="item-title">{{order.title}}</h5>
+			<h5 class="j-nav item-title" data-nav="/personal/order/{{order.orderid}}">{{order.title}}</h5>
 			<span class="item-infos">
 				<span class="item-info">{{order.statusDispalyText}}</span>
 				<span class="item-info">￥{{order.amount}}</span>

@@ -6,6 +6,16 @@ define(function(require, exports) {
 
     require('../../mock/ajax');
 
+    // weixin params
+    if(location.hash.indexOf('?') >= 0){
+        var pos = location.hash.indexOf('?'),
+            hash = location.hash.slice(0, pos),
+            search = location.hash.slice(pos);
+
+        location.hash = hash;
+        location.search = search;
+    }
+
     var Page = require('../proto/page').sub({
 
         controllers: {
@@ -18,10 +28,11 @@ define(function(require, exports) {
             'order': require('../scene/order'),
             'order-list': require('../scene/order-list'),
             'fav': require('../scene/fav'),
-            'feedback': require('../scene/feedback')
+            'feedback': require('../scene/feedback'),
+            'refund': require('../scene/refund')
         },
 
-        indexPage: '/home',
+        indexPage: '/shop',
 
         routes: {
             '/home': 'home',
@@ -33,8 +44,8 @@ define(function(require, exports) {
             '/personal/order/:orderId': 'order',
             '/personal/order-list': 'order-list',
             '/personal/order/:orderId/feedback': 'feedback',
-            '/personal/fav': 'fav',
-            //'/personal/feedback': 'feedback'
+            '/personal/order/:orderId/refund': 'refund',
+            '/personal/fav': 'fav'
         },
 
         extensions: [

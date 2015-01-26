@@ -23,9 +23,10 @@ define(function(require, exports) {
         getData: function(params, callback) {
             util.finish([
 
+                Category.fetch.bind(Category, params),
                 Transfee.fetch.bind(Transfee, params)
 
-            ], function(transfee){
+            ], function(categories, transfee){
 
                 callback(null, {
                     transfee: transfee
@@ -42,6 +43,10 @@ define(function(require, exports) {
 
             fruitList.renderFromCart();
 
+            cart.on('update', function(){
+                fruitList.renderFromCart();
+            });
+
             var barDom = this.el.find('.j-bar'),
                 numDom = barDom.find('.j-num'),
                 sumDom = barDom.find('.j-sum'),
@@ -49,9 +54,9 @@ define(function(require, exports) {
                 startfeeDom = barDom.find('.j-startfee');
 
             var updateBar = function(){
-                numDom.text(cart.num);
-                sumDom.text(cart.sum);
-                transfeeDom.text(cart.sum >= params.transfee.start_fee ? 0 : params.transfee.trans_fee);
+                numDom.text(cart.num());
+                sumDom.text(cart.sum());
+                transfeeDom.text(cart.sum() >= params.transfee.start_fee ? 0 : params.transfee.trans_fee);
                 startfeeDom.text(params.transfee.start_fee);
             };
 
@@ -62,7 +67,7 @@ define(function(require, exports) {
                 next = barDom.find('.j-next');
 
             next.on('tap', function(e){
-                if(cart.num){
+                if(cart.num()){
                     page.navigate('/personal/address');
                 }else{
                     Popup.alert('购物车是空的！');

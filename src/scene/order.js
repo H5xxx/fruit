@@ -16,7 +16,9 @@ define(function(require, exports) {
         3: '已支付',
         4: '未评价',
         5: '已评价',
-        6: '已删除'
+        6: '已删除',
+        7: '退款中',
+        8: '已退款'
     };*/
 
     var Order = require('../proto/scene').sub({
@@ -49,14 +51,23 @@ define(function(require, exports) {
 
             var page = this.page;
 
+            $('.j-refund').on('tap', function(e){
+                page.navigate('/personal/order/' + params.orderId + '/refund');
+            });
+
             $('.j-comment').on('tap', function(e){
-                page.navigate('/personal/order/' + params.order.id + '/feedback');
+                page.navigate('/personal/order/' + params.orderId + '/feedback');
             });
 
             $('.j-pay').on('tap', function(e){
+                var loading = Popup.alert('请求支付中...');
+
                 OrderModel.payRemotely({
-                    orderId: params.order.id
+                    orderId: params.orderId
                 }, function(err, data){
+
+                    loading.hide();
+
                     if(err){
                         Popup.alert('请求失败！请重试');
                     }else{

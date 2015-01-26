@@ -7,48 +7,64 @@ define(function(require, exports) {
 
     var cart = Spine.Module.extend.call({
         cnt: {},
-        num: 0,
-        sum: 0,
+        num: function(){
+            var cnt = this.cnt;
+            return Object.keys(cnt).map(function(fruitId){
+                return cnt[fruitId];
+            }).reduce(function(a, b){
+                return a + b;
+            }, 0);
+        },
+        sum: function(){
+            var cnt = this.cnt;
+            return Object.keys(cnt).map(function(fruitId){
+                return (Fruit.find(fruitId).price || 0) * cnt[fruitId];
+            }).reduce(function(a, b){
+                return a + b;
+            }, 0);
+        },
         add: function(id, num){
             num = (this.cnt[id] || 0) + num;
             num = num < 0 ? 0 : num;
-            this.cnt[id] = num;
+
+            if(num) this.cnt[id] = num;
+            else delete this.cnt[id];
 
             this.update();
+
             return num;
+        },
+        update: function(){
+            this.save();
+            this.trigger('update');
         },
         clean: function(){
             this.cnt = {};
             this.update();
         },
-        update: function(){
-            var num = 0,
-                sum = 0;
-
-            var n;
-            for(var fruitId in this.cnt) if(this.cnt.hasOwnProperty(fruitId)){
-                n = this.cnt[fruitId];
-                if(n){
-                    num += n;
-                    sum += (Fruit.find(fruitId).price || 0) * n;
-                }else{
-                    delete this.cnt[fruitId];
-                }
-            }
-            this.num = num;
-            this.sum = sum;
-
-            this.trigger('update', num, sum);
-        },
         list: function(){
             var cnt = this.cnt;
             return Object.keys(cnt).map(function(fruitId){
                 var fruit = Fruit.find(fruitId);
-                fruit.num = cnt[fruitId];
+                if(fruit) fruit.num = cnt[fruitId];
                 return fruit;
             });
+        },
+        save: function(){
+            try{
+                localStorage['cart-cnt'] = JSON.stringify(this.cnt);
+            }catch(e){}
+        },
+        resume: function(){
+            try{
+                this.cnt = JSON.parse(localStorage['cart-cnt']);
+            }catch(e){}
+
+            this.update();
         }
     }, Spine.Events);
+
+    cart.resume();
 
     return cart;
 });

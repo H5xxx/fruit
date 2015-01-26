@@ -97,20 +97,20 @@ define(function(require, exports) {
                 ],
                 fruits: [
                     {
-                        id: 3,
+                        id: 4,
                         name: '桃子',
                         price: 500,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
-                        id: 4,
+                        id: 5,
                         name: '梨',
                         price: 1000,
                         oldprice: 2000,
                         iconUrls: './asset/img/fruit.png'
                     },
                     {
-                        id: 5,
+                        id: 6,
                         name: '其他',
                         price: 1500,
                         oldprice: 3000,
@@ -124,7 +124,7 @@ define(function(require, exports) {
                 packages: [],
                 fruits: [
                     {
-                        id: 6,
+                        id: 7,
                         name: 'sth',
                         price: 500,
                         oldprice: 1000,
@@ -142,7 +142,7 @@ define(function(require, exports) {
             price: 1000,
             oldprice: 2000,
             weight: 500,
-            discrbe: '新鲜的苹果',
+            discrbe: '新鲜的苹果\n真的 呀！',
             iconUrls: './asset/img/fruit.png',
             imageUrls: './asset/img/fruit-large.png,./asset/img/fruit-large.png',
             isCollection: 0,
@@ -283,6 +283,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -323,6 +324,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "2",
             "receptionAddressId" : "1",
             "cancelDate" : "",
@@ -363,6 +365,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "3",
             "receptionAddressId" : "1",
             "cancelDate" : "",
@@ -371,6 +374,74 @@ define(function(require, exports) {
             "orderid" : "A01B003-001",
             "createDate" : "2014-10-05 13:25:47",
             "malutionDate" : "2014-10-05 13:25:47"
+        }, {
+            "deleteDate" : "",
+            "fruitIds" : "1",
+            "status" : 7,
+            "statusDispalyText" : "退款中",
+            "oldfruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    "fruitCount" : 1,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryName: "曹县",
+            detailAddress: "清河办事处",
+            telPhone: "13800138000",
+            "malutionFlag" : 1,
+            "fruitnums" : "2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "trans_fee" : 10,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
+        }, {
+            "deleteDate" : "",
+            "fruitIds" : "2",
+            "status" : 8,
+            "statusDispalyText" : "已退款",
+            "oldfruits" : [
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    "fruitCount" : 1,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryName: "曹县",
+            detailAddress: "清河办事处",
+            telPhone: "13800138000",
+            "malutionFlag" : 1,
+            "fruitnums" : "3",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "trans_fee" : 10,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
         }];
     });
 
@@ -407,6 +478,7 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee": 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -433,12 +505,12 @@ define(function(require, exports) {
         }
     });
 
-    mock(/\/service\/orders\/[\w\-]+$/, function(options) {
+    mock(/\/service\/orders\/refund\/[\w\-]+$/, function(options) {
         return {
             "deleteDate" : "",
             "fruitIds" : "1,2",
-            "status" : 1,
-            "statusDispalyText" : "未支付",
+            "status" : 7,
+            "statusDispalyText" : "已申请退款",
             "oldfruits" : [
                 {
                     id: 1,
@@ -466,6 +538,52 @@ define(function(require, exports) {
             "fruitnums" : "2,2",
             "receptionAddressVO" : null,
             "amount" : 45,
+            "trans_fee" : 10,
+            "id" : "1",
+            "receptionAddressId" : "1",
+            "cancelDate" : "2014-10-28 16:34:29",
+            "openid" : "001",
+            "payDate" : "",
+            "orderid" : "A01B001-001",
+            "createDate" : "2014-10-05 13:25:47",
+            "malutionDate" : "2014-10-28 16:35:13"
+        };
+    });
+
+    mock(/\/service\/orders\/[\w\-]+$/, function(options) {
+        return {
+            "deleteDate" : "",
+            "fruitIds" : "1,2",
+            "status" : 3,
+            "statusDispalyText" : "已支付",
+            "oldfruits" : [
+                {
+                    id: 1,
+                    name: '苹果',
+                    price: 500,
+                    "fruitCount" : 1,
+                    iconUrls: './asset/img/fruit.png'
+                },
+                {
+                    id: 2,
+                    name: '香蕉',
+                    price: 800,
+                    "fruitCount" : 1,
+                    iconUrls: './asset/img/fruit.png'
+                }
+            ],
+            "malutionText" : "这个东西比较好",
+            "cancelText" : "1",
+            cityName: "菏泽市",
+            consignee: "路易斯安娜",
+            countryName: "曹县",
+            detailAddress: "清河办事处",
+            telPhone: "13800138000",
+            "malutionFlag" : 1,
+            "fruitnums" : "2,2",
+            "receptionAddressVO" : null,
+            "amount" : 45,
+            "trans_fee" : 10,
             "id" : "1",
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
@@ -534,15 +652,16 @@ define(function(require, exports) {
     mock(/\/service\/transfee$/, function(options) {
         return {
             "id" : "1",
-            "trans_fee" : 10,
-            "start_fee" : 50
+            "trans_fee" : 1000,
+            "start_fee" : 5000
         };
     });
 
     mock(/\/service\/user$/, function(options) {
         return {
             id: 1,
-            name: '用户1'
+            name: '用户1',
+            headimgurl: './asset/img/avatar.png'
         };
     });
 
