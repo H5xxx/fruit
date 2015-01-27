@@ -25,6 +25,11 @@ define(function(require, exports) {
             item.amount = item.amount / 100;
             item.trans_fee = item.trans_fee / 100;
             item.price = item.amount - item.trans_fee;
+            item.payDate = +item.payDate;
+            item.refundable =
+                item.status >= 3 && item.status < 6 &&
+                item.payDate &&
+                (Date.now() - item.payDate) < 1000 * 60 * 60 * 72;
             this.create(item);
         },
 

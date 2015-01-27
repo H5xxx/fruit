@@ -57,6 +57,9 @@ define(function(require, exports) {
                 return;
             }
 
+            //var loading = Popup.loading('加载中...');
+            //setTimeout(function(){ loading.show() }, 0);
+
             Cookie.fetch(urlParams, function(err){
 
                 if(err){
@@ -67,6 +70,8 @@ define(function(require, exports) {
                 me.getData(params, function(err, data) {
 
                     me.enter();
+
+                    //setTimeout(function(){ loading.hide() }, 0);
 
                     me.render($.extend(params, data));
 

@@ -52,7 +52,23 @@ define(function(require, exports) {
             var page = this.page;
 
             $('.j-refund').on('tap', function(e){
-                page.navigate('/personal/order/' + params.orderId + '/refund');
+                //page.navigate('/personal/order/' + params.orderId + '/refund');
+                Popup.confirm('确定退款？', function(sure){
+                    if(!sure) return;
+
+                    OrderModel.refundRemotely({
+                        orderId: params.orderId
+                    }, function(err, data){
+                        if(err){
+                            Popup.alert('请求失败！请重试');
+                        }else{
+                            Popup.alert('申请成功，我们将尽快处理！', function(){
+                                OrderModel.cleanCache();
+                                page.navigate('/personal/order-list');
+                            });
+                        }
+                    });
+                });
             });
 
             $('.j-comment').on('tap', function(e){

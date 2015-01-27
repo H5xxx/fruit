@@ -5,6 +5,19 @@ define(function(require, exports) {
         return;
     }
 
+    var _ajax = $.ajax;
+    $.ajax = function(params){
+        console.info('[AJAX]', params);
+        var _success = params.success;
+        params.success = function(){
+            var args = arguments;
+            setTimeout(function(){
+                _success.apply(null, args);
+            }, 500);
+        };
+        return _ajax.apply($, arguments);
+    };
+
     // 模拟微信支付接口
     if(typeof WeixinJSBridge === 'undefined'){
         window.WeixinJSBridge = window.WeixinJSBridge || {
@@ -26,7 +39,7 @@ define(function(require, exports) {
                 data: handler.apply(this, arguments)
             };
 
-            console.log('[MOCK]', path, 'RESULT:', result);
+            //console.log('[MOCK]', path, 'RESULT:', result);
             return result;
         });
     };
@@ -588,7 +601,7 @@ define(function(require, exports) {
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
             "openid" : "001",
-            "payDate" : "",
+            "payDate" : "1422119400000",
             "orderid" : "A01B001-001",
             "createDate" : "2014-10-05 13:25:47",
             "malutionDate" : "2014-10-28 16:35:13"

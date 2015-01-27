@@ -42,6 +42,8 @@ define(function(require, exports){
         hide: function(){
             this.wrapper.hide();
 
+            //this.wrapper.remove();
+
             showing.splice(showing.indexOf(this), 1);
             if(!showing.length){
                 layer.hide();

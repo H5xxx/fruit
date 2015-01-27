@@ -43,9 +43,11 @@ define(function(require, exports) {
                     numDom = itemDom.find('.j-num');
 
                 itemDom.on('tap', function(e){
+                    var loading = Popup.loading('加载中...');
                     Fruit.fetch({
                         fruitId: fruitId
                     }, function(err, fruit){
+                        loading.hide();
                         !err && new FruitDetail(fruit);
                     });
                 });
