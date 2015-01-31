@@ -601,7 +601,7 @@ define(function(require, exports) {
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
             "openid" : "001",
-            "payDate" : "1422119400000",
+            "payDate" : "2015-01-28 13:25:47",
             "orderid" : "A01B001-001",
             "createDate" : "2014-10-05 13:25:47",
             "malutionDate" : "2014-10-28 16:35:13"
