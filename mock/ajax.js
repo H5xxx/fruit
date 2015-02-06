@@ -269,6 +269,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 1,
             "statusDispalyText" : "未支付",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -310,6 +311,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 4,
             "statusDispalyText" : "未评价",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 3,
@@ -351,6 +353,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 5,
             "statusDispalyText" : "已评价",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -392,6 +395,7 @@ define(function(require, exports) {
             "fruitIds" : "1",
             "status" : 7,
             "statusDispalyText" : "退款中",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -426,6 +430,7 @@ define(function(require, exports) {
             "fruitIds" : "2",
             "status" : 8,
             "statusDispalyText" : "已退款",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 2,
@@ -464,6 +469,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 1,
             "statusDispalyText" : "已删除",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -524,6 +530,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 7,
             "statusDispalyText" : "已申请退款",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -569,6 +576,7 @@ define(function(require, exports) {
             "fruitIds" : "1,2",
             "status" : 3,
             "statusDispalyText" : "已支付",
+            "refund": 1,
             "oldfruits" : [
                 {
                     id: 1,
@@ -601,7 +609,7 @@ define(function(require, exports) {
             "receptionAddressId" : "1",
             "cancelDate" : "2014-10-28 16:34:29",
             "openid" : "001",
-            "payDate" : "2015-01-28 13:25:47",
+            "payDate" : "2015-01-29 13:25:47",
             "orderid" : "A01B001-001",
             "createDate" : "2014-10-05 13:25:47",
             "malutionDate" : "2014-10-28 16:35:13"
