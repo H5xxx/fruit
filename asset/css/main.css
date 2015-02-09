@@ -912,6 +912,11 @@ body {
   font-size: 14px;
   color: #333333;
 }
+.order-container .order-info .info-block .refund-btn {
+  background-color: #527713;
+  color: #fff;
+  padding: 4px;
+}
 .order-list-container .items {
   padding: 20px;
 }
