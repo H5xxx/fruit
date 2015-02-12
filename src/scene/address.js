@@ -9,6 +9,7 @@ define(function(require, exports) {
     var Order = require('../model/order');
     var Popup = require('../widget/popup');
     var cart = require('../widget/cart');
+    var Category = require('../model/category');
 
     var Address = require('../proto/scene').sub({
 
@@ -23,7 +24,8 @@ define(function(require, exports) {
             util.finish([
 
                 Transfee.fetch.bind(Transfee, params),
-                AddressModel.fetch.bind(AddressModel, params)
+                AddressModel.fetch.bind(AddressModel, params),
+                Category.fetch.bind(Category, params)
 
             ], function(transfee, addressList){
 
@@ -78,12 +80,14 @@ define(function(require, exports) {
                     return;
                 }
 
-                Popup.loading('正在提交...');
+                var loading = Popup.loading('正在提交...');
 
                 if(me.addressId !== -1){
                     me.submitOrder(params);
                 }else{
                     me.createAddress(function(err, address){
+                        loading.hide();
+
                         if(err){
                             Popup.alert(err);
                         }else{
@@ -106,7 +110,7 @@ define(function(require, exports) {
             };
 
             if(!(address.city && address.country && address.detail && address.consignee && address.phone)){
-                Popup.alert('请填写正确的地址信息！');
+                callback('请填写正确的地址信息！');
                 return;
             }
 
